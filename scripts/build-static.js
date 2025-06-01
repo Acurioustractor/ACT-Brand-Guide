@@ -8,6 +8,9 @@ console.log('🏗️  Building static site for GitHub Pages...');
 // Load environment variables
 require('dotenv').config();
 
+// GitHub Pages base path (repository name)
+const basePath = process.env.NODE_ENV === 'production' ? '/ACT-Brand-Guide' : '';
+
 // Create dist directory
 const distDir = path.join(__dirname, '..', 'dist');
 if (fs.existsSync(distDir)) {
@@ -227,7 +230,8 @@ async function buildSite() {
                 title: page.title,
                 page: page.view,
                 projects: projects,
-                source: source
+                source: source,
+                basePath: basePath // Add basePath for GitHub Pages
             };
             
             // Render the EJS template
@@ -259,7 +263,8 @@ buildSite().then(projects => {
         const view404Path = path.join(viewsDir, '404.ejs');
         const html404 = ejs.render(fs.readFileSync(view404Path, 'utf8'), {
             title: 'Page Not Found - A Curious Tractor',
-            page: '404'
+            page: '404',
+            basePath: basePath
         }, {
             filename: view404Path,
             views: [viewsDir, path.join(viewsDir, 'partials')]
@@ -301,6 +306,7 @@ buildSite().then(projects => {
     console.log(`📁 Output directory: ${distDir}`);
     console.log(`🔗 Data source: ${source}`);
     console.log(`📊 Projects included: ${projects.length}`);
+    console.log(`🌐 Base path: ${basePath || '(root)'}`);
 }).catch(error => {
     console.error('❌ Build failed:', error);
     process.exit(1);

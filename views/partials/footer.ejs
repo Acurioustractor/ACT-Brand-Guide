@@ -24,10 +24,10 @@
                 <div class="footer-section">
                     <h4>Explore</h4>
                     <ul>
-                        <li><a href="/methodology">How We Work</a></li>
-                        <li><a href="/platforms">Flagship Platforms</a></li>
-                        <li><a href="/projects">Current Projects</a></li>
-                        <li><a href="/brand">Brand Guide</a></li>
+                        <li><a href="<%= typeof basePath !== 'undefined' ? basePath : '' %>/methodology">How We Work</a></li>
+                        <li><a href="<%= typeof basePath !== 'undefined' ? basePath : '' %>/platforms">Flagship Platforms</a></li>
+                        <li><a href="<%= typeof basePath !== 'undefined' ? basePath : '' %>/projects">Current Projects</a></li>
+                        <li><a href="<%= typeof basePath !== 'undefined' ? basePath : '' %>/brand">Brand Guide</a></li>
                     </ul>
                 </div>
                 
@@ -45,7 +45,7 @@
     </footer>
     
     <!-- JavaScript -->
-    <script src="/js/main.js"></script>
+    <script src="<%= typeof basePath !== 'undefined' ? basePath : '' %>/js/main.js"></script>
     
     <!-- Additional page-specific scripts -->
     <%- typeof additionalScripts !== 'undefined' ? additionalScripts : '' %>

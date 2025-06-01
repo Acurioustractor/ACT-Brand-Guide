@@ -8,10 +8,10 @@
     <meta name="keywords" content="regenerative innovation, community-led change, social impact, First Nations, sustainability">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="/logo/act-logo-horizontal.png">
+    <link rel="icon" type="image/png" href="<%= typeof basePath !== 'undefined' ? basePath : '' %>/logo/act-logo-horizontal.png">
     
     <!-- CSS -->
-    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="<%= typeof basePath !== 'undefined' ? basePath : '' %>/css/main.css">
     
     <!-- Additional page-specific styles -->
     <%- typeof additionalStyles !== 'undefined' ? additionalStyles : '' %>
@@ -23,15 +23,15 @@
             <!-- Left navigation -->
             <div class="nav-left">
                 <ul class="nav-links">
-                    <li><a href="/" class="<%= page === 'home' ? 'active' : '' %>">Home</a></li>
-                    <li><a href="/methodology" class="<%= page === 'methodology' ? 'active' : '' %>">How We Work</a></li>
-                    <li><a href="/platforms" class="<%= page === 'platforms' ? 'active' : '' %>">Platforms</a></li>
+                    <li><a href="<%= typeof basePath !== 'undefined' ? basePath : '' %>/" class="<%= page === 'home' ? 'active' : '' %>">Home</a></li>
+                    <li><a href="<%= typeof basePath !== 'undefined' ? basePath : '' %>/methodology" class="<%= page === 'methodology' ? 'active' : '' %>">How We Work</a></li>
+                    <li><a href="<%= typeof basePath !== 'undefined' ? basePath : '' %>/platforms" class="<%= page === 'platforms' ? 'active' : '' %>">Platforms</a></li>
                 </ul>
             </div>
             
             <!-- Centered logo -->
-            <a href="/" class="nav-logo">
-                <img src="/logo/act-logo-horizontal.png" alt="A Curious Tractor Logo" style="height: 80px; width: auto;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <a href="<%= typeof basePath !== 'undefined' ? basePath : '' %>/" class="nav-logo">
+                <img src="<%= typeof basePath !== 'undefined' ? basePath : '' %>/logo/act-logo-horizontal.png" alt="A Curious Tractor Logo" style="height: 80px; width: auto;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                 <div style="display: none; align-items: center; gap: 15px;">
                     <svg width="80" height="65" viewBox="0 0 160 100">
                         <g transform="translate(30, 50)">
@@ -59,10 +59,10 @@
             <!-- Right navigation -->
             <div class="nav-right">
                 <ul class="nav-links">
-                    <li><a href="/projects" class="<%= page === 'projects' ? 'active' : '' %>">Projects</a></li>
-                    <li><a href="/galleries" class="<%= page === 'galleries' ? 'active' : '' %>">Galleries</a></li>
-                    <li><a href="/brand" class="<%= page === 'brand' ? 'active' : '' %>">Brand Guide</a></li>
-                    <li><a href="/about" class="<%= page === 'about' ? 'active' : '' %>">About</a></li>
+                    <li><a href="<%= typeof basePath !== 'undefined' ? basePath : '' %>/projects" class="<%= page === 'projects' ? 'active' : '' %>">Projects</a></li>
+                    <li><a href="<%= typeof basePath !== 'undefined' ? basePath : '' %>/galleries" class="<%= page === 'galleries' ? 'active' : '' %>">Galleries</a></li>
+                    <li><a href="<%= typeof basePath !== 'undefined' ? basePath : '' %>/brand" class="<%= page === 'brand' ? 'active' : '' %>">Brand Guide</a></li>
+                    <li><a href="<%= typeof basePath !== 'undefined' ? basePath : '' %>/about" class="<%= page === 'about' ? 'active' : '' %>">About</a></li>
                 </ul>
             </div>
             
