@@ -84,8 +84,8 @@ async function testNotionConnection() {
             filteredResponse.results.forEach((project, index) => {
                 const name = project.properties.Name?.title?.[0]?.plain_text || 'Untitled';
                 const status = project.properties.Status?.select?.name || 'No status';
-                const priority = project.properties.Priority?.number || 'No priority';
-                console.log(`   ${index + 1}. ${name} (${status}, Priority: ${priority})`);
+                const theme = project.properties.Theme?.select?.name || 'No theme';
+                console.log(`   ${index + 1}. ${name} (${status}, Theme: ${theme})`);
             });
         } else {
             console.log('💡 No projects are set to display on website.');

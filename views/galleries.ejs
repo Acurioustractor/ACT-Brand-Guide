@@ -500,7 +500,7 @@ function loadPhotos() {
     
     // Use different endpoints for static vs dynamic builds
     const photosEndpoint = window.location.protocol === 'file:' || window.location.hostname.includes('github.io') 
-        ? '<%- typeof basePath !== "undefined" ? basePath : "" %>/photos.json' 
+        ? '<%= typeof basePath !== "undefined" ? basePath : "" %>/photos.json' 
         : '/api/photos';
     
     fetch(photosEndpoint)
@@ -553,7 +553,7 @@ function loadVideos() {
     
     // Use different endpoints for static vs dynamic builds
     const videosEndpoint = window.location.protocol === 'file:' || window.location.hostname.includes('github.io') 
-        ? '<%- typeof basePath !== "undefined" ? basePath : "" %>/videos.json' 
+        ? '<%= typeof basePath !== "undefined" ? basePath : "" %>/videos.json' 
         : '/api/videos';
     
     fetch(videosEndpoint)
