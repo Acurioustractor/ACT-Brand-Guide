@@ -343,6 +343,12 @@ buildSite().then(projects => {
     fs.writeFileSync(path.join(distDir, '.nojekyll'), '');
     console.log('   ✅ Created .nojekyll file');
 
+    // Create test file to debug GitHub Pages JSON serving
+    fs.writeFileSync(path.join(distDir, 'test-photos.json'), JSON.stringify([
+        {"test": "photos", "url": "/ACT-Brand-Guide/test.jpg", "title": "Test Photo"}
+    ], null, 2));
+    console.log('   ✅ Created test-photos.json file');
+
     // Fix photo paths in metadata for GitHub Pages
     const metadataPath = path.join(distDir, 'galleries', 'photos', 'metadata.json');
     if (fs.existsSync(metadataPath)) {
