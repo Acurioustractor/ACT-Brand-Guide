@@ -36,6 +36,8 @@ jobs:
         run: npm run build
         env:
           NODE_ENV: production
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          PROJECTS_DATABASE_ID: ${{ secrets.PROJECTS_DATABASE_ID }}
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
