@@ -1,0 +1,454 @@
+<%- include('../partials/admin-header', { title: title, page: 'content' }) %>
+
+<!-- Content Editor Hero -->
+<section style="background: linear-gradient(135deg, var(--act-cream) 0%, white 100%); padding: 60px 20px;">
+    <div class="container">
+        <div style="text-align: center;">
+            <h1 style="color: var(--act-soil); font-size: 2.5em; margin-bottom: 15px;">
+                📝 Edit <%= pageConfig.title %>
+            </h1>
+            <p style="color: #666; font-size: 1.2em; max-width: 600px; margin: 0 auto;">
+                Tend to the words that grow across this page—every edit helps cultivate 
+                ACT's authentic voice and share our regenerative wisdom.
+            </p>
+            <p style="margin-top: 20px; font-style: italic; color: var(--act-seedling);">
+                "Words are seeds. Plant them thoughtfully." 🌱
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Content Form -->
+<section style="background: white; padding: 80px 20px;">
+    <div class="container">
+        <div style="max-width: 800px; margin: 0 auto;">
+            
+            <!-- Success/Error Messages -->
+            <div id="message-container" style="margin-bottom: 30px;"></div>
+            
+            <form id="content-form" class="content-form">
+                <% pageConfig.fields.forEach(field => { %>
+                    <div class="form-group">
+                        <label for="<%= field.id %>" class="field-label">
+                            <span class="label-text"><%= field.label %></span>
+                            <span class="label-icon">🌱</span>
+                        </label>
+                        <% if (field.type === 'textarea') { %>
+                            <textarea 
+                                id="<%= field.id %>" 
+                                name="<%= field.id %>" 
+                                class="form-control" 
+                                placeholder="<%= field.default %>"
+                                rows="6"
+                            ><%= content[field.id] || field.default %></textarea>
+                        <% } else { %>
+                            <input 
+                                type="<%= field.type %>" 
+                                id="<%= field.id %>" 
+                                name="<%= field.id %>" 
+                                class="form-control" 
+                                placeholder="<%= field.default %>"
+                                value="<%= content[field.id] || field.default %>"
+                            >
+                        <% } %>
+                        <div class="field-help">
+                            <small>
+                                <% if (field.selector) { %>
+                                    Updates: <code><%= field.selector %></code>
+                                <% } %>
+                            </small>
+                        </div>
+                    </div>
+                <% }) %>
+                
+                <div class="form-actions">
+                    <button type="submit" class="submit-btn">
+                        🚜 Cultivate Changes
+                    </button>
+                    <button type="button" class="preview-btn" onclick="previewChanges()">
+                        👁️ Preview
+                    </button>
+                    <a href="/admin/dashboard" class="cancel-btn">
+                        ← Back to Dashboard
+                    </a>
+                </div>
+            </form>
+            
+        </div>
+    </div>
+</section>
+
+<!-- Preview Modal -->
+<div id="preview-modal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>🌱 Preview Changes</h3>
+            <button class="modal-close" onclick="closePreview()">&times;</button>
+        </div>
+        <div class="modal-body">
+            <div id="preview-content"></div>
+        </div>
+        <div class="modal-footer">
+            <button onclick="closePreview()" class="btn-secondary">Close Preview</button>
+            <button onclick="document.getElementById('content-form').requestSubmit()" class="btn-primary">
+                🚜 Save Changes
+            </button>
+        </div>
+    </div>
+</div>
+
+<%- include('../partials/admin-footer') %>
+
+<style>
+.content-form {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+}
+
+.form-group {
+    margin-bottom: 30px;
+}
+
+.field-label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    color: var(--act-soil);
+    font-weight: 600;
+    font-size: 1.1em;
+}
+
+.label-icon {
+    font-size: 1.2em;
+}
+
+.form-control {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #e1e5e9;
+    border-radius: 12px;
+    font-size: 1em;
+    font-family: inherit;
+    line-height: 1.5;
+    transition: all 0.3s ease;
+    resize: vertical;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--act-seedling);
+    box-shadow: 0 0 0 3px rgba(124, 179, 66, 0.1);
+}
+
+.field-help {
+    margin-top: 8px;
+    color: #666;
+}
+
+.field-help code {
+    background: #f8f9fa;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.85em;
+    color: var(--act-seedling);
+}
+
+.form-actions {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 2px solid #f0f0f0;
+}
+
+.submit-btn {
+    background: var(--act-seedling);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+    background: #689f3c;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(124, 179, 66, 0.3);
+}
+
+.submit-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.preview-btn {
+    background: white;
+    color: var(--act-seedling);
+    border: 2px solid var(--act-seedling);
+    padding: 13px 25px;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.preview-btn:hover {
+    background: var(--act-seedling);
+    color: white;
+}
+
+.cancel-btn {
+    color: #666;
+    text-decoration: none;
+    padding: 15px 20px;
+    transition: color 0.3s ease;
+}
+
+.cancel-btn:hover {
+    color: var(--act-seedling);
+}
+
+.message {
+    padding: 15px 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    border-left: 4px solid;
+    font-weight: 500;
+}
+
+.message.success {
+    background: #e8f5e8;
+    color: #2e7d32;
+    border-left-color: #4caf50;
+}
+
+.message.error {
+    background: #ffebee;
+    color: #c62828;
+    border-left-color: #f44336;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    z-index: 1000;
+}
+
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border-radius: 16px;
+    max-width: 90%;
+    max-height: 90%;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.modal-header h3 {
+    margin: 0;
+    color: var(--act-soil);
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+    color: #666;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-body {
+    padding: 30px;
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
+.modal-footer {
+    padding: 20px 30px;
+    border-top: 2px solid #f0f0f0;
+    display: flex;
+    gap: 15px;
+    justify-content: flex-end;
+}
+
+.btn-primary {
+    background: var(--act-seedling);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.btn-secondary {
+    background: white;
+    color: #666;
+    border: 2px solid #ddd;
+    padding: 8px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .content-form {
+        padding: 20px;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .form-actions button,
+    .form-actions a {
+        text-align: center;
+    }
+    
+    .modal-content {
+        margin: 20px;
+        max-width: calc(100% - 40px);
+    }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('content-form');
+    const messageContainer = document.getElementById('message-container');
+    
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const submitBtn = form.querySelector('.submit-btn');
+        const originalText = submitBtn.textContent;
+        
+        // Show loading state
+        submitBtn.textContent = '🌱 Planting...';
+        submitBtn.disabled = true;
+        
+        try {
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+            
+            const response = await fetch(`/admin/content/<%= page %>`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data)
+            });
+            
+            const result = await response.json();
+            
+            if (result.success) {
+                showMessage('success', '✅ Content cultivated successfully! Changes are now growing across the site.');
+                
+                // Optional: Refresh preview if open
+                if (document.getElementById('preview-modal').style.display === 'block') {
+                    previewChanges();
+                }
+            } else {
+                throw new Error(result.error || 'Failed to update content');
+            }
+            
+        } catch (error) {
+            console.error('Content update error:', error);
+            showMessage('error', `❌ Error: ${error.message}`);
+        } finally {
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+        }
+    });
+});
+
+function showMessage(type, text) {
+    const container = document.getElementById('message-container');
+    container.innerHTML = `<div class="message ${type}">${text}</div>`;
+    
+    // Auto-hide success messages
+    if (type === 'success') {
+        setTimeout(() => {
+            container.innerHTML = '';
+        }, 5000);
+    }
+}
+
+function previewChanges() {
+    const modal = document.getElementById('preview-modal');
+    const previewContent = document.getElementById('preview-content');
+    
+    // Get form data
+    const form = document.getElementById('content-form');
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
+    
+    // Build preview HTML
+    let previewHTML = '<div style="font-family: inherit; line-height: 1.6;">';
+    
+    <% pageConfig.fields.forEach(field => { %>
+        previewHTML += `
+            <div style="margin-bottom: 30px; padding: 20px; background: #f8f9fa; border-radius: 10px;">
+                <h4 style="color: var(--act-seedling); margin-bottom: 10px; font-size: 1.1em;">
+                    <%= field.label %>
+                </h4>
+                <div style="color: #333; font-size: 1em;">
+                    ${data['<%= field.id %>'] ? data['<%= field.id %>'].replace(/\n/g, '<br>') : '<em>No content entered</em>'}
+                </div>
+                <small style="color: #666; margin-top: 8px; display: block;">
+                    → Will update: <code style="background: white; padding: 2px 6px; border-radius: 4px;"><%= field.selector %></code>
+                </small>
+            </div>
+        `;
+    <% }) %>
+    
+    previewHTML += '</div>';
+    
+    previewContent.innerHTML = previewHTML;
+    modal.style.display = 'block';
+}
+
+function closePreview() {
+    document.getElementById('preview-modal').style.display = 'none';
+}
+
+// Close modal when clicking outside
+document.addEventListener('click', (e) => {
+    const modal = document.getElementById('preview-modal');
+    if (e.target === modal) {
+        closePreview();
+    }
+});
+</script> 

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <meta name="description" content="A Curious Tractor - Dismantling extractive systems through regenerative innovation">
+    <meta name="keywords" content="regenerative innovation, community-led change, social impact, First Nations, sustainability">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/logo/act-logo-horizontal.png">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/main.css">
+    
+    <!-- Additional page-specific styles -->
+    <%- typeof additionalStyles !== 'undefined' ? additionalStyles : '' %>
+</head>
+<body class="page-<%= page %>">
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">
+                <img src="/logo/act-logo-horizontal.png" alt="A Curious Tractor Logo" style="height: 50px; width: auto;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div style="display: none; align-items: center; gap: 15px;">
+                    <svg width="40" height="40" viewBox="0 0 80 80">
+                        <g transform="translate(40, 40)">
+                            <path d="M-20,-10 L-20,7 L-13,7 L-13,13 L13,13 L13,7 L17,7 L17,-7 L10,-7 L10,-13 L-10,-13 L-10,-10 Z" 
+                                  fill="#6B4226"/>
+                            <circle cx="-11" cy="17" r="7" fill="#2C3E50"/>
+                            <circle cx="11" cy="17" r="9" fill="#2C3E50"/>
+                            <rect x="17" y="-2" width="20" height="4" fill="#FF6B35"/>
+                            <circle cx="42" cy="0" r="3" fill="none" stroke="#FF6B35" stroke-width="2"/>
+                            <circle cx="55" cy="0" r="12" fill="#7CB342" opacity="0.8"/>
+                            <circle cx="70" cy="-8" r="9" fill="#7CB342" opacity="0.9"/>
+                            <circle cx="85" cy="-3" r="11" fill="#7CB342"/>
+                        </g>
+                    </svg>
+                    <span style="font-family: Georgia; font-size: 18px; color: #6B4226;">A Curious Tractor</span>
+                </div>
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="/" class="<%= page === 'home' ? 'active' : '' %>">Home</a></li>
+                <li><a href="/methodology" class="<%= page === 'methodology' ? 'active' : '' %>">How We Work</a></li>
+                <li><a href="/platforms" class="<%= page === 'platforms' ? 'active' : '' %>">Platforms</a></li>
+                <li><a href="/projects" class="<%= page === 'projects' ? 'active' : '' %>">Projects</a></li>
+                <li><a href="/brand" class="<%= page === 'brand' ? 'active' : '' %>">Brand Guide</a></li>
+                <li><a href="/about" class="<%= page === 'about' ? 'active' : '' %>">About</a></li>
+            </ul>
+            
+            <!-- Mobile menu button -->
+            <button class="mobile-menu-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+    
+    <!-- Main content -->
+    <main class="main-content">
+        <%- body %>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>A Curious Tractor</h4>
+                    <p>Dismantling extractive systems through regenerative innovation</p>
+                    <div class="footer-stats">
+                        <span><span style="color: var(--act-seedling);">◆</span> Growing Together</span>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="mailto:benjamin@act.place">benjamin@act.place</a></li>
+                        <li><a href="mailto:hello@act.place">hello@act.place</a></li>
+                        <li><a href="https://act.place" target="_blank">act.place</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Explore</h4>
+                    <ul>
+                        <li><a href="/methodology">How We Work</a></li>
+                        <li><a href="/platforms">Flagship Platforms</a></li>
+                        <li><a href="/projects">Current Projects</a></li>
+                        <li><a href="/brand">Brand Guide</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Land Acknowledgment</h4>
+                    <p>We acknowledge the Traditional Custodians of the lands where we work and live, and pay our respects to Elders past, present, and emerging.</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2024 A Curious Tractor. This brand guide is a living document, meant to grow and evolve with ACT's journey.</p>
+                <div id="connection-status"></div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- JavaScript -->
+    <script src="/js/main.js"></script>
+    
+    <!-- Additional page-specific scripts -->
+    <%- typeof additionalScripts !== 'undefined' ? additionalScripts : '' %>
+</body>
+</html> 

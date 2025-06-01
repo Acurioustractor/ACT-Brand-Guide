@@ -1,0 +1,268 @@
+<%- include('partials/header') %>
+
+<!-- Hero Section -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <div style="text-align: center; margin-bottom: 40px;">
+                <img src="/logo/act-logo-horizontal.png" alt="A Curious Tractor Logo" style="height: 200px; width: auto; margin-bottom: 20px; display: block; margin-left: auto; margin-right: auto;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div style="display: none; align-items: center; justify-content: center; gap: 15px; margin: 0 auto;">
+                    <svg width="180" height="120" viewBox="0 0 600 200">
+                        <g transform="translate(50, 100)">
+                            <!-- Tractor body -->
+                            <path d="M0,0 L0,30 L15,30 L15,50 L70,50 L70,30 L85,30 L85,-30 L55,-30 L55,-50 L25,-50 L25,0 Z" fill="#6B4226"/>
+                            <!-- Wheels -->
+                            <circle cx="20" cy="65" r="20" fill="#2C3E50"/>
+                            <circle cx="20" cy="65" r="12" fill="none" stroke="white" stroke-width="2"/>
+                            <circle cx="65" cy="65" r="28" fill="#2C3E50"/>
+                            <circle cx="65" cy="65" r="18" fill="none" stroke="white" stroke-width="2"/>
+                            <!-- PTO shaft -->
+                            <rect x="85" y="-5" width="40" height="10" fill="#FF6B35"/>
+                            <circle cx="130" cy="0" r="8" fill="none" stroke="#FF6B35" stroke-width="3"/>
+                            <!-- Growth elements -->
+                            <circle cx="180" cy="0" r="35" fill="#7CB342" opacity="0.8"/>
+                            <circle cx="220" cy="-20" r="28" fill="#7CB342" opacity="0.9"/>
+                            <circle cx="260" cy="-10" r="32" fill="#7CB342"/>
+                        </g>
+                        <text x="50" y="170" font-family="Georgia, serif" font-size="28" fill="#6B4226">a curious tractor</text>
+                    </svg>
+                </div>
+            </div>
+            
+            <h1>Cultivating Seeds of Impact</h1>
+            <p class="tagline">Where community wisdom meets regenerative innovation</p>
+            <p class="hero-description">
+                Like a tractor sharing its power take-off with different implements, A Curious Tractor transfers 
+                resources, knowledge, and capacity to community-led initiatives. We don't drive the tractor—we hand over the keys.
+                <br><br>
+                <em style="color: var(--act-seedling); font-size: 1.1em;">"Every story is a seed. Every seed is a possibility. 
+                Every possibility is a future we cultivate together." <span class="icon icon-growth" style="color: var(--act-seedling);"></span></em>
+            </p>
+            
+            <!-- Key Stats/Impact -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 30px; margin-top: 40px; max-width: 600px; margin-left: auto; margin-right: auto;">
+                <div style="text-align: center;">
+                    <div style="font-size: 2.5em; font-weight: bold; color: var(--act-seedling); margin-bottom: 5px;">4</div>
+                    <div style="color: var(--act-charcoal); font-weight: 500;">Seeds Planted</div>
+                    <div style="color: #666; font-size: 0.8em;">Flagship Platforms</div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: 2.5em; font-weight: bold; color: var(--act-sunrise); margin-bottom: 5px;">53ha</div>
+                    <div style="color: var(--act-charcoal); font-weight: 500;">Soil Regenerated</div>
+                    <div style="color: #666; font-size: 0.8em;">Black Cockatoo Valley</div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: 2.5em; font-weight: bold; color: var(--act-empathy); margin-bottom: 5px;">50+</div>
+                    <div style="color: var(--act-charcoal); font-weight: 500;">Communities</div>
+                    <div style="color: #666; font-size: 0.8em;">Leading Change</div>
+                </div>
+            </div>
+            
+            <!-- CTA Buttons -->
+            <div style="margin-top: 50px; display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                <a href="/methodology" class="btn btn-primary">How We Cultivate</a>
+                <a href="/platforms" class="btn btn-secondary">Our Harvest</a>
+                <a href="/projects" class="btn btn-secondary">Seeds Growing</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Core Values - The Farm Metaphor -->
+<section style="background: white; padding: 80px 20px;">
+    <div class="container">
+        <div style="text-align: center; margin-bottom: 60px;">
+            <h2>The ACT Way: Regenerative Innovation</h2>
+            <p style="font-size: 1.2em; color: #666; max-width: 800px; margin: 0 auto;">
+                Our work is like regenerative farming—we don't extract from communities, we cultivate 
+                conditions where they can flourish on their own terms. Each engagement follows our natural cycle.
+            </p>
+        </div>
+        
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; max-width: 1000px; margin: 0 auto;">
+        <style>
+            @media (max-width: 768px) {
+                [style*="grid-template-columns: repeat(2, 1fr)"] {
+                    grid-template-columns: 1fr !important;
+                    gap: 20px !important;
+                }
+            }
+        </style>
+            <div class="card" style="border-left: 4px solid var(--act-empathy);">
+                <div style="font-size: 2.5em; margin-bottom: 20px; color: var(--act-empathy);">◑</div>
+                <h3 style="color: var(--act-empathy);">Listen: Preparing the Soil</h3>
+                <p><strong>Sit in silence to take in knowledge.</strong></p>
+                <p>We understand the power of unique perspectives and respect ancestral teachers. Before any seed is planted, 
+                we listen deeply to understand what soil we're working with—its history, its wisdom, its needs.</p>
+                <div style="margin-top: 15px; font-style: italic; color: #666;">
+                    "Your experience is the soil from which solutions grow."
+                </div>
+            </div>
+            
+            <div class="card" style="border-left: 4px solid var(--act-seedling);">
+                <div style="font-size: 2.5em; margin-bottom: 20px; color: var(--act-justice);">◈</div>
+                <h3 style="color: var(--act-seedling);">Curiosity: Choosing the Right Seeds</h3>
+                <p><strong>Ask better questions together.</strong></p>
+                <p>We think deeply, listen deeply, and lean into the unknown. Like selecting seeds for the season, 
+                we explore what possibilities already exist within communities, waiting for the right conditions to sprout.</p>
+                <div style="margin-top: 15px; font-style: italic; color: #666;">
+                    "Let's explore this together. The best learning happens when we all get our hands dirty."
+                </div>
+            </div>
+            
+            <div class="card" style="border-left: 4px solid var(--act-sunrise);">
+                <div style="font-size: 2.5em; margin-bottom: 20px; color: var(--act-sunrise);">◆</div>
+                <h3 style="color: var(--act-sunrise);">Action: Tending the Garden</h3>
+                <p><strong>Build with, not for.</strong></p>
+                <p>We are makers who play and take chances, radically prototyping to form seedlings. 
+                Like a tractor's power take-off, we transfer our capacity to community initiatives, then step back 
+                as they take root.</p>
+                <div style="margin-top: 15px; font-style: italic; color: #666;">
+                    "We've prepared the soil, planted the seeds—now we cultivate revolution."
+                </div>
+            </div>
+            
+            <div class="card" style="border-left: 4px solid var(--act-justice);">
+                <div style="font-size: 2.5em; margin-bottom: 20px; color: var(--act-seedling);">◉</div>
+                <h3 style="color: var(--act-justice);">Art: Celebrating the Harvest</h3>
+                <p><strong>Make it beautiful and joyful.</strong></p>
+                <p>We recognize art as the first form of revolution. Change should bring joy, dignity, and cultural beauty. 
+                Every harvest is a celebration—proof that community-led solutions bear the sweetest fruit.</p>
+                <div style="margin-top: 15px; font-style: italic; color: #666;">
+                    "Look what we've grown together! Every harvest feeds the whole community."
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Our Fields of Work -->
+<section style="background: var(--act-cream); padding: 80px 20px;">
+    <div class="container">
+        <div style="text-align: center; margin-bottom: 60px;">
+            <h2>Our Fields: Where Seeds Take Root</h2>
+            <p style="font-size: 1.2em; color: #666; max-width: 800px; margin: 0 auto;">
+                Four interconnected domains where we're demonstrating regenerative innovation—each designed 
+                to be owned and governed by the communities they serve. These aren't our platforms; they're community tools.
+            </p>
+        </div>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-bottom: 50px;">
+            <!-- Empathy Ledger -->
+            <div style="background: linear-gradient(135deg, var(--act-empathy), #c2185b); color: white; padding: 30px; border-radius: 16px; text-align: center;">
+                <div style="font-size: 2.5em; margin-bottom: 15px; color: white;">◎</div>
+                <h3 style="color: white; margin-bottom: 15px;">Story Fields</h3>
+                <h4 style="color: white; font-size: 1em; margin-bottom: 15px; opacity: 0.9;">Empathy Ledger</h4>
+                <p style="margin-bottom: 0; font-size: 0.95em;">Where narratives grow free from extraction—storytellers own their stories, their power, their profit</p>
+            </div>
+            
+            <!-- Black Cockatoo Valley -->
+            <div style="background: linear-gradient(135deg, var(--act-seedling), #689f38); color: white; padding: 30px; border-radius: 16px; text-align: center;">
+                <div style="font-size: 2.5em; margin-bottom: 15px; color: var(--act-seedling);">◯</div>
+                <h3 style="color: white; margin-bottom: 15px;">Country Fields</h3>
+                <h4 style="color: white; font-size: 1em; margin-bottom: 15px; opacity: 0.9;">Black Cockatoo Valley</h4>
+                <p style="margin-bottom: 0; font-size: 0.95em;">53ha of regeneration where Country cares for people, and people care for Country</p>
+            </div>
+            
+            <!-- Goods -->
+            <div style="background: linear-gradient(135deg, var(--act-sunrise), #f4511e); color: white; padding: 30px; border-radius: 16px; text-align: center;">
+                <div style="font-size: 2.5em; margin-bottom: 15px; color: white;">⬢</div>
+                <h3 style="color: white; margin-bottom: 15px;">Making Fields</h3>
+                <h4 style="color: white; font-size: 1em; margin-bottom: 15px; opacity: 0.9;">Goods</h4>
+                <p style="margin-bottom: 0; font-size: 0.95em;">Where waste becomes wealth—circular manufacturing owned by remote communities</p>
+            </div>
+            
+            <!-- JusticeHub -->
+            <div style="background: linear-gradient(135deg, var(--act-justice), #303f9f); color: white; padding: 30px; border-radius: 16px; text-align: center;">
+                <div style="font-size: 2.5em; margin-bottom: 15px; color: white;">◊</div>
+                <h3 style="color: white; margin-bottom: 15px;">Justice Fields</h3>
+                <h4 style="color: white; font-size: 1em; margin-bottom: 15px; opacity: 0.9;">JusticeHub</h4>
+                <p style="margin-bottom: 0; font-size: 0.95em;">Where justice grows from community roots—by the community, for the community</p>
+            </div>
+        </div>
+        
+        <div style="text-align: center;">
+            <a href="/platforms" class="btn btn-primary">Explore Our Harvest</a>
+        </div>
+    </div>
+</section>
+
+<!-- Seeds Currently Growing -->
+<section style="background: #f8f9fa; padding: 80px 20px;">
+    <div class="container">
+        <div style="text-align: center; margin-bottom: 60px;">
+            <h2>Seeds Currently Growing</h2>
+            <p style="font-size: 1.2em; color: #666; max-width: 800px; margin: 0 auto;">
+                Living examples of regenerative innovation taking root. Each represents a unique partnership 
+                where communities are designing their own futures—we're just tending the conditions for growth.
+            </p>
+        </div>
+        
+        <div id="home-projects-container" class="card-grid">
+            <!-- Projects loaded via JavaScript -->
+            <div style="grid-column: 1/-1; text-align: center; padding: 60px;">
+                <div class="loading"></div>
+                <p style="margin-top: 20px; color: #666;">Loading seeds in the ground...</p>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="/projects" class="btn btn-primary">See All Our Seeds</a>
+        </div>
+    </div>
+</section>
+
+<!-- Join the Farm -->
+<section style="background: white; padding: 80px 20px;">
+    <div class="container">
+        <div style="text-align: center; margin-bottom: 60px;">
+            <h2>Join the Growing Movement</h2>
+            <p style="font-size: 1.2em; color: #666; max-width: 700px; margin: 0 auto;">
+                We're not building an empire—we're planting a forest where everyone can thrive. 
+                A Curious Tractor exists to transfer power, not hold it. To amplify voices, not speak for others.
+            </p>
+        </div>
+        
+        <div class="card-grid">
+            <div style="background: var(--act-seedling); color: white; padding: 40px; border-radius: 16px; text-align: center;">
+                <div style="font-size: 3em; margin-bottom: 20px; color: var(--act-seedling);">◆</div>
+                <h3 style="color: white;">Plant a Seed</h3>
+                <p style="margin-bottom: 25px;">Have a community-led initiative that needs the right conditions to grow? Let's cultivate it together.</p>
+                <a href="mailto:hello@act.place" class="btn" style="background: white; color: var(--act-seedling);">Share Your Seed</a>
+            </div>
+            
+            <div style="background: var(--act-sunrise); color: white; padding: 40px; border-radius: 16px; text-align: center;">
+                <div style="font-size: 3em; margin-bottom: 20px; color: white;">◐</div>
+                <h3 style="color: white;">Become a Gardener</h3>
+                <p style="margin-bottom: 25px;">Ready to get your hands dirty with the hard work of systems change? Join our growing network.</p>
+                <a href="mailto:hello@act.place" class="btn" style="background: white; color: var(--act-sunrise);">Dig In</a>
+            </div>
+            
+            <div style="background: var(--act-empathy); color: white; padding: 40px; border-radius: 16px; text-align: center;">
+                <div style="font-size: 3em; margin-bottom: 20px; color: white;">◯</div>
+                <h3 style="color: white;">Water the Garden</h3>
+                <p style="margin-bottom: 25px;">Support regenerative innovation with resources, funding, or partnership opportunities.</p>
+                <a href="mailto:hello@act.place" class="btn" style="background: white; color: var(--act-empathy);">Nourish Growth</a>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 50px; padding: 40px; background: var(--act-cream); border-radius: 16px;">
+            <p style="font-size: 1.3em; color: var(--act-soil); font-style: italic; margin: 0;">
+                <span style="color: var(--act-seedling);">◆</span> "Every story is a seed. Every seed is a possibility. Every possibility is a future we cultivate together."
+            </p>
+        </div>
+    </div>
+</section>
+
+<%- include('partials/footer') %>
+
+<script>
+// Homepage specific JavaScript
+document.addEventListener('DOMContentLoaded', () => {
+    // Load featured projects
+    const projectsContainer = document.getElementById('home-projects-container');
+    if (projectsContainer && window.ACT) {
+        window.ACT.projects.loadProjects(projectsContainer, 3); // Load first 3 projects
+    }
+});
+</script> 

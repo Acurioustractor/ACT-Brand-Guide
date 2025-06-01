@@ -1,0 +1,43 @@
+{
+  "homepage": {
+    "hero_title": "Cultivating Seeds of Impact",
+    "hero_tagline": "Where community wisdom takes root and regenerative change grows",
+    "hero_description": "We believe every community holds the seeds of its own transformation. ACT exists to help those seeds find fertile ground—not by providing solutions, but by cultivating the conditions where local wisdom can flourish.<br><br><em style=\"color: var(--act-seedling); font-size: 1.1em;\">\"We don't drive the tractor—we hand over the keys.\" 🚜</em>",
+    "core_mantra": "Every story is a seed. Every seed is a possibility. Every possibility is a future we cultivate together.",
+    "methodology_title": "The LCAA Method",
+    "methodology_subtitle": "Our Agricultural Approach to Innovation",
+    "listen_title": "Listen: Preparing the Soil",
+    "listen_description": "Like any good farmer, we start by understanding the land. We listen deeply to communities, learning about their challenges, wisdom, and aspirations—preparing the ground for what wants to grow.",
+    "curiosity_title": "Curiosity: Choosing the Seeds",
+    "curiosity_description": "With soil prepared, we explore possibilities together. What innovations are already sprouting? What solutions are community members dreaming of? We help identify the most promising seeds.",
+    "action_title": "Action: Tending the Garden",
+    "action_description": "We support communities as they plant and nurture their chosen solutions. Like a gardening companion, we provide tools, connections, and encouragement while they do the essential work.",
+    "art_title": "Art: Celebrating the Harvest",
+    "art_description": "When innovations bloom, we help share their stories. Every success becomes seeds for other communities, spreading wisdom and inspiration across our network of change-makers."
+  },
+  "about": {
+    "hero_title": "How Our Seeds Were Planted",
+    "hero_tagline": "The story of regenerative innovation taking root",
+    "origin_story": "ACT began with a simple recognition: every community already holds the wisdom it needs to thrive. Our role isn't to bring solutions from the outside, but to help cultivate the conditions where local innovation can flourish.<br><br>Founded by passionate believers in community-led change, we've learned that the most powerful transformations happen when we stop trying to drive the tractor and instead hand over the keys to those who know the land best.",
+    "mission_title": "Our Mission: Cultivating Regenerative Innovation",
+    "mission_description": "We partner with communities, organizations, and changemakers to grow solutions from the ground up—literally and figuratively. Like regenerative farmers, we work with natural systems rather than against them.",
+    "vision_title": "Our Vision: A World Where Every Community Flourishes",
+    "vision_description": "We envision a future where every community has the support, connections, and resources needed to implement their own innovations—where wisdom flows freely and regenerative practices take root everywhere."
+  },
+  "galleries": {
+    "hero_title": "Seeds of Stories",
+    "hero_tagline": "Capturing moments where community wisdom takes root",
+    "hero_description": "Every image tells a story of regeneration. Every video shares wisdom from the field. These are glimpses into the beautiful work happening when communities lead their own change.<br><br><em style=\"color: var(--act-seedling); font-size: 1.1em;\">\"In every frame, we see possibility growing.\" 📸</em>",
+    "photos_title": "Photo Harvest",
+    "photos_description": "Moments captured from our work in the field—where communities are growing solutions, tending relationships, and celebrating the harvest of their efforts.",
+    "videos_title": "Video Stories", 
+    "videos_description": "Voices from the field sharing their wisdom, their challenges, and their visions. These stories remind us that every seed planted carries the power to transform."
+  },
+  "projects": {
+    "hero_title": "Seeds in the Ground",
+    "hero_tagline": "Community-led innovations taking root across the landscape",
+    "description": "These are the projects growing in our network—each one planted and tended by communities who know their land best. We're honored to support their cultivation.",
+    "submit_title": "Plant Your Innovation",
+    "submit_description": "Have a community-led solution that's ready to grow? We'd love to help tend its development and connect it with the resources it needs to flourish."
+  }
+} 

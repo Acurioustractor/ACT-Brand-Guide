@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <style>
+        .login-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--act-cream) 0%, var(--act-soil) 100%);
+            padding: 20px;
+        }
+        
+        .login-card {
+            background: white;
+            padding: 60px 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .login-logo {
+            width: 120px;
+            height: auto;
+            margin-bottom: 30px;
+        }
+        
+        .login-title {
+            color: var(--act-soil);
+            font-size: 2em;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .login-subtitle {
+            color: #666;
+            margin-bottom: 40px;
+            font-style: italic;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+            text-align: left;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--act-soil);
+            font-weight: 500;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            font-size: 1em;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--act-seedling);
+            box-shadow: 0 0 0 3px rgba(124, 179, 66, 0.1);
+        }
+        
+        .login-btn {
+            width: 100%;
+            padding: 15px;
+            background: var(--act-seedling);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+        }
+        
+        .login-btn:hover {
+            background: #689f3c;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(124, 179, 66, 0.3);
+        }
+        
+        .error-message {
+            background: #ffebee;
+            color: #c62828;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #c62828;
+        }
+        
+        .back-link {
+            color: #666;
+            text-decoration: none;
+            font-size: 0.9em;
+            transition: color 0.3s ease;
+        }
+        
+        .back-link:hover {
+            color: var(--act-seedling);
+        }
+        
+        .tractor-icon {
+            font-size: 1.5em;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-card">
+            <img src="/images/act-logo.svg" alt="ACT Logo" class="login-logo">
+            <h1 class="login-title">
+                <span class="tractor-icon">🚜</span>
+                Admin Portal
+            </h1>
+            <p class="login-subtitle">"We hand over the keys to those who know the land best"</p>
+            
+            <% if (error) { %>
+                <div class="error-message">
+                    <strong>🌱 Oops!</strong> <%= error %>
+                </div>
+            <% } %>
+            
+            <form action="/admin/login" method="POST">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required autocomplete="username">
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required autocomplete="current-password">
+                </div>
+                
+                <button type="submit" class="login-btn">
+                    🌱 Cultivate Content
+                </button>
+            </form>
+            
+            <a href="/" class="back-link">← Back to Website</a>
+        </div>
+    </div>
+    
+    <script>
+        // Focus username field on load
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('username').focus();
+        });
+        
+        // Handle form submission
+        document.querySelector('form').addEventListener('submit', (e) => {
+            const btn = document.querySelector('.login-btn');
+            btn.textContent = '🌱 Planting...';
+            btn.disabled = true;
+        });
+    </script>
+</body>
+</html> 

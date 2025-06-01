@@ -1,0 +1,96 @@
+{
+  "admin": {
+    "username": "act_admin",
+    "password": "cultivate_wisdom_2024",
+    "sessionSecret": "act_regenerative_seeds_growing_2024_wisdom_cultivation",
+    "sessionDuration": "24h"
+  },
+  "content": {
+    "editablePages": {
+      "homepage": {
+        "title": "Home Page",
+        "fields": [
+          {
+            "id": "hero_title",
+            "label": "Hero Title",
+            "type": "text",
+            "selector": ".hero h1",
+            "default": "Cultivating Seeds of Impact"
+          },
+          {
+            "id": "hero_tagline", 
+            "label": "Hero Tagline",
+            "type": "text",
+            "selector": ".hero .tagline",
+            "default": "Where community wisdom takes root and regenerative change grows"
+          },
+          {
+            "id": "hero_description",
+            "label": "Hero Description",
+            "type": "textarea",
+            "selector": ".hero .hero-description",
+            "default": "We believe every community holds the seeds of its own transformation..."
+          },
+          {
+            "id": "core_mantra",
+            "label": "Core Mantra",
+            "type": "text", 
+            "selector": ".core-philosophy .mantra",
+            "default": "Every story is a seed. Every seed is a possibility. Every possibility is a future we cultivate together."
+          }
+        ]
+      },
+      "about": {
+        "title": "About Page",
+        "fields": [
+          {
+            "id": "about_hero_title",
+            "label": "About Hero Title",
+            "type": "text",
+            "selector": ".hero h1",
+            "default": "How Our Seeds Were Planted"
+          },
+          {
+            "id": "about_origin_story",
+            "label": "Origin Story",
+            "type": "textarea",
+            "selector": ".origin-story",
+            "default": "ACT began with a simple recognition..."
+          }
+        ]
+      },
+      "galleries": {
+        "title": "Galleries Page",
+        "fields": [
+          {
+            "id": "galleries_hero_title",
+            "label": "Galleries Hero Title", 
+            "type": "text",
+            "selector": ".hero h1",
+            "default": "Seeds of Stories"
+          },
+          {
+            "id": "galleries_tagline",
+            "label": "Galleries Tagline",
+            "type": "text",
+            "selector": ".hero .tagline", 
+            "default": "Capturing moments where community wisdom takes root"
+          }
+        ]
+      }
+    }
+  },
+  "uploads": {
+    "photos": {
+      "path": "public/galleries/photos/",
+      "allowedTypes": ["jpg", "jpeg", "png", "webp"],
+      "maxSize": "5MB",
+      "thumbnailSize": 300
+    },
+    "general": {
+      "path": "public/uploads/",
+      "allowedTypes": ["jpg", "jpeg", "png", "webp", "pdf"],
+      "maxSize": "10MB"
+    }
+  }
+} 

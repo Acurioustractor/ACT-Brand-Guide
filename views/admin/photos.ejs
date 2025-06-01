@@ -1,0 +1,620 @@
+<%- include('../partials/admin-header', { title: title, page: 'photos' }) %>
+
+<!-- Photo Management Hero -->
+<section style="background: linear-gradient(135deg, var(--act-cream) 0%, white 100%); padding: 60px 20px;">
+    <div class="container">
+        <div style="text-align: center;">
+            <h1 style="color: var(--act-soil); font-size: 2.5em; margin-bottom: 15px;">
+                <span class="icon icon-photo" style="font-size: 0.8em; margin-right: 0.3em;"></span>
+                Photo Harvest Management
+            </h1>
+            <p style="color: #666; font-size: 1.2em; max-width: 600px; margin: 0 auto;">
+                Plant beautiful moments from the field—images that capture community wisdom 
+                in action and tell stories of regenerative change.
+            </p>
+            <p style="margin-top: 20px; font-style: italic; color: var(--act-seedling);">
+                "Every photo plants a seed of inspiration." 📸
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Photo Upload Section -->
+<section style="background: white; padding: 60px 20px;">
+    <div class="container">
+        <div style="max-width: 800px; margin: 0 auto;">
+            
+            <!-- Upload Form -->
+            <div class="upload-card">
+                <h2 style="color: var(--act-soil); margin-bottom: 20px; text-align: center;">
+                    <span class="icon icon-add"></span>
+                    Plant New Photo
+                </h2>
+                
+                <div id="message-container" style="margin-bottom: 20px;"></div>
+                
+                <form id="photo-upload-form" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="photo-file" class="field-label">
+                            <span>Choose Photo</span>
+                            <span>📸</span>
+                        </label>
+                        <input type="file" id="photo-file" name="photo" accept="image/*" required class="file-input">
+                        <div class="file-preview" id="file-preview"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="photo-title" class="field-label">
+                            <span>Photo Title</span>
+                            <span>🌱</span>
+                        </label>
+                        <input type="text" id="photo-title" name="title" class="form-control" 
+                               placeholder="Community Wisdom in Action">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="photo-description" class="field-label">
+                            <span>Description</span>
+                            <span>📝</span>
+                        </label>
+                        <textarea id="photo-description" name="description" class="form-control" rows="3" 
+                                  placeholder="A moment from the field where community wisdom takes root..."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="photo-positioning" class="field-label">
+                            <span>Smart Positioning</span>
+                            <span>🎯</span>
+                        </label>
+                        <select id="photo-positioning" name="positioning" class="form-control">
+                            <option value="auto">Auto-detect (recommended)</option>
+                            <option value="face-focus">Face-focused</option>
+                            <option value="face-top">Face at top</option>
+                            <option value="face-center">Face centered</option>
+                            <option value="landscape">Landscape centering</option>
+                            <option value="portrait">Portrait positioning</option>
+                        </select>
+                        <small class="field-help">
+                            Smart positioning ensures faces are beautifully centered in the frame.
+                        </small>
+                    </div>
+                    
+                    <button type="submit" class="modern-btn upload-btn">
+                        <span class="icon icon-growth"></span>
+                        Plant Photo
+                    </button>
+                </form>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+<!-- Existing Photos Section -->
+<section style="background: var(--act-cream); padding: 80px 20px;">
+    <div class="container">
+        <h2 style="text-align: center; color: var(--act-soil); margin-bottom: 60px; font-size: 2.5em;">
+            Current Photo Harvest
+        </h2>
+        
+        <div id="photos-grid" class="photos-admin-grid">
+            <div style="grid-column: 1/-1; text-align: center; padding: 60px;">
+                <div class="loading"></div>
+                <p style="margin-top: 20px; color: #666;">Loading photo harvest...</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<%- include('../partials/admin-footer') %>
+
+<style>
+.upload-card {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+    border: 3px dashed #e1e5e9;
+    transition: border-color 0.3s ease;
+}
+
+.upload-card:hover {
+    border-color: var(--act-seedling);
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.field-label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    color: var(--act-soil);
+    font-weight: 600;
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e1e5e9;
+    border-radius: 10px;
+    font-size: 1em;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--act-seedling);
+    box-shadow: 0 0 0 3px rgba(124, 179, 66, 0.1);
+}
+
+.file-input {
+    width: 100%;
+    padding: 20px;
+    border: 2px dashed #ddd;
+    border-radius: 12px;
+    text-align: center;
+    background: #f8f9fa;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.file-input:hover {
+    border-color: var(--act-seedling);
+    background: rgba(124, 179, 66, 0.05);
+}
+
+.file-preview {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.file-preview img {
+    max-width: 200px;
+    max-height: 150px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.field-help {
+    color: #666;
+    font-size: 0.9em;
+    margin-top: 5px;
+}
+
+.upload-btn {
+    width: 100%;
+    background: var(--act-seedling);
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.upload-btn:hover {
+    background: #689f3c;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(124, 179, 66, 0.3);
+}
+
+.upload-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.photos-admin-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.photo-admin-item {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.photo-admin-item:hover {
+    transform: translateY(-5px);
+}
+
+.photo-admin-preview {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.photo-admin-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.photo-admin-info {
+    padding: 20px;
+}
+
+.photo-admin-title {
+    font-weight: bold;
+    color: var(--act-soil);
+    margin-bottom: 8px;
+    font-size: 1.1em;
+}
+
+.photo-admin-description {
+    color: #666;
+    font-size: 0.9em;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.photo-admin-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8em;
+    color: #999;
+    margin-bottom: 15px;
+}
+
+.photo-admin-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-edit {
+    flex: 1;
+    background: var(--act-seedling);
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.btn-edit:hover {
+    background: #689f3c;
+}
+
+.btn-delete {
+    background: #ff6b6b;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.btn-delete:hover {
+    background: #ff5252;
+}
+
+.message {
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    border-left: 4px solid;
+}
+
+.message.success {
+    background: #e8f5e8;
+    color: #2e7d32;
+    border-left-color: #4caf50;
+}
+
+.message.error {
+    background: #ffebee;
+    color: #c62828;
+    border-left-color: #f44336;
+}
+
+.loading {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid var(--act-seedling);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@media (max-width: 768px) {
+    .upload-card {
+        padding: 20px;
+    }
+    
+    .photos-admin-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .photo-admin-actions {
+        flex-direction: column;
+    }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    loadPhotos();
+    setupFilePreview();
+    setupUploadForm();
+});
+
+function setupFilePreview() {
+    const fileInput = document.getElementById('photo-file');
+    const preview = document.getElementById('file-preview');
+    
+    fileInput.addEventListener('change', (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                preview.innerHTML = `
+                    <img src="${e.target.result}" alt="Preview">
+                    <p style="margin-top: 10px; color: #666; font-size: 0.9em;">
+                        ${file.name} (${(file.size / (1024 * 1024)).toFixed(2)} MB)
+                    </p>
+                `;
+            };
+            reader.readAsDataURL(file);
+        } else {
+            preview.innerHTML = '';
+        }
+    });
+}
+
+function setupUploadForm() {
+    const form = document.getElementById('photo-upload-form');
+    
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const submitBtn = form.querySelector('.upload-btn');
+        const originalText = submitBtn.textContent;
+        
+        submitBtn.textContent = '🌱 Planting...';
+        submitBtn.disabled = true;
+        
+        try {
+            const formData = new FormData(form);
+            
+            const response = await fetch('/admin/photos/upload', {
+                method: 'POST',
+                body: formData
+            });
+            
+            const result = await response.json();
+            
+            if (result.success) {
+                showMessage('success', '✅ Photo planted successfully! It\'s now growing in the gallery.');
+                form.reset();
+                document.getElementById('file-preview').innerHTML = '';
+                loadPhotos(); // Refresh the photos grid
+            } else {
+                throw new Error(result.error || 'Failed to upload photo');
+            }
+            
+        } catch (error) {
+            console.error('Photo upload error:', error);
+            showMessage('error', `❌ Error: ${error.message}`);
+        } finally {
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+        }
+    });
+}
+
+async function loadPhotos() {
+    const grid = document.getElementById('photos-grid');
+    
+    try {
+        const response = await fetch('/api/photos');
+        const photos = await response.json();
+        
+        if (photos.length === 0) {
+            grid.innerHTML = `
+                <div style="grid-column: 1/-1; text-align: center; padding: 60px;">
+                    <div style="font-size: 3em; margin-bottom: 20px; opacity: 0.3;">📸</div>
+                    <h3 style="color: #666; margin-bottom: 10px;">No Photos Planted Yet</h3>
+                    <p style="color: #999;">Upload your first photo to start growing the gallery!</p>
+                </div>
+            `;
+        } else {
+            grid.innerHTML = photos.map((photo, index) => `
+                <div class="photo-admin-item">
+                    <div class="photo-admin-preview">
+                        <img src="${photo.url}" alt="${photo.title}">
+                    </div>
+                    <div class="photo-admin-info">
+                        <div class="photo-admin-title">${photo.title}</div>
+                        <div class="photo-admin-description">${photo.description}</div>
+                        <div class="photo-admin-meta">
+                            <span>Position: ${photo.positioning || 'auto'}</span>
+                            <span>${photo.uploadDate ? new Date(photo.uploadDate).toLocaleDateString() : ''}</span>
+                        </div>
+                        <div class="photo-admin-actions">
+                            <button class="btn-edit" onclick="editPhoto(${index})">
+                                ✏️ Edit
+                            </button>
+                            <button class="btn-delete" onclick="deletePhoto(${index})">
+                                🗑️ Delete
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+    } catch (error) {
+        console.error('Error loading photos:', error);
+        grid.innerHTML = `
+            <div style="grid-column: 1/-1; text-align: center; padding: 60px;">
+                <div style="font-size: 3em; margin-bottom: 20px; opacity: 0.3;">❌</div>
+                <p style="color: #666;">Failed to load photos</p>
+            </div>
+        `;
+    }
+}
+
+function showMessage(type, text) {
+    const container = document.getElementById('message-container');
+    container.innerHTML = `<div class="message ${type}">${text}</div>`;
+    
+    if (type === 'success') {
+        setTimeout(() => {
+            container.innerHTML = '';
+        }, 5000);
+    }
+}
+
+function editPhoto(index) {
+    // Get current photo data
+    fetch('/api/photos')
+        .then(response => response.json())
+        .then(photos => {
+            const photo = photos[index];
+            if (!photo) return;
+            
+            // Create edit modal
+            const modal = document.createElement('div');
+            modal.style.cssText = `
+                position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+                background: rgba(0,0,0,0.8); z-index: 1000; display: flex;
+                align-items: center; justify-content: center; padding: 20px;
+            `;
+            
+            modal.innerHTML = `
+                <div style="background: white; border-radius: 16px; padding: 30px; max-width: 500px; width: 100%; max-height: 90vh; overflow-y: auto;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <h3 style="margin: 0; color: var(--act-soil);">🌱 Edit Photo Details</h3>
+                        <button onclick="this.closest('.modal').remove()" style="background: none; border: none; font-size: 1.5em; cursor: pointer;">✕</button>
+                    </div>
+                    
+                    <div style="margin-bottom: 20px; text-align: center;">
+                        <img src="${photo.url}" alt="${photo.title}" style="max-width: 100%; max-height: 200px; border-radius: 8px; object-fit: cover;">
+                    </div>
+                    
+                    <form id="edit-photo-form">
+                        <div style="margin-bottom: 15px;">
+                            <label style="display: block; margin-bottom: 5px; font-weight: 500; color: var(--act-soil);">Title:</label>
+                            <input type="text" id="edit-title" value="${photo.title.replace(/"/g, '&quot;')}" 
+                                   style="width: 100%; padding: 10px; border: 2px solid #ddd; border-radius: 8px;">
+                        </div>
+                        
+                        <div style="margin-bottom: 15px;">
+                            <label style="display: block; margin-bottom: 5px; font-weight: 500; color: var(--act-soil);">Description:</label>
+                            <textarea id="edit-description" rows="4" 
+                                      style="width: 100%; padding: 10px; border: 2px solid #ddd; border-radius: 8px; resize: vertical;">${photo.description}</textarea>
+                        </div>
+                        
+                        <div style="margin-bottom: 20px;">
+                            <label style="display: block; margin-bottom: 5px; font-weight: 500; color: var(--act-soil);">Photo Position:</label>
+                            <select id="edit-positioning" style="width: 100%; padding: 10px; border: 2px solid #ddd; border-radius: 8px;">
+                                <option value="landscape" ${photo.positioning === 'landscape' ? 'selected' : ''}>Landscape (Center)</option>
+                                <option value="face-focus" ${photo.positioning === 'face-focus' ? 'selected' : ''}>Face Focus (Top 25%)</option>
+                                <option value="face-top" ${photo.positioning === 'face-top' ? 'selected' : ''}>Face Top (Top 20%)</option>
+                                <option value="face-center" ${photo.positioning === 'face-center' ? 'selected' : ''}>Face Center (40%)</option>
+                            </select>
+                            <p style="font-size: 0.9em; color: #666; margin-top: 5px;">Controls how the photo is cropped in the gallery grid</p>
+                        </div>
+                        
+                        <div style="display: flex; gap: 10px;">
+                            <button type="submit" style="flex: 1; padding: 12px; background: var(--act-seedling); color: white; border: none; border-radius: 8px; font-weight: 500; cursor: pointer;">
+                                💾 Save Changes
+                            </button>
+                            <button type="button" onclick="this.closest('.modal').remove()" style="flex: 1; padding: 12px; background: #666; color: white; border: none; border-radius: 8px; cursor: pointer;">
+                                Cancel
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            `;
+            
+            modal.className = 'modal';
+            document.body.appendChild(modal);
+            
+            // Handle form submission
+            document.getElementById('edit-photo-form').addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                const title = document.getElementById('edit-title').value.trim();
+                const description = document.getElementById('edit-description').value.trim();
+                const positioning = document.getElementById('edit-positioning').value;
+                
+                if (!title) {
+                    alert('Title is required');
+                    return;
+                }
+                
+                try {
+                    const response = await fetch(`/admin/photos/update/${index}`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ title, description, positioning })
+                    });
+                    
+                    const result = await response.json();
+                    
+                    if (result.success) {
+                        showMessage('success', '✅ Photo details updated successfully!');
+                        modal.remove();
+                        loadPhotos();
+                    } else {
+                        throw new Error(result.message || 'Failed to update photo');
+                    }
+                } catch (error) {
+                    console.error('Error updating photo:', error);
+                    showMessage('error', `❌ Error: ${error.message}`);
+                }
+            });
+        })
+        .catch(error => {
+            console.error('Error loading photo for edit:', error);
+            showMessage('error', '❌ Error loading photo details');
+        });
+}
+
+async function deletePhoto(index) {
+    if (!confirm('Are you sure you want to remove this photo from the harvest?')) {
+        return;
+    }
+    
+    try {
+        const response = await fetch(`/admin/photos/${index}`, {
+            method: 'DELETE'
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+            showMessage('success', '✅ Photo removed from harvest successfully.');
+            loadPhotos(); // Refresh the grid
+        } else {
+            throw new Error(result.error || 'Failed to delete photo');
+        }
+        
+    } catch (error) {
+        console.error('Photo delete error:', error);
+        showMessage('error', `❌ Error: ${error.message}`);
+    }
+}
+</script> 

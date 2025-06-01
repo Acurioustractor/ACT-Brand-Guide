@@ -1,0 +1,272 @@
+<%- include('../partials/admin-header', { title: title, page: 'dashboard' }) %>
+
+<!-- Dashboard Hero -->
+<section style="background: linear-gradient(135deg, var(--act-seedling) 0%, var(--act-soil) 100%); color: white; padding: 80px 20px;">
+    <div class="container">
+        <div style="text-align: center;">
+            <h1 style="font-size: 3em; margin-bottom: 20px;">
+                🚜 Welcome, <%= username %>!
+            </h1>
+            <p style="font-size: 1.3em; opacity: 0.9; max-width: 600px; margin: 0 auto;">
+                Ready to cultivate content? Here's your field of possibilities—tend to text, 
+                plant photos, and nurture videos across the ACT ecosystem.
+            </p>
+            <p style="margin-top: 30px; font-style: italic; opacity: 0.8;">
+                "Every edit is a seed. Every upload is growth. Every change cultivates wisdom." 🌱
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Quick Stats -->
+<section style="background: white; padding: 60px 20px;">
+    <div class="container">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-bottom: 60px;">
+            <div class="stat-card">
+                <div class="stat-icon">📝</div>
+                <div class="stat-number" id="content-pages">4</div>
+                <div class="stat-label">Content Pages</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">📸</div>
+                <div class="stat-number" id="photo-count">-</div>
+                <div class="stat-label">Photos Planted</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🎥</div>
+                <div class="stat-number" id="video-count">-</div>
+                <div class="stat-label">Video Stories</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🌱</div>
+                <div class="stat-number">∞</div>
+                <div class="stat-label">Possibilities</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Management Tools -->
+<section style="background: var(--act-cream); padding: 80px 20px;">
+    <div class="container">
+        <h2 style="text-align: center; color: var(--act-soil); margin-bottom: 60px; font-size: 2.5em;">
+            Content Cultivation Tools
+        </h2>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;">
+            
+            <!-- Content Management -->
+            <div class="tool-card">
+                <div class="tool-icon">📝</div>
+                <h3>Edit Page Content</h3>
+                <p>Tend to the words that grow throughout the website—heroes, descriptions, and core messaging that reflects ACT's authentic voice.</p>
+                <div class="tool-pages">
+                    <% pages.forEach(page => { %>
+                        <a href="/admin/content/<%= page %>" class="page-link">
+                            <span class="page-icon">🌱</span>
+                            <%= page.charAt(0).toUpperCase() + page.slice(1) %>
+                        </a>
+                    <% }) %>
+                </div>
+            </div>
+            
+            <!-- Photo Management -->
+            <div class="tool-card">
+                <div class="tool-icon">📸</div>
+                <h3>Photo Harvest</h3>
+                <p>Upload and manage photos that capture community wisdom in action. Smart positioning ensures faces are beautifully centered.</p>
+                <div class="tool-actions">
+                    <a href="/admin/photos" class="tool-btn primary">
+                        🚜 Manage Photos
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Video Management -->
+            <div class="tool-card">
+                <div class="tool-icon">🎥</div>
+                <h3>Video Stories</h3>
+                <p>Add video stories from the field—YouTube, Vimeo, Descript links that share wisdom and amplify community voices.</p>
+                <div class="tool-actions">
+                    <a href="/admin/videos" class="tool-btn primary">
+                        🌱 Manage Videos
+                    </a>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+<!-- Recent Activity -->
+<section style="background: white; padding: 80px 20px;">
+    <div class="container">
+        <h2 style="text-align: center; color: var(--act-soil); margin-bottom: 60px; font-size: 2.5em;">
+            Recent Growth
+        </h2>
+        
+        <div id="recent-activity" style="max-width: 800px; margin: 0 auto;">
+            <div style="text-align: center; padding: 40px; color: #666;">
+                <div style="font-size: 3em; margin-bottom: 20px; opacity: 0.3;">🌱</div>
+                <p>Activity feed growing... Check back as you tend to content!</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<%- include('../partials/admin-footer') %>
+
+<style>
+.stat-card {
+    background: white;
+    padding: 30px;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+}
+
+.stat-icon {
+    font-size: 3em;
+    margin-bottom: 15px;
+}
+
+.stat-number {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: var(--act-seedling);
+    margin-bottom: 10px;
+}
+
+.stat-label {
+    color: #666;
+    font-weight: 500;
+}
+
+.tool-card {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.tool-card:hover {
+    transform: translateY(-8px);
+}
+
+.tool-icon {
+    font-size: 4em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.tool-card h3 {
+    color: var(--act-soil);
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.tool-card p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.tool-pages {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.page-link {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    background: var(--act-cream);
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--act-soil);
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.page-link:hover {
+    background: var(--act-seedling);
+    color: white;
+    transform: translateX(5px);
+}
+
+.page-icon {
+    margin-right: 10px;
+}
+
+.tool-actions {
+    text-align: center;
+}
+
+.tool-btn {
+    display: inline-block;
+    padding: 15px 30px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1em;
+    transition: all 0.3s ease;
+}
+
+.tool-btn.primary {
+    background: var(--act-seedling);
+    color: white;
+}
+
+.tool-btn.primary:hover {
+    background: #689f3c;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(124, 179, 66, 0.3);
+}
+
+@media (max-width: 768px) {
+    .tool-pages {
+        gap: 8px;
+    }
+    
+    .page-link {
+        padding: 10px 14px;
+        font-size: 0.9em;
+    }
+    
+    .tool-btn {
+        padding: 12px 24px;
+        font-size: 1em;
+    }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+    // Load photo count
+    try {
+        const photosResponse = await fetch('/api/photos');
+        const photos = await photosResponse.json();
+        document.getElementById('photo-count').textContent = photos.length;
+    } catch (error) {
+        document.getElementById('photo-count').textContent = '0';
+    }
+    
+    // Load video count
+    try {
+        const videosResponse = await fetch('/api/videos');
+        const videos = await videosResponse.json();
+        document.getElementById('video-count').textContent = videos.length;
+    } catch (error) {
+        document.getElementById('video-count').textContent = '0';
+    }
+});
+</script> 

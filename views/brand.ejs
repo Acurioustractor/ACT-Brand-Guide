@@ -1,0 +1,526 @@
+<%- include('partials/header') %>
+
+<!-- Hero Section -->
+<section class="hero">
+    <div class="container">
+        <h1>Brand Guide</h1>
+        <p class="tagline">Visual identity for regenerative innovation</p>
+        <p class="hero-description">
+            This brand guide captures the essence of A Curious Tractor—earthy yet innovative, 
+            rooted in tradition yet looking forward. Our visual identity reflects the intersection 
+            of agricultural heritage and technological possibility, community wisdom and bold imagination.
+        </p>
+    </div>
+</section>
+
+<!-- Logo Section -->
+<section style="background: white; padding: 80px 20px;">
+    <div class="container">
+        <div style="text-align: center; margin-bottom: 60px;">
+            <h2>Logo & Identity</h2>
+            <p style="font-size: 1.2em; color: #666; max-width: 800px; margin: 0 auto;">
+                The ACT logo combines agricultural symbolism with growth metaphors, 
+                representing the transfer of capacity from tools to community flourishing.
+            </p>
+        </div>
+        
+        <div class="card-grid">
+            <!-- Primary Logo -->
+            <div class="card" style="text-align: center; padding: 60px 40px;">
+                <h3 style="margin-bottom: 30px; color: var(--act-soil);">Primary Logo</h3>
+                <div style="background: #f8f9fa; padding: 40px; border-radius: 12px; margin-bottom: 30px;">
+                    <img src="/logo/act-logo-horizontal.png" alt="ACT Primary Logo" style="height: 120px; width: auto;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div style="display: none; align-items: center; justify-content: center; gap: 20px;">
+                        <svg width="200" height="100" viewBox="0 0 400 100">
+                            <g transform="translate(50, 50)">
+                                <!-- Tractor body -->
+                                <path d="M0,0 L0,15 L8,15 L8,25 L35,25 L35,15 L43,15 L43,-15 L28,-15 L28,-25 L13,-25 L13,0 Z" fill="#6B4226"/>
+                                <!-- Wheels -->
+                                <circle cx="10" cy="33" r="10" fill="#2C3E50"/>
+                                <circle cx="10" cy="33" r="6" fill="none" stroke="white" stroke-width="1"/>
+                                <circle cx="33" cy="33" r="14" fill="#2C3E50"/>
+                                <circle cx="33" cy="33" r="9" fill="none" stroke="white" stroke-width="1"/>
+                                <!-- PTO shaft -->
+                                <rect x="43" y="-3" width="20" height="5" fill="#FF6B35"/>
+                                <circle cx="65" cy="0" r="4" fill="none" stroke="#FF6B35" stroke-width="2"/>
+                                <!-- Growth elements -->
+                                <circle cx="90" cy="0" r="18" fill="#7CB342" opacity="0.8"/>
+                                <circle cx="110" cy="-10" r="14" fill="#7CB342" opacity="0.9"/>
+                                <circle cx="130" cy="-5" r="16" fill="#7CB342"/>
+                            </g>
+                            <text x="20" y="85" font-family="Georgia, serif" font-size="14" fill="#6B4226">a curious tractor</text>
+                        </svg>
+                    </div>
+                </div>
+                <p style="color: #666; font-size: 0.9em;">
+                    Use on light backgrounds. Minimum height: 40px. 
+                    Maintain clear space equal to the height of the logo.
+                </p>
+            </div>
+            
+            <!-- Logo Breakdown -->
+            <div class="card" style="padding: 40px;">
+                <h3 style="margin-bottom: 30px; color: var(--act-soil);">Logo Elements</h3>
+                <div style="display: grid; gap: 25px;">
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <div style="width: 40px; height: 40px; background: var(--act-soil); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">🚜</div>
+                        <div>
+                            <strong style="color: var(--act-soil);">Tractor Body</strong>
+                            <p style="margin: 0; color: #666; font-size: 0.9em;">Represents tools, infrastructure, and capacity-building support</p>
+                        </div>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <div style="width: 40px; height: 40px; background: var(--act-sunrise); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">⚡</div>
+                        <div>
+                            <strong style="color: var(--act-sunrise);">PTO Shaft</strong>
+                            <p style="margin: 0; color: #666; font-size: 0.9em;">Power take-off: transferring capacity to community initiatives</p>
+                        </div>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <div style="width: 40px; height: 40px; background: var(--act-seedling); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">◆</div>
+                        <div>
+                            <strong style="color: var(--act-seedling);">Growth Elements</strong>
+                            <p style="margin: 0; color: #666; font-size: 0.9em;">Community flourishing and regenerative outcomes</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Color Palette -->
+<section style="background: var(--act-cream); padding: 80px 20px;">
+    <div class="container">
+        <div style="text-align: center; margin-bottom: 60px;">
+            <h2>Color Palette</h2>
+            <p style="font-size: 1.2em; color: #666; max-width: 800px; margin: 0 auto;">
+                Our colors reflect the earth, growth, and innovation. Each color carries meaning 
+                and represents different aspects of our regenerative approach.
+            </p>
+        </div>
+        
+        <!-- Primary Palette -->
+        <div style="margin-bottom: 60px;">
+            <h3 style="text-align: center; margin-bottom: 40px; color: var(--act-soil);">Primary Palette</h3>
+            <div class="color-grid">
+                <div class="color-card" data-color="soil">
+                    <div class="color-swatch" style="background: var(--act-soil);">Soil</div>
+                    <div class="color-info">
+                        <div class="color-name">ACT Soil</div>
+                        <div class="color-hex">#6B4226</div>
+                        <p style="font-size: 0.9em; color: #666;">Foundation, earth, stability. Used for headings and primary text.</p>
+                    </div>
+                </div>
+                
+                <div class="color-card" data-color="seedling">
+                    <div class="color-swatch" style="background: var(--act-seedling);">Seedling</div>
+                    <div class="color-info">
+                        <div class="color-name">ACT Seedling</div>
+                        <div class="color-hex">#7CB342</div>
+                        <p style="font-size: 0.9em; color: #666;">Growth, possibility, action. Primary interactive elements and CTAs.</p>
+                    </div>
+                </div>
+                
+                <div class="color-card" data-color="sunrise">
+                    <div class="color-swatch" style="background: var(--act-sunrise);">Sunrise</div>
+                    <div class="color-info">
+                        <div class="color-name">ACT Sunrise</div>
+                        <div class="color-hex">#FF6B35</div>
+                        <p style="font-size: 0.9em; color: #666;">Energy, innovation, change. Used for highlights and accents.</p>
+                    </div>
+                </div>
+                
+                <div class="color-card" data-color="charcoal">
+                    <div class="color-swatch" style="background: var(--act-charcoal);">Charcoal</div>
+                    <div class="color-info">
+                        <div class="color-name">ACT Charcoal</div>
+                        <div class="color-hex">#2C3E50</div>
+                        <p style="font-size: 0.9em; color: #666;">Depth, wisdom, strength. Body text and supporting elements.</p>
+                    </div>
+                </div>
+                
+                <div class="color-card" data-color="cream">
+                    <div class="color-swatch" style="background: var(--act-cream); color: var(--act-charcoal);">Cream</div>
+                    <div class="color-info">
+                        <div class="color-name">ACT Cream</div>
+                        <div class="color-hex">#FFF8E7</div>
+                        <p style="font-size: 0.9em; color: #666;">Warmth, openness, space. Background sections and cards.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Secondary Palette -->
+        <div>
+            <h3 style="text-align: center; margin-bottom: 40px; color: var(--act-soil);">Secondary Palette</h3>
+            <div class="color-grid">
+                <div class="color-card">
+                    <div class="color-swatch" style="background: var(--act-empathy);">Empathy</div>
+                    <div class="color-info">
+                        <div class="color-name">ACT Empathy</div>
+                        <div class="color-hex">#E91E63</div>
+                        <p style="font-size: 0.9em; color: #666;">Storytelling, connection, heart-centered work.</p>
+                    </div>
+                </div>
+                
+                <div class="color-card">
+                    <div class="color-swatch" style="background: var(--act-justice);">Justice</div>
+                    <div class="color-info">
+                        <div class="color-name">ACT Justice</div>
+                        <div class="color-hex">#3F51B5</div>
+                        <p style="font-size: 0.9em; color: #666;">Reform, systems change, equity work.</p>
+                    </div>
+                </div>
+                
+                <div class="color-card">
+                    <div class="color-swatch" style="background: var(--act-innovation);">Innovation</div>
+                    <div class="color-info">
+                        <div class="color-name">ACT Innovation</div>
+                        <div class="color-hex">#9C27B0</div>
+                        <p style="font-size: 0.9em; color: #666;">Technology, creativity, new possibilities.</p>
+                    </div>
+                </div>
+                
+                <div class="color-card">
+                    <div class="color-swatch" style="background: var(--act-resilience);">Resilience</div>
+                    <div class="color-info">
+                        <div class="color-name">ACT Resilience</div>
+                        <div class="color-hex">#009688</div>
+                        <p style="font-size: 0.9em; color: #666;">Sustainability, regeneration, long-term thinking.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Typography -->
+<section style="background: white; padding: 80px 20px;">
+    <div class="container">
+        <div style="text-align: center; margin-bottom: 60px;">
+            <h2>Typography</h2>
+            <p style="font-size: 1.2em; color: #666; max-width: 800px; margin: 0 auto;">
+                Our typography balances traditional serif elegance with modern sans-serif clarity, 
+                reflecting both rootedness and forward-thinking innovation.
+            </p>
+        </div>
+        
+        <div class="card-grid">
+            <!-- Headings -->
+            <div class="card">
+                <h3 style="color: var(--act-soil); margin-bottom: 30px;">Headings</h3>
+                <div style="font-family: Georgia, serif; margin-bottom: 20px;">
+                    <div style="font-size: 2.5em; color: var(--act-soil); margin-bottom: 10px;">Georgia</div>
+                    <p style="color: #666; margin: 0;">For headlines and emphasis. Conveys tradition, wisdom, and gravitas.</p>
+                </div>
+                <div style="margin-top: 30px;">
+                    <h1 style="font-size: 2.2em; margin-bottom: 15px;">Headline Level 1</h1>
+                    <h2 style="font-size: 1.8em; margin-bottom: 15px;">Headline Level 2</h2>
+                    <h3 style="font-size: 1.4em; margin-bottom: 15px;">Headline Level 3</h3>
+                    <h4 style="font-size: 1.2em; margin-bottom: 15px;">Headline Level 4</h4>
+                </div>
+            </div>
+            
+            <!-- Body Text -->
+            <div class="card">
+                <h3 style="color: var(--act-soil); margin-bottom: 30px;">Body Text</h3>
+                <div style="margin-bottom: 20px;">
+                    <div style="font-size: 1.2em; color: var(--act-charcoal); margin-bottom: 10px; font-weight: 600;">System Font Stack</div>
+                    <p style="color: #666; margin: 0; font-size: 0.9em;">-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif</p>
+                </div>
+                <div style="margin-top: 30px;">
+                    <p style="font-size: 1.1em; margin-bottom: 15px; color: var(--act-charcoal);">
+                        This is body text at 1.1em. Clear, readable, and accessible across all devices and platforms.
+                    </p>
+                    <p style="margin-bottom: 15px;">
+                        Standard paragraph text at 1em with proper line height for comfortable reading.
+                    </p>
+                    <p style="font-size: 0.9em; color: #666; margin: 0;">
+                        Supporting text at 0.9em, often used for captions and secondary information.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Monospace -->
+            <div class="card">
+                <h3 style="color: var(--act-soil); margin-bottom: 30px;">Code & Data</h3>
+                <div style="margin-bottom: 20px;">
+                    <div style="font-size: 1.2em; color: var(--act-charcoal); margin-bottom: 10px; font-weight: 600;">Courier New</div>
+                    <p style="color: #666; margin: 0; font-size: 0.9em;">For code blocks, data, and technical content</p>
+                </div>
+                <div style="margin-top: 30px;">
+                    <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; font-family: 'Courier New', monospace; color: var(--act-charcoal);">
+                        #6B4226 /* ACT Soil */<br>
+                        font-family: Georgia, serif;<br>
+                        community.ownership = true;
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Logo Usage Guidelines -->
+<section style="background: var(--act-cream); padding: 80px 20px;">
+    <div class="container">
+        <div style="text-align: center; margin-bottom: 60px;">
+            <h2>Logo Usage</h2>
+            <p style="font-size: 1.2em; color: #666; max-width: 800px; margin: 0 auto;">
+                Guidelines for proper logo usage to maintain brand integrity across all touchpoints.
+            </p>
+        </div>
+        
+        <div class="card-grid">
+            <!-- Do's -->
+            <div class="card" style="border-left: 4px solid var(--act-seedling);">
+                <h3 style="color: var(--act-seedling); margin-bottom: 25px;">✓ Do</h3>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="margin-bottom: 15px; display: flex; align-items: start; gap: 10px;">
+                        <span style="color: var(--act-seedling); font-weight: bold;">✓</span>
+                        <span>Use the primary logo on light backgrounds</span>
+                    </li>
+                    <li style="margin-bottom: 15px; display: flex; align-items: start; gap: 10px;">
+                        <span style="color: var(--act-seedling); font-weight: bold;">✓</span>
+                        <span>Maintain clear space equal to logo height</span>
+                    </li>
+                    <li style="margin-bottom: 15px; display: flex; align-items: start; gap: 10px;">
+                        <span style="color: var(--act-seedling); font-weight: bold;">✓</span>
+                        <span>Keep minimum height of 40px for digital use</span>
+                    </li>
+                    <li style="margin-bottom: 15px; display: flex; align-items: start; gap: 10px;">
+                        <span style="color: var(--act-seedling); font-weight: bold;">✓</span>
+                        <span>Use high-resolution files for print</span>
+                    </li>
+                    <li style="display: flex; align-items: start; gap: 10px;">
+                        <span style="color: var(--act-seedling); font-weight: bold;">✓</span>
+                        <span>Scale proportionally</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Don'ts -->
+            <div class="card" style="border-left: 4px solid var(--act-sunrise);">
+                <h3 style="color: var(--act-sunrise); margin-bottom: 25px;">✗ Don't</h3>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="margin-bottom: 15px; display: flex; align-items: start; gap: 10px;">
+                        <span style="color: var(--act-sunrise); font-weight: bold;">✗</span>
+                        <span>Stretch or distort the logo</span>
+                    </li>
+                    <li style="margin-bottom: 15px; display: flex; align-items: start; gap: 10px;">
+                        <span style="color: var(--act-sunrise); font-weight: bold;">✗</span>
+                        <span>Change logo colors or add effects</span>
+                    </li>
+                    <li style="margin-bottom: 15px; display: flex; align-items: start; gap: 10px;">
+                        <span style="color: var(--act-sunrise); font-weight: bold;">✗</span>
+                        <span>Place on busy or low-contrast backgrounds</span>
+                    </li>
+                    <li style="margin-bottom: 15px; display: flex; align-items: start; gap: 10px;">
+                        <span style="color: var(--act-sunrise); font-weight: bold;">✗</span>
+                        <span>Rotate or flip the logo</span>
+                    </li>
+                    <li style="display: flex; align-items: start; gap: 10px;">
+                        <span style="color: var(--act-sunrise); font-weight: bold;">✗</span>
+                        <span>Use below minimum size</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Voice & Tone -->
+<section style="background: white; padding: 80px 20px;">
+    <div class="container">
+        <div style="text-align: center; margin-bottom: 60px;">
+            <h2>Voice & Tone</h2>
+            <p style="font-size: 1.2em; color: #666; max-width: 800px; margin: 0 auto;">
+                How we communicate reflects our values: respectful, authentic, hopeful, and grounded in community wisdom.
+            </p>
+        </div>
+        
+        <div class="card-grid">
+            <div class="card" style="background: linear-gradient(135deg, var(--act-empathy), #c2185b); color: white;">
+                <h3 style="color: white; margin-bottom: 20px;">Respectful</h3>
+                <p>We honor Indigenous knowledge, cultural protocols, and community expertise. We listen before we speak and acknowledge the wisdom that exists in every community.</p>
+            </div>
+            
+            <div class="card" style="background: linear-gradient(135deg, var(--act-seedling), #689f38); color: white;">
+                <h3 style="color: white; margin-bottom: 20px;">Authentic</h3>
+                <p>We speak plainly about challenges and opportunities. No buzzwords or jargon. We share failures as readily as successes and admit when we don't know something.</p>
+            </div>
+            
+            <div class="card" style="background: linear-gradient(135deg, var(--act-sunrise), #f4511e); color: white;">
+                <h3 style="color: white; margin-bottom: 20px;">Hopeful</h3>
+                <p>We believe in community agency and the possibility of regenerative change. Our language emphasizes possibilities, assets, and potential rather than deficits.</p>
+            </div>
+            
+            <div class="card" style="background: linear-gradient(135deg, var(--act-justice), #303f9f); color: white;">
+                <h3 style="color: white; margin-bottom: 20px;">Grounded</h3>
+                <p>We're practical and solution-oriented. We talk about real tools, measurable outcomes, and concrete next steps. Vision balanced with pragmatism.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Brand Voice & Communication -->
+<section style="background: white; padding: 80px 20px;">
+    <div class="container">
+        <div style="text-align: center; margin-bottom: 60px;">
+            <h2>Brand Voice & Communication</h2>
+            <p style="font-size: 1.2em; color: #666; max-width: 800px; margin: 0 auto;">
+                Our voice reflects who we are: grounded yet visionary, humble yet confident, 
+                warm yet challenging, poetic yet clear. We speak the language of regenerative change.
+            </p>
+        </div>
+        
+        <!-- Voice Attributes -->
+        <div style="margin-bottom: 60px;">
+            <h3 style="text-align: center; margin-bottom: 40px; color: var(--act-soil);">Voice Attributes</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <h4 style="color: var(--act-empathy); margin-bottom: 15px;"><span style="color: var(--act-seedling);">◆</span> Grounded yet Visionary</h4>
+                    <p style="color: #666; margin-bottom: 15px;">We plant seeds today for forests tomorrow. Practical wisdom meets ambitious dreams.</p>
+                    <p style="font-style: italic; color: #999; font-size: 0.9em;">"Every story is a seed. Every seed is a possibility."</p>
+                </div>
+                
+                <div class="card">
+                    <h4 style="color: var(--act-seedling); margin-bottom: 15px;">🤲 Humble yet Confident</h4>
+                    <p style="color: #666; margin-bottom: 15px;">We don't have all the answers, but we're cultivating solutions together.</p>
+                    <p style="font-style: italic; color: #999; font-size: 0.9em;">"Your experience is the soil from which solutions grow."</p>
+                </div>
+                
+                <div class="card">
+                    <h4 style="color: var(--act-sunrise); margin-bottom: 15px;">🔥 Warm yet Challenging</h4>
+                    <p style="color: #666; margin-bottom: 15px;">Let's get our hands dirty with the hard truths. We invite participation while confronting systems.</p>
+                    <p style="font-style: italic; color: #999; font-size: 0.9em;">"The time for change is now. We've prepared the soil, planted the seeds—now we cultivate revolution."</p>
+                </div>
+                
+                <div class="card">
+                    <h4 style="color: var(--act-justice); margin-bottom: 15px;">🎨 Poetic yet Clear</h4>
+                    <p style="color: #666; margin-bottom: 15px;">We use metaphor to illuminate, not obscure. Beauty and clarity can coexist.</p>
+                    <p style="font-style: italic; color: #999; font-size: 0.9em;">"Look what we've grown together! Every harvest feeds the whole community."</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Communication Examples -->
+        <div style="margin-bottom: 60px;">
+            <h3 style="text-align: center; margin-bottom: 40px; color: var(--act-soil);">Communication in Action</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+                <div style="background: var(--act-cream); padding: 30px; border-radius: 12px; border-left: 4px solid var(--act-empathy);">
+                    <h4 style="color: var(--act-empathy); margin-bottom: 15px;">When Listening</h4>
+                    <p style="font-style: italic; color: #666;">"We're here to learn from your wisdom. Your experience is the soil from which solutions grow."</p>
+                </div>
+                
+                <div style="background: var(--act-cream); padding: 30px; border-radius: 12px; border-left: 4px solid var(--act-seedling);">
+                    <h4 style="color: var(--act-seedling); margin-bottom: 15px;">When Teaching</h4>
+                    <p style="font-style: italic; color: #666;">"Let's explore this together. Like tending a garden, the best learning happens when we all get our hands dirty."</p>
+                </div>
+                
+                <div style="background: var(--act-cream); padding: 30px; border-radius: 12px; border-left: 4px solid var(--act-sunrise);">
+                    <h4 style="color: var(--act-sunrise); margin-bottom: 15px;">When Advocating</h4>
+                    <p style="font-style: italic; color: #666;">"The time for change is now. We've prepared the soil, planted the seeds—now we cultivate revolution."</p>
+                </div>
+                
+                <div style="background: var(--act-cream); padding: 30px; border-radius: 12px; border-left: 4px solid var(--act-justice);">
+                    <h4 style="color: var(--act-justice); margin-bottom: 15px;">When Celebrating</h4>
+                    <p style="font-style: italic; color: #666;">"Look what we've grown together! Every harvest is proof that community-led change bears the sweetest fruit."</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Core Mantras -->
+        <div style="text-align: center; padding: 50px; background: var(--act-cream); border-radius: 16px;">
+            <h3 style="color: var(--act-soil); margin-bottom: 30px;">Core Mantras</h3>
+            <div style="display: grid; gap: 20px; max-width: 600px; margin: 0 auto;">
+                <p style="font-size: 1.2em; font-style: italic; color: var(--act-empathy); margin: 0;"><span style="color: var(--act-seedling);">◆</span> "Every story is a seed. Every seed is a possibility. Every possibility is a future we cultivate together."</p>
+                <p style="font-size: 1.1em; font-style: italic; color: var(--act-seedling); margin: 0;">"We don't drive the tractor—we hand over the keys."</p>
+                <p style="font-size: 1.1em; font-style: italic; color: var(--act-sunrise); margin: 0;">"Success isn't measured by what we build, but by what communities build when we're no longer needed."</p>
+                <p style="font-size: 1.1em; font-style: italic; color: var(--act-justice); margin: 0;">"We're not building an empire—we're planting a forest where everyone can thrive."</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Usage Guidelines -->
+<section style="background: var(--act-cream); padding: 80px 20px;">
+    <div class="container">
+        <div style="text-align: center; margin-bottom: 60px;">
+            <h2>Voice Guidelines</h2>
+            <p style="font-size: 1.2em; color: #666; max-width: 800px; margin: 0 auto;">
+                These guidelines ensure our voice remains consistent across all communications while staying true to our regenerative values.
+            </p>
+        </div>
+        
+        <div class="card-grid">
+            <div class="card">
+                <h3 style="color: var(--act-empathy);">✅ Do</h3>
+                <ul style="color: #666; line-height: 1.8;">
+                    <li>Use agricultural metaphors naturally</li>
+                    <li>Center community voices and ownership</li>
+                    <li>Speak with humility about our role</li>
+                    <li>Use "we cultivate" not "we create"</li>
+                    <li>Say "communities lead" not "we help"</li>
+                    <li>Include "every story is a seed" when appropriate</li>
+                    <li>Be specific about community benefits</li>
+                    <li>Use warm, inclusive language</li>
+                </ul>
+            </div>
+            
+            <div class="card">
+                <h3 style="color: var(--act-sunrise);">❌ Don't</h3>
+                <ul style="color: #666; line-height: 1.8;">
+                    <li>Position ACT as the hero or savior</li>
+                    <li>Use corporate jargon or buzzwords</li>
+                    <li>Make promises we can't keep</li>
+                    <li>Speak for communities</li>
+                    <li>Use extractive language ("leverage," "utilize")</li>
+                    <li>Overuse metaphors to the point of confusion</li>
+                    <li>Be vague about community ownership</li>
+                    <li>Appropriate Indigenous concepts</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div style="margin-top: 50px; padding: 40px; background: white; border-radius: 16px; border: 2px solid var(--act-seedling);">
+            <h3 style="color: var(--act-soil); text-align: center; margin-bottom: 20px;">Key Messaging Framework</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;">
+                <div>
+                    <h4 style="color: var(--act-empathy);">Community-First</h4>
+                    <p style="color: #666; margin: 0;">Always lead with community agency, ownership, and self-determination.</p>
+                </div>
+                <div>
+                    <h4 style="color: var(--act-seedling);">Regenerative Innovation</h4>
+                    <p style="color: #666; margin: 0;">Technology that heals rather than extracts, builds rather than depletes.</p>
+                </div>
+                <div>
+                    <h4 style="color: var(--act-sunrise);">Power Transfer</h4>
+                    <p style="color: #666; margin: 0;">We exist to transfer capacity, not accumulate it.</p>
+                </div>
+                <div>
+                    <h4 style="color: var(--act-justice);">Long-term Thinking</h4>
+                    <p style="color: #666; margin: 0;">Planting seeds today for forests that will outlast us.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<%- include('partials/footer') %>
+
+<script>
+// Brand guide specific JavaScript
+document.addEventListener('DOMContentLoaded', () => {
+    // Add copy-to-clipboard for color values
+    document.querySelectorAll('.color-hex').forEach(element => {
+        element.style.cursor = 'pointer';
+        element.title = 'Click to copy';
+    });
+    
+    // Initialize color palette functionality
+    if (window.ACT && window.ACT.colorPalette) {
+        window.ACT.colorPalette.init();
+    }
+});
+</script> 

@@ -1,0 +1,618 @@
+<%- include('../partials/admin-header', { title: title, page: 'videos' }) %>
+
+<!-- Video Management Hero -->
+<section style="background: linear-gradient(135deg, var(--act-cream) 0%, white 100%); padding: 60px 20px;">
+    <div class="container">
+        <div style="text-align: center;">
+            <h1 style="color: var(--act-soil); font-size: 2.5em; margin-bottom: 15px;">
+                <span class="icon icon-video" style="font-size: 0.8em; margin-right: 0.3em;"></span>
+                Video Stories Management
+            </h1>
+            <p style="color: #666; font-size: 1.2em; max-width: 600px; margin: 0 auto;">
+                Cultivate powerful stories from the field—videos that amplify community voices 
+                and share wisdom from those leading regenerative change.
+            </p>
+            <p style="margin-top: 20px; font-style: italic; color: var(--act-seedling);">
+                "Every story shared plants seeds of possibility." 🌱
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Video Add Section -->
+<section style="background: white; padding: 60px 20px;">
+    <div class="container">
+        <div style="max-width: 800px; margin: 0 auto;">
+            
+            <!-- Add Video Form -->
+            <div class="upload-card">
+                <h2 style="color: var(--act-soil); margin-bottom: 20px; text-align: center;">
+                    <span class="icon icon-add"></span>
+                    Plant New Video Story
+                </h2>
+                
+                <div id="message-container" style="margin-bottom: 20px;"></div>
+                
+                <form id="video-add-form">
+                    <div class="form-group">
+                        <label for="video-title" class="field-label">
+                            <span>Video Title</span>
+                            <span class="icon icon-story"></span>
+                        </label>
+                        <input type="text" id="video-title" name="title" class="form-control" 
+                               placeholder="Community Voices: Stories from the Field" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="video-description" class="field-label">
+                            <span>Description</span>
+                            <span class="icon icon-edit"></span>
+                        </label>
+                        <textarea id="video-description" name="description" class="form-control" rows="3" 
+                                  placeholder="Stories from the field sharing wisdom, challenges, and visions for regenerative change..."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="video-embed" class="field-label">
+                            <span>Embed Code</span>
+                            <span class="icon icon-field"></span>
+                        </label>
+                        <textarea id="video-embed" name="embedCode" class="form-control" rows="4" 
+                                  placeholder='<iframe src="..." width="100%" height="250" frameborder="0"></iframe>' required></textarea>
+                        <small class="field-help">
+                            Paste the embed code from YouTube, Vimeo, or Descript. For Descript, you can also use the 
+                            <a href="/galleries" target="_blank">Descript integration on the Galleries page</a>.
+                        </small>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group half">
+                            <label for="video-duration" class="field-label">
+                                <span>Duration</span>
+                                <span>⏱️</span>
+                            </label>
+                            <input type="text" id="video-duration" name="duration" class="form-control" 
+                                   placeholder="6:29">
+                        </div>
+                        
+                        <div class="form-group half">
+                            <label for="video-date" class="field-label">
+                                <span>Date</span>
+                                <span>📅</span>
+                            </label>
+                            <input type="date" id="video-date" name="date" class="form-control">
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="modern-btn upload-btn">
+                        <span class="icon icon-growth"></span>
+                        Plant Video Story
+                    </button>
+                </form>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+<!-- Existing Videos Section -->
+<section style="background: var(--act-cream); padding: 80px 20px;">
+    <div class="container">
+        <h2 style="text-align: center; color: var(--act-soil); margin-bottom: 60px; font-size: 2.5em;">
+            Current Video Garden
+        </h2>
+        
+        <div id="videos-grid" class="videos-admin-grid">
+            <div style="grid-column: 1/-1; text-align: center; padding: 60px;">
+                <div class="loading"></div>
+                <p style="margin-top: 20px; color: #666;">Loading video stories...</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<%- include('../partials/admin-footer') %>
+
+<style>
+.upload-card {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+    border: 3px dashed #e1e5e9;
+    transition: border-color 0.3s ease;
+}
+
+.upload-card:hover {
+    border-color: var(--act-seedling);
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-group.half {
+    margin-bottom: 25px;
+}
+
+.field-label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    color: var(--act-soil);
+    font-weight: 600;
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e1e5e9;
+    border-radius: 10px;
+    font-size: 1em;
+    font-family: inherit;
+    transition: all 0.3s ease;
+    resize: vertical;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--act-seedling);
+    box-shadow: 0 0 0 3px rgba(124, 179, 66, 0.1);
+}
+
+.field-help {
+    color: #666;
+    font-size: 0.9em;
+    margin-top: 5px;
+    line-height: 1.4;
+}
+
+.field-help a {
+    color: var(--act-seedling);
+    text-decoration: none;
+}
+
+.field-help a:hover {
+    text-decoration: underline;
+}
+
+.upload-btn {
+    width: 100%;
+    background: var(--act-seedling);
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.upload-btn:hover {
+    background: #689f3c;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(124, 179, 66, 0.3);
+}
+
+.upload-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.videos-admin-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 30px;
+}
+
+.video-admin-item {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.video-admin-item:hover {
+    transform: translateY(-5px);
+}
+
+.video-admin-preview {
+    position: relative;
+    height: 250px;
+    background: #000;
+    overflow: hidden;
+}
+
+.video-admin-preview iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.video-admin-info {
+    padding: 20px;
+}
+
+.video-admin-title {
+    font-weight: bold;
+    color: var(--act-soil);
+    margin-bottom: 8px;
+    font-size: 1.1em;
+}
+
+.video-admin-description {
+    color: #666;
+    font-size: 0.9em;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.video-admin-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8em;
+    color: #999;
+    margin-bottom: 15px;
+}
+
+.video-admin-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-edit {
+    flex: 1;
+    background: var(--act-seedling);
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.btn-edit:hover {
+    background: #689f3c;
+}
+
+.btn-delete {
+    background: #ff6b6b;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.btn-delete:hover {
+    background: #ff5252;
+}
+
+.message {
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    border-left: 4px solid;
+}
+
+.message.success {
+    background: #e8f5e8;
+    color: #2e7d32;
+    border-left-color: #4caf50;
+}
+
+.message.error {
+    background: #ffebee;
+    color: #c62828;
+    border-left-color: #f44336;
+}
+
+.loading {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid var(--act-seedling);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@media (max-width: 768px) {
+    .upload-card {
+        padding: 20px;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+    
+    .videos-admin-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .video-admin-actions {
+        flex-direction: column;
+    }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    loadVideos();
+    setupAddForm();
+    
+    // Set today's date as default
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById('video-date').value = today;
+});
+
+function setupAddForm() {
+    const form = document.getElementById('video-add-form');
+    
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const submitBtn = form.querySelector('.upload-btn');
+        const originalText = submitBtn.textContent;
+        
+        submitBtn.textContent = '🌱 Planting...';
+        submitBtn.disabled = true;
+        
+        try {
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+            
+            const response = await fetch('/admin/videos/add', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data)
+            });
+            
+            const result = await response.json();
+            
+            if (result.success) {
+                showMessage('success', '✅ Video story planted successfully! It\'s now growing in the gallery.');
+                form.reset();
+                document.getElementById('video-date').value = new Date().toISOString().split('T')[0];
+                loadVideos(); // Refresh the videos grid
+            } else {
+                throw new Error(result.error || 'Failed to add video');
+            }
+            
+        } catch (error) {
+            console.error('Video add error:', error);
+            showMessage('error', `❌ Error: ${error.message}`);
+        } finally {
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+        }
+    });
+}
+
+async function loadVideos() {
+    const grid = document.getElementById('videos-grid');
+    
+    try {
+        const response = await fetch('/api/videos');
+        const videos = await response.json();
+        
+        if (videos.length === 0) {
+            grid.innerHTML = `
+                <div style="grid-column: 1/-1; text-align: center; padding: 60px;">
+                    <div style="font-size: 3em; margin-bottom: 20px; opacity: 0.3;">🎥</div>
+                    <h3 style="color: #666; margin-bottom: 10px;">No Video Stories Yet</h3>
+                    <p style="color: #999;">Add your first video to start growing the collection!</p>
+                </div>
+            `;
+        } else {
+            grid.innerHTML = videos.map((video) => `
+                <div class="video-admin-item">
+                    <div class="video-admin-preview">
+                        ${video.embedCode}
+                    </div>
+                    <div class="video-admin-info">
+                        <div class="video-admin-title">${video.title}</div>
+                        <div class="video-admin-description">${video.description}</div>
+                        <div class="video-admin-meta">
+                            <span>${video.duration || 'No duration'}</span>
+                            <span>${video.date ? new Date(video.date).toLocaleDateString() : ''}</span>
+                        </div>
+                        <div class="video-admin-actions">
+                            <button class="modern-btn secondary btn-edit" onclick="editVideo('${video.id}')">
+                                <span class="icon icon-edit"></span>
+                                Edit
+                            </button>
+                            <button class="modern-btn danger btn-delete" onclick="deleteVideo('${video.id}')">
+                                <span class="icon icon-remove"></span>
+                                Delete
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+    } catch (error) {
+        console.error('Error loading videos:', error);
+        grid.innerHTML = `
+            <div style="grid-column: 1/-1; text-align: center; padding: 60px;">
+                <div style="font-size: 3em; margin-bottom: 20px; opacity: 0.3;">❌</div>
+                <p style="color: #666;">Failed to load videos</p>
+            </div>
+        `;
+    }
+}
+
+function showMessage(type, text) {
+    const container = document.getElementById('message-container');
+    container.innerHTML = `<div class="message ${type}">${text}</div>`;
+    
+    if (type === 'success') {
+        setTimeout(() => {
+            container.innerHTML = '';
+        }, 5000);
+    }
+}
+
+function editVideo(videoId) {
+    // Get current video data
+    fetch('/api/videos')
+        .then(response => response.json())
+        .then(videos => {
+            const video = videos.find(v => v.id === videoId);
+            if (!video) return;
+            
+            // Create edit modal
+            const modal = document.createElement('div');
+            modal.style.cssText = `
+                position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+                background: rgba(0,0,0,0.8); z-index: 1000; display: flex;
+                align-items: center; justify-content: center; padding: 20px;
+            `;
+            
+            modal.innerHTML = `
+                <div style="background: white; border-radius: 16px; padding: 30px; max-width: 600px; width: 100%; max-height: 90vh; overflow-y: auto;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <h3 style="margin: 0; color: var(--act-soil);">🎬 Edit Video Story</h3>
+                        <button onclick="this.closest('.modal').remove()" style="background: none; border: none; font-size: 1.5em; cursor: pointer;">✕</button>
+                    </div>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <div style="aspect-ratio: 16/9; background: #f5f5f5; border-radius: 8px; overflow: hidden;">
+                            ${video.url ? `<iframe src="${video.url}" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>` :
+                              video.embedCode ? video.embedCode : 
+                              '<div style="display: flex; align-items: center; justify-content: center; height: 100%; color: #666;">Video Preview</div>'}
+                        </div>
+                    </div>
+                    
+                    <form id="edit-video-form">
+                        <div style="margin-bottom: 15px;">
+                            <label style="display: block; margin-bottom: 5px; font-weight: 500; color: var(--act-soil);">Title:</label>
+                            <input type="text" id="edit-video-title" value="${video.title.replace(/"/g, '&quot;')}" 
+                                   style="width: 100%; padding: 10px; border: 2px solid #ddd; border-radius: 8px;">
+                        </div>
+                        
+                        <div style="margin-bottom: 15px;">
+                            <label style="display: block; margin-bottom: 5px; font-weight: 500; color: var(--act-soil);">Description:</label>
+                            <textarea id="edit-video-description" rows="4" 
+                                      style="width: 100%; padding: 10px; border: 2px solid #ddd; border-radius: 8px; resize: vertical;">${video.description}</textarea>
+                        </div>
+                        
+                        <div style="display: flex; gap: 15px; margin-bottom: 20px;">
+                            <div style="flex: 1;">
+                                <label style="display: block; margin-bottom: 5px; font-weight: 500; color: var(--act-soil);">Duration:</label>
+                                <input type="text" id="edit-video-duration" value="${video.duration || ''}" placeholder="e.g., 5:30"
+                                       style="width: 100%; padding: 10px; border: 2px solid #ddd; border-radius: 8px;">
+                            </div>
+                            <div style="flex: 1;">
+                                <label style="display: block; margin-bottom: 5px; font-weight: 500; color: var(--act-soil);">Date:</label>
+                                <input type="date" id="edit-video-date" value="${video.date || ''}"
+                                       style="width: 100%; padding: 10px; border: 2px solid #ddd; border-radius: 8px;">
+                            </div>
+                        </div>
+                        
+                        <div style="display: flex; gap: 10px;">
+                            <button type="submit" style="flex: 1; padding: 12px; background: var(--act-seedling); color: white; border: none; border-radius: 8px; font-weight: 500; cursor: pointer;">
+                                💾 Save Changes
+                            </button>
+                            <button type="button" onclick="this.closest('.modal').remove()" style="flex: 1; padding: 12px; background: #666; color: white; border: none; border-radius: 8px; cursor: pointer;">
+                                Cancel
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            `;
+            
+            modal.className = 'modal';
+            document.body.appendChild(modal);
+            
+            // Handle form submission
+            document.getElementById('edit-video-form').addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                const title = document.getElementById('edit-video-title').value.trim();
+                const description = document.getElementById('edit-video-description').value.trim();
+                const duration = document.getElementById('edit-video-duration').value.trim();
+                const date = document.getElementById('edit-video-date').value;
+                
+                if (!title) {
+                    alert('Title is required');
+                    return;
+                }
+                
+                try {
+                    const response = await fetch(`/admin/videos/update/${videoId}`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ title, description, duration, date })
+                    });
+                    
+                    const result = await response.json();
+                    
+                    if (result.success) {
+                        showMessage('success', '✅ Video story updated successfully!');
+                        modal.remove();
+                        loadVideos();
+                    } else {
+                        throw new Error(result.message || 'Failed to update video');
+                    }
+                } catch (error) {
+                    console.error('Error updating video:', error);
+                    showMessage('error', `❌ Error: ${error.message}`);
+                }
+            });
+        })
+        .catch(error => {
+            console.error('Error loading video for edit:', error);
+            showMessage('error', '❌ Error loading video details');
+        });
+}
+
+async function deleteVideo(videoId) {
+    if (!confirm('Are you sure you want to remove this video story from the garden?')) {
+        return;
+    }
+    
+    try {
+        const response = await fetch(`/admin/videos/${videoId}`, {
+            method: 'DELETE'
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+            showMessage('success', '✅ Video story removed successfully.');
+            loadVideos(); // Refresh the grid
+        } else {
+            throw new Error(result.error || 'Failed to delete video');
+        }
+        
+    } catch (error) {
+        console.error('Video delete error:', error);
+        showMessage('error', `❌ Error: ${error.message}`);
+    }
+}
+</script> 

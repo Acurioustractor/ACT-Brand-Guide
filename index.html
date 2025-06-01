@@ -1,0 +1,1435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Curious Tractor - Brand Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            /* Primary Palette */
+            --act-soil: #6B4226;
+            --act-seedling: #7CB342;
+            --act-sunrise: #FF6B35;
+            --act-charcoal: #2C3E50;
+            --act-cream: #FFF8E7;
+            
+            /* Secondary Palette */
+            --act-empathy: #E91E63;
+            --act-justice: #3F51B5;
+            --act-innovation: #9C27B0;
+            --act-resilience: #009688;
+            
+            /* Supporting Colors */
+            --act-autumn: #D84315;
+            --act-spring: #8BC34A;
+            --act-winter: #607D8B;
+            --act-summer: #FDD835;
+            
+            /* Typography */
+            --font-heading: Georgia, 'Times New Roman', serif;
+            --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            --font-mono: 'Courier New', Courier, monospace;
+        }
+        
+        body {
+            font-family: var(--font-body);
+            line-height: 1.6;
+            color: var(--act-charcoal);
+            background: white;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+        
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-content {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-family: var(--font-heading);
+            font-size: 1.5em;
+            color: var(--act-soil);
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: var(--act-charcoal);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: var(--act-seedling);
+        }
+        
+        .nav-links a.active {
+            color: var(--act-seedling);
+        }
+        
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--act-seedling);
+        }
+        
+        /* Main Content */
+        main {
+            margin-top: 80px;
+        }
+        
+        section {
+            padding: 80px 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: var(--font-heading);
+            color: var(--act-soil);
+            margin-bottom: 20px;
+        }
+        
+        h1 { font-size: 3em; }
+        h2 { font-size: 2.2em; margin-top: 40px; }
+        h3 { font-size: 1.5em; margin-top: 30px; }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--act-cream) 0%, white 50%, #f8f9fa 100%);
+            text-align: center;
+            padding: 120px 20px 100px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" opacity="0.03"><rect width="60" height="60" fill="none"/><path d="M30 10l10 10-10 10-10-10z" fill="%236B4226"/></svg>');
+            background-size: 60px 60px;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            margin-bottom: 20px;
+            font-size: 3.5em;
+        }
+        
+        .tagline {
+            font-size: 1.4em;
+            color: var(--act-seedling);
+            font-style: italic;
+            margin-bottom: 30px;
+        }
+        
+        .hero-description {
+            font-size: 1.2em;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+        
+        /* Project Cards */
+        .projects-section {
+            background: #f8f9fa;
+        }
+        
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .project-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 48px rgba(0,0,0,0.12);
+        }
+        
+        .project-image {
+            height: 200px;
+            background: linear-gradient(135deg, var(--act-seedling), var(--act-soil));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3em;
+            position: relative;
+        }
+        
+        .project-status {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(255,255,255,0.9);
+            color: var(--act-soil);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: 600;
+        }
+        
+        .project-info {
+            padding: 25px;
+        }
+        
+        .project-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: var(--act-soil);
+        }
+        
+        .project-description {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .project-impact {
+            background: var(--act-cream);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .project-impact strong {
+            color: var(--act-seedling);
+        }
+        
+        .project-links {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .project-link {
+            background: var(--act-seedling);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.9em;
+            font-weight: 500;
+            transition: background 0.3s ease;
+        }
+        
+        .project-link:hover {
+            background: var(--act-soil);
+        }
+        
+        .project-link.secondary {
+            background: transparent;
+            color: var(--act-seedling);
+            border: 2px solid var(--act-seedling);
+        }
+        
+        .project-link.secondary:hover {
+            background: var(--act-seedling);
+            color: white;
+        }
+        
+        /* Color Palette Section */
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .color-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .color-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 16px 48px rgba(0,0,0,0.12);
+        }
+        
+        .color-swatch {
+            height: 150px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+        
+        .color-info {
+            padding: 25px;
+        }
+        
+        .color-name {
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-bottom: 5px;
+            color: var(--act-soil);
+        }
+        
+        .color-hex {
+            font-family: var(--font-mono);
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+        
+        .copy-feedback {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--act-seedling);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 8px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+        }
+        
+        .copy-feedback.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Loading Animation */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 1s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.5em;
+            }
+            
+            .tagline {
+                font-size: 1.2em;
+            }
+            
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="nav-content">
+                <a href="#home" class="nav-logo">
+                    <img src="./assets/logo/act-logo-horizontal.png" alt="A Curious Tractor Logo" style="height: 50px; width: auto;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div style="display: none; align-items: center; gap: 15px;">
+                        <svg width="40" height="40" viewBox="0 0 80 80">
+                            <g transform="translate(40, 40)">
+                                <path d="M-20,-10 L-20,7 L-13,7 L-13,13 L13,13 L13,7 L17,7 L17,-7 L10,-7 L10,-13 L-10,-13 L-10,-10 Z" 
+                                      fill="#6B4226"/>
+                                <circle cx="-11" cy="17" r="7" fill="#2C3E50"/>
+                                <circle cx="11" cy="17" r="9" fill="#2C3E50"/>
+                                <rect x="17" y="-2" width="20" height="4" fill="#FF6B35"/>
+                                <circle cx="42" cy="0" r="3" fill="none" stroke="#FF6B35" stroke-width="2"/>
+                                <circle cx="55" cy="0" r="12" fill="#7CB342" opacity="0.8"/>
+                                <circle cx="70" cy="-8" r="9" fill="#7CB342" opacity="0.9"/>
+                                <circle cx="85" cy="-3" r="11" fill="#7CB342"/>
+                            </g>
+                        </svg>
+                        <span style="font-family: Georgia; font-size: 18px; color: #6B4226;">A Curious Tractor</span>
+                    </div>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#mission">How We Work</a></li>
+                    <li><a href="#platforms">Flagship Platforms</a></li>
+                    <li><a href="#projects">Current Projects</a></li>
+                    <li><a href="#logo">Brand Guide</a></li>
+                    <li><a href="#colors">Colors</a></li>
+                    <li><a href="#voice">Voice</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <main>
+        <section class="hero" id="home">
+            <div class="container">
+                <div class="hero-content">
+                    <div style="margin-bottom: 40px;">
+                        <img id="heroLogo" src="./assets/logo/act-logo-horizontal.png" alt="A Curious Tractor Logo" style="height: 160px; width: auto; margin-bottom: 20px;" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 600 200\'%3E%3Cg transform=\'translate(50, 100)\'%3E%3C!-- Tractor body --%3E%3Cpath d=\'M0,0 L0,30 L15,30 L15,50 L70,50 L70,30 L85,30 L85,-30 L55,-30 L55,-50 L25,-50 L25,0 Z\' fill=\'%236B4226\'/%3E%3C!-- Wheels --%3E%3Ccircle cx=\'20\' cy=\'65\' r=\'20\' fill=\'%232C3E50\'/%3E%3Ccircle cx=\'20\' cy=\'65\' r=\'12\' fill=\'none\' stroke=\'white\' stroke-width=\'2\'/%3E%3Ccircle cx=\'65\' cy=\'65\' r=\'28\' fill=\'%232C3E50\'/%3E%3Ccircle cx=\'65\' cy=\'65\' r=\'18\' fill=\'none\' stroke=\'white\' stroke-width=\'2\'/%3E%3C!-- PTO shaft --%3E%3Crect x=\'85\' y=\'-5\' width=\'40\' height=\'10\' fill=\'%23FF6B35\'/%3E%3Ccircle cx=\'130\' cy=\'0\' r=\'8\' fill=\'none\' stroke=\'%23FF6B35\' stroke-width=\'3\'/%3E%3C!-- Growth elements --%3E%3Ccircle cx=\'180\' cy=\'0\' r=\'35\' fill=\'%237CB342\' opacity=\'0.8\'/%3E%3Ccircle cx=\'220\' cy=\'-20\' r=\'28\' fill=\'%237CB342\' opacity=\'0.9\'/%3E%3Ccircle cx=\'260\' cy=\'-10\' r=\'32\' fill=\'%237CB342\'/%3E%3C/g%3E%3Ctext x=\'50\' y=\'170\' font-family=\'Georgia, serif\' font-size=\'28\' fill=\'%236B4226\'%3Ea curious tractor%3C/text%3E%3C/svg%3E';">
+                    </div>
+                    <h1>A Curious Tractor</h1>
+                    <p class="tagline">Dismantling extractive systems through regenerative innovation</p>
+                    <p class="hero-description">
+                        We're a regenerative innovation ecosystem partnering with marginalized—especially First Nations—communities 
+                        to build solutions that keep social, cultural, environmental, and economic value in community hands. 
+                        Like a tractor's power take-off, we transfer capacity to community-led initiatives. 
+                        <strong>We don't drive the tractor—we hand over the keys.</strong>
+                    </p>
+                    
+                    <!-- Key Stats/Impact -->
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 30px; margin-top: 40px; max-width: 600px; margin-left: auto; margin-right: auto;">
+                        <div style="text-align: center;">
+                            <div style="font-size: 2.5em; font-weight: bold; color: var(--act-seedling); margin-bottom: 5px;">4</div>
+                            <div style="color: var(--act-charcoal); font-weight: 500;">Flagship Platforms</div>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="font-size: 2.5em; font-weight: bold; color: var(--act-sunrise); margin-bottom: 5px;">53ha</div>
+                            <div style="color: var(--act-charcoal); font-weight: 500;">Regenerative Land</div>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="font-size: 2.5em; font-weight: bold; color: var(--act-empathy); margin-bottom: 5px;">100+</div>
+                            <div style="color: var(--act-charcoal); font-weight: 500;">Community Partners</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Mission & Values -->
+        <section id="mission" style="background: var(--act-cream);">
+            <div class="container">
+                <h2>How We Work: Listen → Curiosity → Action → Art</h2>
+                <p style="font-size: 1.3em; line-height: 1.8; margin-bottom: 30px; text-align: center; max-width: 900px; margin-left: auto; margin-right: auto;">
+                    ACT blends <strong>deep listening, co-design, storytelling, and technology</strong> with place-based enterprise 
+                    so that communities own their narratives, land, and economic futures. Every tool we build comes with 
+                    <strong>sunset clauses and "forkable" IP</strong>—communities can take full ownership when they're ready.
+                </p>
+                
+                <!-- Methodology Grid -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; margin-top: 60px; margin-bottom: 60px;">
+                    <div style="background: white; padding: 40px; border-radius: 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.05);">
+                        <div style="font-size: 3em; margin-bottom: 20px; color: var(--act-empathy);">◑</div>
+                        <h3 style="color: var(--act-empathy);">Listen</h3>
+                        <p>We sit in silence to take in knowledge, respecting unique perspectives and ancestral wisdom. Every community has solutions within it—our role is to amplify, not impose.</p>
+                    </div>
+                    <div style="background: white; padding: 40px; border-radius: 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.05);">
+                        <div style="font-size: 3em; margin-bottom: 20px; color: var(--act-justice);">◈</div>
+                        <h3 style="color: var(--act-justice);">Curiosity</h3>
+                        <p>We think deeply, challenge assumptions, and embrace the unknown with open minds. Questions are more powerful than answers. What if extraction wasn't the only way?</p>
+                    </div>
+                    <div style="background: white; padding: 40px; border-radius: 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.05);">
+                        <div style="font-size: 3em; margin-bottom: 20px; color: var(--act-innovation);">◆</div>
+                        <h3 style="color: var(--act-innovation);">Action</h3>
+                        <p>We are makers who play and take chances, radically prototyping to form seedlings that can grow into forests of change. Innovation happens through doing, together.</p>
+                    </div>
+                    <div style="background: white; padding: 40px; border-radius: 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.05);">
+                        <div style="font-size: 3em; margin-bottom: 20px; color: var(--act-seedling);">◉</div>
+                        <h3 style="color: var(--act-resilience);">Art</h3>
+                        <p>We recognize art as the first form of revolution, challenging the status quo and imagining new possibilities. Creativity disrupts extraction, story shapes systems.</p>
+                    </div>
+                </div>
+                
+                <!-- Core Principles -->
+                <div style="background: white; padding: 50px; border-radius: 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.05);">
+                    <h3 style="text-align: center; margin-bottom: 40px; color: var(--act-soil);">Our Principles</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+                        <div style="text-align: center; padding: 20px;">
+                            <h4 style="color: var(--act-seedling); margin-bottom: 15px;"><span style="color: var(--act-seedling);">◆</span> Design for Obsolescence</h4>
+                            <p style="color: #666;">Every tool has a sunset plan transferring ownership to community. Success means being no longer needed.</p>
+                        </div>
+                        <div style="text-align: center; padding: 20px;">
+                            <h4 style="color: var(--act-sunrise); margin-bottom: 15px;"><span style="color: var(--act-sunrise);">→</span> Bridge, Not Savior</h4>
+                            <p style="color: #666;">We provide plug-and-play capacity-building, then step back as local capacity grows. No permanent dependency.</p>
+                        </div>
+                        <div style="text-align: center; padding: 20px;">
+                            <h4 style="color: var(--act-empathy); margin-bottom: 15px;"><span style="color: var(--act-empathy);">◎</span> Joy Assessments</h4>
+                            <p style="color: #666;">We measure impact through both quantitative data and qualitative "joy"—agency, dignity, and community wellbeing.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Flagship Platforms -->
+        <section id="platforms" style="background: white; padding: 80px 20px;">
+            <div class="container">
+                <h2>Flagship Platforms</h2>
+                <p style="font-size: 1.2em; margin-bottom: 50px; text-align: center; max-width: 800px; margin: 0 auto 50px;">
+                    Four interconnected platforms demonstrating regenerative innovation in action—each designed 
+                    to be owned and governed by the communities they serve.
+                </p>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;">
+                    <!-- Empathy Ledger -->
+                    <div style="background: linear-gradient(135deg, var(--act-empathy), #c2185b); color: white; padding: 40px; border-radius: 16px; position: relative; overflow: hidden;">
+                        <div style="position: absolute; top: 20px; right: 20px; font-size: 2em; opacity: 0.3; color: white;">◎</div>
+                        <h3 style="color: white; margin-bottom: 20px;">Empathy Ledger</h3>
+                        <p style="margin-bottom: 25px; line-height: 1.6;">
+                            Ethical storytelling platform using consent frameworks and blockchain so storytellers 
+                            retain control and share in any value created from their narratives.
+                        </p>
+                        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                            <span style="background: rgba(255,255,255,0.2); padding: 5px 12px; border-radius: 15px; font-size: 0.9em;">Narrative Sovereignty</span>
+                            <span style="background: rgba(255,255,255,0.2); padding: 5px 12px; border-radius: 15px; font-size: 0.9em;">Ethical IP</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Black Cockatoo Valley -->
+                    <div style="background: linear-gradient(135deg, var(--act-seedling), #689f38); color: white; padding: 40px; border-radius: 16px; position: relative; overflow: hidden;">
+                        <div style="position: absolute; top: 20px; right: 20px; font-size: 2em; opacity: 0.3; color: white;">◯</div>
+                        <h3 style="color: white; margin-bottom: 20px;">Black Cockatoo Valley</h3>
+                        <p style="margin-bottom: 25px; line-height: 1.6;">
+                            53ha Sunshine Coast regeneration estate combining eco-cottages, Indigenous land-care jobs, 
+                            and biodiversity credits to finance habitat restoration.
+                        </p>
+                        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                            <span style="background: rgba(255,255,255,0.2); padding: 5px 12px; border-radius: 15px; font-size: 0.9em;">Conservation</span>
+                            <span style="background: rgba(255,255,255,0.2); padding: 5px 12px; border-radius: 15px; font-size: 0.9em;">Employment</span>
+                            <span style="background: rgba(255,255,255,0.2); padding: 5px 12px; border-radius: 15px; font-size: 0.9em;">Regeneration</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Goods -->
+                    <div style="background: linear-gradient(135deg, var(--act-sunrise), #f4511e); color: white; padding: 40px; border-radius: 16px; position: relative; overflow: hidden;">
+                        <div style="position: absolute; top: 20px; right: 20px; font-size: 2em; opacity: 0.3; color: white;">⬢</div>
+                        <h3 style="color: white; margin-bottom: 20px;">Goods</h3>
+                        <p style="margin-bottom: 25px; line-height: 1.6;">
+                            Circular-economy venture co-designing beds, mattresses, and washing machines for remote communities 
+                            while converting local waste into feedstock.
+                        </p>
+                        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                            <span style="background: rgba(255,255,255,0.2); padding: 5px 12px; border-radius: 15px; font-size: 0.9em;">Circular Economy</span>
+                            <span style="background: rgba(255,255,255,0.2); padding: 5px 12px; border-radius: 15px; font-size: 0.9em;">Manufacturing</span>
+                        </div>
+                    </div>
+                    
+                    <!-- JusticeHub -->
+                    <div style="background: linear-gradient(135deg, var(--act-justice), #303f9f); color: white; padding: 40px; border-radius: 16px; position: relative; overflow: hidden;">
+                        <div style="position: absolute; top: 20px; right: 20px; font-size: 2em; opacity: 0.3; color: white;">◊</div>
+                        <h3 style="color: white; margin-bottom: 20px;">JusticeHub</h3>
+                        <p style="margin-bottom: 25px; line-height: 1.6;">
+                            Open-source network where grassroots justice programs "fork" proven models, access AI-generated insights, 
+                            and co-create culturally aligned governance templates.
+                        </p>
+                        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                            <span style="background: rgba(255,255,255,0.2); padding: 5px 12px; border-radius: 15px; font-size: 0.9em;">Open Source</span>
+                            <span style="background: rgba(255,255,255,0.2); padding: 5px 12px; border-radius: 15px; font-size: 0.9em;">Justice Reform</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Connection Statement -->
+                <div style="text-align: center; margin-top: 60px; padding: 40px; background: var(--act-cream); border-radius: 16px;">
+                    <h4 style="color: var(--act-soil); margin-bottom: 20px;">Connected Impact</h4>
+                    <p style="color: #666; max-width: 700px; margin: 0 auto; line-height: 1.7;">
+                        These platforms don't operate in isolation—they form an ecosystem. Conservation work provides employment 
+                        for people exiting justice systems. Storytelling platforms generate revenue while protecting community knowledge. 
+                        Manufacturing creates local jobs while addressing real needs. Each element strengthens the others.
+                    </p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Current Projects -->
+        <section id="projects" class="projects-section">
+            <div class="container">
+                <h2>Current Projects & Seeds</h2>
+                <p style="font-size: 1.2em; margin-bottom: 20px;">
+                    These are the initiatives we're currently supporting and cultivating. Each represents a unique approach to community-led change.
+                </p>
+                
+                <div id="projectsContainer" class="project-grid">
+                    <!-- Projects will be loaded here via API -->
+                    <div style="grid-column: 1/-1; text-align: center; padding: 60px;">
+                        <div class="loading"></div>
+                        <p style="margin-top: 20px; color: #666;">Loading current projects...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Logo Guidelines -->
+        <section id="logo">
+            <div class="container">
+                <h2>Logo & Visual Identity</h2>
+                <p style="font-size: 1.2em; margin-bottom: 50px;">
+                    Our logo tells the story of A Curious Tractor: the transfer of power from tractor to community, 
+                    with growth emerging from purposeful action.
+                </p>
+                
+                <!-- Primary Logo -->
+                <div style="background: white; padding: 60px; border-radius: 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.08); margin-bottom: 50px; text-align: center;">
+                    <h3 style="margin-bottom: 40px;">Primary Logo</h3>
+                    <img src="./assets/logo/act-logo-horizontal.png" alt="A Curious Tractor Primary Logo" style="height: 180px; width: auto;" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 600 200\'%3E%3Cg transform=\'translate(50, 100)\'%3E%3C!-- Tractor body --%3E%3Cpath d=\'M0,0 L0,30 L15,30 L15,50 L70,50 L70,30 L85,30 L85,-30 L55,-30 L55,-50 L25,-50 L25,0 Z\' fill=\'%236B4226\'/%3E%3C!-- Wheels --%3E%3Ccircle cx=\'20\' cy=\'65\' r=\'20\' fill=\'%232C3E50\'/%3E%3Ccircle cx=\'20\' cy=\'65\' r=\'12\' fill=\'none\' stroke=\'white\' stroke-width=\'2\'/%3E%3Ccircle cx=\'65\' cy=\'65\' r=\'28\' fill=\'%232C3E50\'/%3E%3Ccircle cx=\'65\' cy=\'65\' r=\'18\' fill=\'none\' stroke=\'white\' stroke-width=\'2\'/%3E%3C!-- PTO shaft --%3E%3Crect x=\'85\' y=\'-5\' width=\'40\' height=\'10\' fill=\'%23FF6B35\'/%3E%3Ccircle cx=\'130\' cy=\'0\' r=\'8\' fill=\'none\' stroke=\'%23FF6B35\' stroke-width=\'3\'/%3E%3C!-- Growth elements --%3E%3Ccircle cx=\'180\' cy=\'0\' r=\'35\' fill=\'%237CB342\' opacity=\'0.8\'/%3E%3Ccircle cx=\'220\' cy=\'-20\' r=\'28\' fill=\'%237CB342\' opacity=\'0.9\'/%3E%3Ccircle cx=\'260\' cy=\'-10\' r=\'32\' fill=\'%237CB342\'/%3E%3C/g%3E%3Ctext x=\'50\' y=\'170\' font-family=\'Georgia, serif\' font-size=\'28\' fill=\'%236B4226\'%3Ea curious tractor%3C/text%3E%3C/svg%3E';">
+                </div>
+                
+                <!-- Logo Breakdown -->
+                <div style="margin-bottom: 60px;">
+                    <h3>Logo Elements</h3>
+                    <p style="margin-bottom: 30px; color: #666;">Your ACT logo beautifully combines three key elements that tell the story of community-powered change:</p>
+                    
+                    <!-- Full Logo Breakdown -->
+                    <div style="background: white; padding: 40px; border-radius: 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.05); margin-bottom: 40px; text-align: center;">
+                        <h4 style="margin-bottom: 30px;">Complete Logo Elements</h4>
+                        <img src="./assets/logo/act-logo-horizontal.png" alt="Complete ACT Logo" style="height: 120px; width: auto; margin-bottom: 20px;" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 600 200\'%3E%3Cg transform=\'translate(50, 100)\'%3E%3Cpath d=\'M0,0 L0,30 L15,30 L15,50 L70,50 L70,30 L85,30 L85,-30 L55,-30 L55,-50 L25,-50 L25,0 Z\' fill=\'%236B4226\'/%3E%3Ccircle cx=\'20\' cy=\'65\' r=\'20\' fill=\'%232C3E50\'/%3E%3Ccircle cx=\'65\' cy=\'65\' r=\'28\' fill=\'%232C3E50\'/%3E%3Crect x=\'85\' y=\'-5\' width=\'40\' height=\'10\' fill=\'%23FF6B35\'/%3E%3Ccircle cx=\'130\' cy=\'0\' r=\'8\' fill=\'none\' stroke=\'%23FF6B35\' stroke-width=\'3\'/%3E%3Ccircle cx=\'180\' cy=\'0\' r=\'35\' fill=\'%237CB342\' opacity=\'0.8\'/%3E%3Ccircle cx=\'220\' cy=\'-20\' r=\'28\' fill=\'%237CB342\' opacity=\'0.9\'/%3E%3Ccircle cx=\'260\' cy=\'-10\' r=\'32\' fill=\'%237CB342\'/%3E%3C/g%3E%3Ctext x=\'50\' y=\'170\' font-family=\'Georgia, serif\' font-size=\'28\' fill=\'%236B4226\'%3Ea curious tractor%3C/text%3E%3C/svg%3E';">
+                        <p style="color: #666; font-size: 0.9em;">Brown tractor (foundation) + Orange PTO (energy transfer) + Green growth circles (expanding impact)</p>
+                    </div>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin-top: 40px;">
+                        <div style="background: white; padding: 30px; border-radius: 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.05);">
+                            <div style="text-align: center; margin-bottom: 20px;">
+                                <svg width="160" height="100" viewBox="0 0 160 100">
+                                    <g transform="translate(30, 50)">
+                                        <path d="M0,0 L0,25 L12,25 L12,40 L60,40 L60,25 L75,25 L75,-25 L50,-25 L50,-40 L25,-40 L25,0 Z" fill="#6B4226"/>
+                                        <circle cx="18" cy="50" r="18" fill="#2C3E50"/>
+                                        <circle cx="18" cy="50" r="12" fill="none" stroke="white" stroke-width="2"/>
+                                        <circle cx="55" cy="50" r="24" fill="#2C3E50"/>
+                                        <circle cx="55" cy="50" r="16" fill="none" stroke="white" stroke-width="2"/>
+                                    </g>
+                                </svg>
+                            </div>
+                            <h4 style="color: var(--act-soil);">The Tractor</h4>
+                            <p style="font-size: 0.9em; color: #666;">Represents the foundation, reliability, and power needed to create change. The solid base that supports all growth. Colored in our Soil brown (#6B4226).</p>
+                        </div>
+                        
+                        <div style="background: white; padding: 30px; border-radius: 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.05);">
+                            <div style="text-align: center; margin-bottom: 20px;">
+                                <svg width="160" height="100" viewBox="0 0 160 100">
+                                    <g transform="translate(80, 50)">
+                                        <rect x="-20" y="-4" width="40" height="8" fill="#FF6B35"/>
+                                        <circle cx="25" cy="0" r="8" fill="none" stroke="#FF6B35" stroke-width="3"/>
+                                        <circle cx="25" cy="0" r="3" fill="#FF6B35"/>
+                                    </g>
+                                </svg>
+                            </div>
+                            <h4 style="color: var(--act-sunrise);">Power Take-Off (PTO)</h4>
+                            <p style="font-size: 0.9em; color: #666;">The critical connecting element that transfers energy and power from the tractor to community initiatives. This is where the magic happens. Colored in our Sunrise orange (#FF6B35).</p>
+                        </div>
+                        
+                        <div style="background: white; padding: 30px; border-radius: 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.05);">
+                            <div style="text-align: center; margin-bottom: 20px;">
+                                <svg width="160" height="100" viewBox="0 0 160 100">
+                                    <g transform="translate(80, 50)">
+                                        <circle cx="-30" cy="0" r="28" fill="#7CB342" opacity="0.8"/>
+                                        <circle cx="5" cy="-18" r="22" fill="#7CB342" opacity="0.9"/>
+                                        <circle cx="35" cy="-8" r="25" fill="#7CB342"/>
+                                    </g>
+                                </svg>
+                            </div>
+                            <h4 style="color: var(--act-seedling);">Growth Circles</h4>
+                            <p style="font-size: 0.9em; color: #666;">Represent the expanding impact and organic growth that emerges from community-led initiatives. Each circle represents communities flourishing. Colored in our Seedling green (#7CB342).</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Logo Variations -->
+                <div style="margin-bottom: 60px;">
+                    <h3>Logo Variations</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; margin-top: 40px;">
+                        
+                        <!-- Horizontal Version -->
+                        <div style="background: white; padding: 40px; border-radius: 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.05);">
+                            <h4 style="margin-bottom: 20px;">Horizontal (Primary)</h4>
+                            <div style="text-align: center; margin-bottom: 20px;">
+                                <img src="./assets/logo/act-logo-horizontal.png" alt="Horizontal Logo" style="height: 100px; width: auto;" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 600 200\'%3E%3Cg transform=\'translate(50, 100)\'%3E%3Cpath d=\'M0,0 L0,30 L15,30 L15,50 L70,50 L70,30 L85,30 L85,-30 L55,-30 L55,-50 L25,-50 L25,0 Z\' fill=\'%236B4226\'/%3E%3Ccircle cx=\'20\' cy=\'65\' r=\'20\' fill=\'%232C3E50\'/%3E%3Ccircle cx=\'65\' cy=\'65\' r=\'28\' fill=\'%232C3E50\'/%3E%3Crect x=\'85\' y=\'-5\' width=\'40\' height=\'10\' fill=\'%23FF6B35\'/%3E%3Ccircle cx=\'130\' cy=\'0\' r=\'8\' fill=\'none\' stroke=\'%23FF6B35\' stroke-width=\'3\'/%3E%3Ccircle cx=\'180\' cy=\'0\' r=\'35\' fill=\'%237CB342\' opacity=\'0.8\'/%3E%3Ccircle cx=\'220\' cy=\'-20\' r=\'28\' fill=\'%237CB342\' opacity=\'0.9\'/%3E%3Ccircle cx=\'260\' cy=\'-10\' r=\'32\' fill=\'%237CB342\'/%3E%3C/g%3E%3Ctext x=\'50\' y=\'170\' font-family=\'Georgia, serif\' font-size=\'28\' fill=\'%236B4226\'%3Ea curious tractor%3C/text%3E%3C/svg%3E';">
+                            </div>
+                            <p style="font-size: 0.9em; color: #666;">Best for headers, business cards, and wide layouts. This is your primary logo version.</p>
+                        </div>
+                        
+                        <!-- Stacked Version -->
+                        <div style="background: white; padding: 40px; border-radius: 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.05);">
+                            <h4 style="margin-bottom: 20px;">Stacked (Vertical)</h4>
+                            <div style="text-align: center; margin-bottom: 20px;">
+                                <img src="./assets/logo/act-logo-stacked.png" alt="Stacked Logo" style="height: 140px; width: auto;" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 350 300\'%3E%3Cg transform=\'translate(175, 120)\'%3E%3Cpath d=\'M-35,0 L-35,20 L-25,20 L-25,30 L25,30 L25,20 L35,20 L35,-20 L15,-20 L15,-30 L-15,-30 L-15,0 Z\' fill=\'%236B4226\'/%3E%3Ccircle cx=\'-20\' cy=\'40\' r=\'15\' fill=\'%232C3E50\'/%3E%3Ccircle cx=\'20\' cy=\'40\' r=\'18\' fill=\'%232C3E50\'/%3E%3Crect x=\'35\' y=\'-3\' width=\'25\' height=\'6\' fill=\'%23FF6B35\'/%3E%3Ccircle cx=\'65\' cy=\'0\' r=\'5\' fill=\'none\' stroke=\'%23FF6B35\' stroke-width=\'2\'/%3E%3Ccircle cx=\'90\' cy=\'0\' r=\'20\' fill=\'%237CB342\' opacity=\'0.8\'/%3E%3Ccircle cx=\'115\' cy=\'-10\' r=\'15\' fill=\'%237CB342\' opacity=\'0.9\'/%3E%3Ccircle cx=\'130\' cy=\'-5\' r=\'18\' fill=\'%237CB342\'/%3E%3C/g%3E%3Ctext x=\'175\' y=\'220\' font-family=\'Georgia, serif\' font-size=\'20\' text-anchor=\'middle\' fill=\'%236B4226\'%3Ea curious%3C/text%3E%3Ctext x=\'175\' y=\'245\' font-family=\'Georgia, serif\' font-size=\'20\' text-anchor=\'middle\' fill=\'%236B4226\'%3Etractor%3C/text%3E%3C/svg%3E';">
+                            </div>
+                            <p style="font-size: 0.9em; color: #666;">Perfect for social media profiles, app icons, and square layouts.</p>
+                        </div>
+                        
+                        <!-- Icon Only -->
+                        <div style="background: white; padding: 40px; border-radius: 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.05);">
+                            <h4 style="margin-bottom: 20px;">Icon Only</h4>
+                            <div style="text-align: center; margin-bottom: 20px;">
+                                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 150'%3E%3Cg transform='translate(50, 75)'%3E%3Cpath d='M0,0 L0,20 L10,20 L10,30 L50,30 L50,20 L60,20 L60,-20 L40,-20 L40,-30 L20,-30 L20,0 Z' fill='%236B4226'/%3E%3Ccircle cx='15' cy='40' r='15' fill='%232C3E50'/%3E%3Ccircle cx='45' cy='40' r='18' fill='%232C3E50'/%3E%3Crect x='60' y='-3' width='30' height='6' fill='%23FF6B35'/%3E%3Ccircle cx='95' cy='0' r='6' fill='none' stroke='%23FF6B35' stroke-width='2'/%3E%3Ccircle cx='130' cy='0' r='25' fill='%237CB342' opacity='0.8'/%3E%3Ccircle cx='165' cy='-10' r='20' fill='%237CB342' opacity='0.9'/%3E%3Ccircle cx='195' cy='-5' r='22' fill='%237CB342'/%3E%3C/g%3E%3C/svg%3E" alt="Icon Logo" style="height: 60px; width: auto;">
+                            </div>
+                            <p style="font-size: 0.9em; color: #666;">For favicons, app icons, and minimal applications.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Usage Guidelines -->
+                <div style="margin-bottom: 60px;">
+                    <h3>Usage Guidelines</h3>
+                    
+                    <!-- Clear Space -->
+                    <div style="background: #f8f9fa; padding: 40px; border-radius: 16px; margin: 30px 0;">
+                        <h4 style="margin-bottom: 20px;">Clear Space</h4>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;">
+                            <div>
+                                <svg width="300" height="200" viewBox="0 0 300 200">
+                                    <!-- Guide lines -->
+                                    <rect x="50" y="50" width="200" height="100" fill="none" stroke="#ddd" stroke-width="1" stroke-dasharray="5,5"/>
+                                    
+                                    <!-- Logo -->
+                                    <g transform="translate(150, 100) scale(0.7)">
+                                        <path d="M-35,0 L-35,20 L-25,20 L-25,30 L25,30 L25,20 L35,20 L35,-20 L15,-20 L15,-30 L-15,-30 L-15,0 Z" fill="#6B4226"/>
+                                        <circle cx="-20" cy="40" r="15" fill="#2C3E50"/>
+                                        <circle cx="20" cy="40" r="18" fill="#2C3E50"/>
+                                        <rect x="35" y="-3" width="25" height="6" fill="#FF6B35"/>
+                                        <circle cx="65" cy="0" r="5" fill="none" stroke="#FF6B35" stroke-width="2"/>
+                                        <circle cx="90" cy="0" r="20" fill="#7CB342" opacity="0.8"/>
+                                    </g>
+                                    
+                                    <!-- Clear space indicators -->
+                                    <text x="150" y="35" text-anchor="middle" fill="#999" font-size="12">X</text>
+                                    <text x="35" y="100" text-anchor="middle" fill="#999" font-size="12">X</text>
+                                    <text x="265" y="100" text-anchor="middle" fill="#999" font-size="12">X</text>
+                                    <text x="150" y="175" text-anchor="middle" fill="#999" font-size="12">X</text>
+                                </svg>
+                            </div>
+                            <div>
+                                <p style="margin-bottom: 15px;"><strong>Minimum clear space = X</strong></p>
+                                <p style="color: #666;">Where X equals the height of the largest growth circle. This ensures the logo has breathing room and maintains its visual impact.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Size Guidelines -->
+                    <div style="background: #f8f9fa; padding: 40px; border-radius: 16px; margin: 30px 0;">
+                        <h4 style="margin-bottom: 20px;">Minimum Sizes</h4>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px;">
+                            <div style="text-align: center;">
+                                <div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 15px;">
+                                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 200'%3E%3Cg transform='translate(50, 100) scale(0.8)'%3E%3Cpath d='M0,0 L0,30 L15,30 L15,50 L70,50 L70,30 L85,30 L85,-30 L55,-30 L55,-50 L25,-50 L25,0 Z' fill='%236B4226'/%3E%3Ccircle cx='20' cy='65' r='20' fill='%232C3E50'/%3E%3Ccircle cx='65' cy='65' r='28' fill='%232C3E50'/%3E%3Crect x='85' y='-5' width='40' height='10' fill='%23FF6B35'/%3E%3Ccircle cx='180' cy='0' r='35' fill='%237CB342' opacity='0.8'/%3E%3C/g%3E%3Ctext x='50' y='170' font-family='Georgia, serif' font-size='28' fill='%236B4226'%3Ea curious tractor%3C/text%3E%3C/svg%3E" alt="Print minimum" style="height: 40px; width: auto;">
+                                </div>
+                                <p><strong>Print:</strong> 40mm wide</p>
+                                <p style="font-size: 0.9em; color: #666;">Business cards, letterhead</p>
+                            </div>
+                            
+                            <div style="text-align: center;">
+                                <div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 15px;">
+                                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 200'%3E%3Cg transform='translate(50, 100) scale(0.6)'%3E%3Cpath d='M0,0 L0,30 L15,30 L15,50 L70,50 L70,30 L85,30 L85,-30 L55,-30 L55,-50 L25,-50 L25,0 Z' fill='%236B4226'/%3E%3Ccircle cx='20' cy='65' r='20' fill='%232C3E50'/%3E%3Ccircle cx='65' cy='65' r='28' fill='%232C3E50'/%3E%3Crect x='85' y='-5' width='40' height='10' fill='%23FF6B35'/%3E%3Ccircle cx='180' cy='0' r='35' fill='%237CB342' opacity='0.8'/%3E%3C/g%3E%3Ctext x='50' y='170' font-family='Georgia, serif' font-size='28' fill='%236B4226'%3Ea curious tractor%3C/text%3E%3C/svg%3E" alt="Digital minimum" style="height: 32px; width: auto;">
+                                </div>
+                                <p><strong>Digital:</strong> 180px wide</p>
+                                <p style="font-size: 0.9em; color: #666;">Website headers, emails</p>
+                            </div>
+                            
+                            <div style="text-align: center;">
+                                <div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 15px; display: flex; justify-content: center; align-items: center;">
+                                    <div style="width: 24px; height: 24px; background: #f0f0f0; border: 1px solid #ddd; display: flex; align-items: center; justify-content: center;">
+                                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 150'%3E%3Cg transform='translate(50, 75) scale(0.8)'%3E%3Cpath d='M0,0 L0,20 L10,20 L10,30 L50,30 L50,20 L60,20 L60,-20 L40,-20 L40,-30 L20,-30 L20,0 Z' fill='%236B4226'/%3E%3Ccircle cx='15' cy='40' r='15' fill='%232C3E50'/%3E%3Ccircle cx='45' cy='40' r='18' fill='%232C3E50'/%3E%3Crect x='60' y='-3' width='30' height='6' fill='%23FF6B35'/%3E%3Ccircle cx='130' cy='0' r='25' fill='%237CB342' opacity='0.8'/%3E%3C/g%3E%3C/svg%3E" alt="Favicon" style="width: 16px; height: 16px;">
+                                    </div>
+                                </div>
+                                <p><strong>Favicon:</strong> 16px</p>
+                                <p style="font-size: 0.9em; color: #666;">Browser tabs, bookmarks</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Do's and Don'ts -->
+                <div style="margin-bottom: 60px;">
+                    <h3>Do's and Don'ts</h3>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 30px;">
+                        
+                        <!-- Do's Column -->
+                        <div>
+                            <h4 style="color: var(--act-seedling); margin-bottom: 20px;">✓ Do</h4>
+                            
+                            <div style="background: #f0fdf4; border: 2px solid var(--act-seedling); padding: 25px; border-radius: 12px; margin-bottom: 20px;">
+                                <p style="margin-bottom: 10px;"><strong>Use on solid backgrounds</strong></p>
+                                <div style="display: flex; gap: 15px; align-items: center;">
+                                    <div style="background: white; padding: 10px; border-radius: 4px;">
+                                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 150'%3E%3Cg transform='translate(50, 75) scale(0.5)'%3E%3Cpath d='M0,0 L0,20 L10,20 L10,30 L50,30 L50,20 L60,20 L60,-20 L40,-20 L40,-30 L20,-30 L20,0 Z' fill='%236B4226'/%3E%3Ccircle cx='15' cy='40' r='15' fill='%232C3E50'/%3E%3Ccircle cx='130' cy='0' r='25' fill='%237CB342' opacity='0.8'/%3E%3C/g%3E%3C/svg%3E" alt="Good usage" style="height: 30px; width: auto;">
+                                    </div>
+                                    <div style="background: var(--act-cream); padding: 10px; border-radius: 4px;">
+                                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 150'%3E%3Cg transform='translate(50, 75) scale(0.5)'%3E%3Cpath d='M0,0 L0,20 L10,20 L10,30 L50,30 L50,20 L60,20 L60,-20 L40,-20 L40,-30 L20,-30 L20,0 Z' fill='%236B4226'/%3E%3Ccircle cx='15' cy='40' r='15' fill='%232C3E50'/%3E%3Ccircle cx='130' cy='0' r='25' fill='%237CB342' opacity='0.8'/%3E%3C/g%3E%3C/svg%3E" alt="Good usage" style="height: 30px; width: auto;">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div style="background: #f0fdf4; border: 2px solid var(--act-seedling); padding: 25px; border-radius: 12px; margin-bottom: 20px;">
+                                <p style="margin-bottom: 10px;"><strong>Maintain proportions</strong></p>
+                                <p style="font-size: 0.9em; color: #666;">Always scale uniformly to preserve the relationship between elements.</p>
+                            </div>
+                            
+                            <div style="background: #f0fdf4; border: 2px solid var(--act-seedling); padding: 25px; border-radius: 12px;">
+                                <p style="margin-bottom: 10px;"><strong>Use official color versions</strong></p>
+                                <p style="font-size: 0.9em; color: #666;">Stick to the provided color combinations for consistency.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Don'ts Column -->
+                        <div>
+                            <h4 style="color: #ef4444; margin-bottom: 20px;">❌ Don't</h4>
+                            
+                            <div style="background: #fef2f2; border: 2px solid #ef4444; padding: 25px; border-radius: 12px; margin-bottom: 20px;">
+                                <p style="margin-bottom: 10px;"><strong>Stretch or distort</strong></p>
+                                <div style="background: white; padding: 10px; border-radius: 4px; text-align: center;">
+                                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 120'%3E%3Cg transform='translate(50, 60) scale(2, 0.8)'%3E%3Cpath d='M0,0 L0,20 L10,20 L10,30 L50,30 L50,20 L60,20 L60,-20 L40,-20 L40,-30 L20,-30 L20,0 Z' fill='%236B4226' opacity='0.5'/%3E%3Ccircle cx='130' cy='0' r='25' fill='%237CB342' opacity='0.4'/%3E%3C/g%3E%3C/svg%3E" alt="Stretched logo" style="height: 25px; width: auto; opacity: 0.6;">
+                                </div>
+                            </div>
+                            
+                            <div style="background: #fef2f2; border: 2px solid #ef4444; padding: 25px; border-radius: 12px; margin-bottom: 20px;">
+                                <p style="margin-bottom: 10px;"><strong>Change colors arbitrarily</strong></p>
+                                <div style="background: white; padding: 10px; border-radius: 4px; text-align: center;">
+                                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 150'%3E%3Cg transform='translate(50, 75) scale(0.5)'%3E%3Cpath d='M0,0 L0,20 L10,20 L10,30 L50,30 L50,20 L60,20 L60,-20 L40,-20 L40,-30 L20,-30 L20,0 Z' fill='%23ff00ff' opacity='0.5'/%3E%3Ccircle cx='15' cy='40' r='15' fill='%2300ff00' opacity='0.5'/%3E%3Ccircle cx='130' cy='0' r='25' fill='%23ff0000' opacity='0.5'/%3E%3C/g%3E%3C/svg%3E" alt="Wrong colors" style="height: 30px; width: auto;">
+                                </div>
+                            </div>
+                            
+                            <div style="background: #fef2f2; border: 2px solid #ef4444; padding: 25px; border-radius: 12px;">
+                                <p style="margin-bottom: 10px;"><strong>Place on busy backgrounds</strong></p>
+                                <div style="background: repeating-linear-gradient(45deg, #606dbc, #606dbc 10px, #465298 10px, #465298 20px); padding: 10px; border-radius: 4px; text-align: center;">
+                                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 150'%3E%3Cg transform='translate(50, 75) scale(0.5)'%3E%3Cpath d='M0,0 L0,20 L10,20 L10,30 L50,30 L50,20 L60,20 L60,-20 L40,-20 L40,-30 L20,-30 L20,0 Z' fill='%236B4226' opacity='0.4'/%3E%3C/g%3E%3C/svg%3E" alt="Busy background" style="height: 30px; width: auto;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Download Section -->
+                <div style="background: var(--act-cream); padding: 40px; border-radius: 16px;">
+                    <h3 style="margin-bottom: 30px;">Download Logo Files</h3>
+                    <p style="margin-bottom: 30px;">Access high-resolution logo files for all your design needs:</p>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+                        <a href="#" class="download-card" style="background: white; padding: 25px; border-radius: 12px; text-decoration: none; color: var(--act-charcoal); text-align: center; transition: all 0.3s ease; box-shadow: 0 4px 16px rgba(0,0,0,0.08);" 
+                           onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)'"
+                           onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 16px rgba(0,0,0,0.08)'">
+                            <div style="font-size: 2em; margin-bottom: 10px;">📎</div>
+                            <h4>SVG Files</h4>
+                            <p style="font-size: 0.9em; color: #666;">Vector format for web and print</p>
+                        </a>
+                        
+                        <a href="#" class="download-card" style="background: white; padding: 25px; border-radius: 12px; text-decoration: none; color: var(--act-charcoal); text-align: center; transition: all 0.3s ease; box-shadow: 0 4px 16px rgba(0,0,0,0.08);"
+                           onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)'"
+                           onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 16px rgba(0,0,0,0.08)'">
+                            <div style="font-size: 2em; margin-bottom: 10px;">🖼️</div>
+                            <h4>PNG Files</h4>
+                            <p style="font-size: 0.9em; color: #666;">High-resolution with transparency</p>
+                        </a>
+                        
+                        <a href="#" class="download-card" style="background: white; padding: 25px; border-radius: 12px; text-decoration: none; color: var(--act-charcoal); text-align: center; transition: all 0.3s ease; box-shadow: 0 4px 16px rgba(0,0,0,0.08);"
+                           onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)'"
+                           onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 16px rgba(0,0,0,0.08)'">
+                            <div style="font-size: 2em; margin-bottom: 10px; color: var(--act-seedling);">◉</div>
+                            <h4>EPS Files</h4>
+                            <p style="font-size: 0.9em; color: #666;">Professional print format</p>
+                        </a>
+                        
+                        <a href="#" class="download-card" style="background: white; padding: 25px; border-radius: 12px; text-decoration: none; color: var(--act-charcoal); text-align: center; transition: all 0.3s ease; box-shadow: 0 4px 16px rgba(0,0,0,0.08);"
+                           onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 8px 24px rgba(0,0,0,0.12)'"
+                           onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 16px rgba(0,0,0,0.08)'">
+                            <div style="font-size: 2em; margin-bottom: 10px;">📦</div>
+                            <h4>Complete Package</h4>
+                            <p style="font-size: 0.9em; color: #666;">All formats and variations</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Color Palette -->
+        <section id="colors">
+            <div class="container">
+                <h2>Brand Colors</h2>
+                <p>Our color palette reflects the earth, growth, and energy of purposeful action. Click any color to copy its hex code.</p>
+                
+                <h3>Primary Colors</h3>
+                <div class="color-grid">
+                    <div class="color-card" onclick="copyColor('#6B4226', 'Soil')">
+                        <div class="color-swatch" style="background: var(--act-soil);">SOIL</div>
+                        <div class="color-info">
+                            <div class="color-name">Soil</div>
+                            <div class="color-hex">#6B4226</div>
+                            <p style="font-size: 0.9em; color: #666;">Our foundation. Rich, nurturing earth where all growth begins. Used for primary text and core brand elements.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="color-card" onclick="copyColor('#7CB342', 'Seedling')">
+                        <div class="color-swatch" style="background: var(--act-seedling);">SEEDLING</div>
+                        <div class="color-info">
+                            <div class="color-name">Seedling</div>
+                            <div class="color-hex">#7CB342</div>
+                            <p style="font-size: 0.9em; color: #666;">Growth and possibility. Fresh life emerging from the soil. Used for CTAs and positive states.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="color-card" onclick="copyColor('#FF6B35', 'Sunrise')">
+                        <div class="color-swatch" style="background: var(--act-sunrise);">SUNRISE</div>
+                        <div class="color-info">
+                            <div class="color-name">Sunrise</div>
+                            <div class="color-hex">#FF6B35</div>
+                            <p style="font-size: 0.9em; color: #666;">Energy and action. The warming light that powers growth. Used for the PTO and emphasis.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="color-card" onclick="copyColor('#2C3E50', 'Charcoal')">
+                        <div class="color-swatch" style="background: var(--act-charcoal);">CHARCOAL</div>
+                        <div class="color-info">
+                            <div class="color-name">Charcoal</div>
+                            <div class="color-hex">#2C3E50</div>
+                            <p style="font-size: 0.9em; color: #666;">Stability and depth. The nutrients that enrich the soil. Used for body text and grounding.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3 style="margin-top: 60px;">Value Colors</h3>
+                <div class="color-grid">
+                    <div class="color-card" onclick="copyColor('#E91E63', 'Empathy')">
+                        <div class="color-swatch" style="background: var(--act-empathy);">EMPATHY</div>
+                        <div class="color-info">
+                            <div class="color-name">Empathy</div>
+                            <div class="color-hex">#E91E63</div>
+                            <p style="font-size: 0.9em; color: #666;">Deep listening and emotional connection.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="color-card" onclick="copyColor('#3F51B5', 'Justice')">
+                        <div class="color-swatch" style="background: var(--act-justice);">JUSTICE</div>
+                        <div class="color-info">
+                            <div class="color-name">Justice</div>
+                            <div class="color-hex">#3F51B5</div>
+                            <p style="font-size: 0.9em; color: #666;">Fairness, equity, and systemic change.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="color-card" onclick="copyColor('#9C27B0', 'Innovation')">
+                        <div class="color-swatch" style="background: var(--act-innovation);">INNOVATION</div>
+                        <div class="color-info">
+                            <div class="color-name">Innovation</div>
+                            <div class="color-hex">#9C27B0</div>
+                            <p style="font-size: 0.9em; color: #666;">Creative problem-solving and new approaches.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="color-card" onclick="copyColor('#009688', 'Resilience')">
+                        <div class="color-swatch" style="background: var(--act-resilience);">RESILIENCE</div>
+                        <div class="color-info">
+                            <div class="color-name">Resilience</div>
+                            <div class="color-hex">#009688</div>
+                            <p style="font-size: 0.9em; color: #666;">Strength through adversity and adaptation.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Voice & Tone -->
+        <section id="voice" style="background: var(--act-cream);">
+            <div class="container">
+                <h2>Voice & Communication</h2>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin: 40px 0;">
+                    <div style="background: white; padding: 30px; border-radius: 16px; border-left: 4px solid var(--act-empathy);">
+                        <h4 style="color: var(--act-empathy); margin-bottom: 15px;">Grounded yet Visionary</h4>
+                        <p>We plant seeds today for forests tomorrow. Practical wisdom meets ambitious dreams.</p>
+                        <div style="font-style: italic; color: #666; margin-top: 15px; padding-left: 20px; border-left: 2px solid #eee;">
+                            "This partnership has deep roots in community trust."
+                        </div>
+                    </div>
+                    
+                    <div style="background: white; padding: 30px; border-radius: 16px; border-left: 4px solid var(--act-justice);">
+                        <h4 style="color: var(--act-justice); margin-bottom: 15px;">Humble yet Confident</h4>
+                        <p>We don't have all the answers, but we're cultivating solutions together.</p>
+                        <div style="font-style: italic; color: #666; margin-top: 15px; padding-left: 20px; border-left: 2px solid #eee;">
+                            "We're here to learn from your wisdom."
+                        </div>
+                    </div>
+                    
+                    <div style="background: white; padding: 30px; border-radius: 16px; border-left: 4px solid var(--act-innovation);">
+                        <h4 style="color: var(--act-innovation); margin-bottom: 15px;">Warm yet Challenging</h4>
+                        <p>Let's get our hands dirty with the hard truths. Invite participation while confronting systems.</p>
+                        <div style="font-style: italic; color: #666; margin-top: 15px; padding-left: 20px; border-left: 2px solid #eee;">
+                            "The time for change is now."
+                        </div>
+                    </div>
+                    
+                    <div style="background: white; padding: 30px; border-radius: 16px; border-left: 4px solid var(--act-resilience);">
+                        <h4 style="color: var(--act-resilience); margin-bottom: 15px;">Poetic yet Clear</h4>
+                        <p>Every story is a seed that can grow into change. Use metaphor to illuminate, not obscure.</p>
+                        <div style="font-style: italic; color: #666; margin-top: 15px; padding-left: 20px; border-left: 2px solid #eee;">
+                            "Look what we've grown together!"
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Engagement -->
+        <section id="engage">
+            <div class="container">
+                <h2>Ways to Engage with ACT</h2>
+                <p style="font-size: 1.2em; margin-bottom: 50px; text-align: center;">
+                    Whether you're a community leader, supporter, or someone curious about our work, 
+                    there are many ways to connect and contribute to the ACT ecosystem.
+                </p>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+                    <div style="background: var(--act-seedling); color: white; padding: 40px; border-radius: 16px; text-align: center;">
+                        <div style="font-size: 3em; margin-bottom: 20px; color: var(--act-seedling);">◆</div>
+                        <h3>Share an Initiative</h3>
+                        <p style="margin-bottom: 25px;">Have a community-led project that needs support? We'd love to learn about it.</p>
+                        <a href="mailto:hello@act.place" style="background: white; color: var(--act-seedling); padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 600;">Get in Touch</a>
+                    </div>
+                    
+                    <div style="background: var(--act-sunrise); color: white; padding: 40px; border-radius: 16px; text-align: center;">
+                        <div style="font-size: 3em; margin-bottom: 20px; color: white;">◐</div>
+                        <h3>Collaborate</h3>
+                        <p style="margin-bottom: 25px;">Interested in working together on a project or sharing resources?</p>
+                        <a href="mailto:benjamin@act.place" style="background: white; color: var(--act-sunrise); padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 600;">Start a Conversation</a>
+                    </div>
+                    
+                    <div style="background: var(--act-empathy); color: white; padding: 40px; border-radius: 16px; text-align: center;">
+                        <div style="font-size: 3em; margin-bottom: 20px; color: white;">◎</div>
+                        <h3>Stay Connected</h3>
+                        <p style="margin-bottom: 25px;">Follow our journey and get updates on current projects and initiatives.</p>
+                        <a href="#" style="background: white; color: var(--act-empathy); padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 600;">Subscribe</a>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 60px; text-align: center; padding: 40px; background: var(--act-cream); border-radius: 16px;">
+                    <h3 style="margin-bottom: 20px;">Contact Information</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; max-width: 800px; margin: 0 auto;">
+                        <div>
+                            <h4 style="color: var(--act-soil); margin-bottom: 10px;">Benjamin Knight</h4>
+                            <p>Co-Founder</p>
+                            <p><a href="mailto:benjamin@act.place" style="color: var(--act-seedling);">benjamin@act.place</a></p>
+                            <p>+61 422 883 943</p>
+                        </div>
+                        <div>
+                            <h4 style="color: var(--act-soil); margin-bottom: 10px;">General Inquiries</h4>
+                            <p><a href="mailto:hello@act.place" style="color: var(--act-seedling);">hello@act.place</a></p>
+                            <p><a href="https://act.place" style="color: var(--act-seedling);">act.place</a></p>
+                            <p>Meanjin/Brisbane & Black Cockatoo Valley</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer style="background: var(--act-charcoal); color: white; padding: 60px 20px; text-align: center;">
+        <div class="container">
+            <p style="font-size: 1.2em; margin-bottom: 20px;">
+                <span style="color: var(--act-seedling);">◆</span> Growing Together
+            </p>
+            <p style="margin-bottom: 30px;">
+                This brand guide is a living document, meant to grow and evolve with ACT's journey.<br>
+                Every interaction, every project, every story helps shape who we become.
+            </p>
+            <p style="font-size: 0.9em; opacity: 0.8;">
+                © 2024 A Curious Tractor. Cultivating seeds of impact through purposeful action.
+            </p>
+        </div>
+    </footer>
+    
+    <!-- Copy feedback -->
+    <div class="copy-feedback" id="copyFeedback">Color copied!</div>
+    
+    <!-- JavaScript -->
+    <script>
+        // API base URL - adjust if deployed elsewhere
+        const API_BASE = window.location.origin;
+        
+        // Copy color to clipboard
+        function copyColor(hex, name) {
+            navigator.clipboard.writeText(hex).then(() => {
+                const feedback = document.getElementById('copyFeedback');
+                feedback.textContent = `${name} (${hex}) copied!`;
+                feedback.classList.add('show');
+                setTimeout(() => {
+                    feedback.classList.remove('show');
+                }, 3000);
+            });
+        }
+        
+        // Load projects from API
+        async function loadProjects() {
+            const container = document.getElementById('projectsContainer');
+            
+            try {
+                const response = await fetch(`${API_BASE}/api/projects`);
+                const data = await response.json();
+                
+                if (data.projects && data.projects.length > 0) {
+                    container.innerHTML = data.projects.map(project => `
+                        <div class="project-card" onclick="openProjectModal('${project.id}')">
+                            <div class="project-image">
+                                <span>${project.emoji}</span>
+                                <div class="project-status">${project.status}</div>
+                            </div>
+                            <div class="project-info">
+                                <div class="project-title">${project.name}</div>
+                                <div class="project-description">${project.description}</div>
+                                ${project.impact ? `
+                                <div class="project-impact">
+                                    <strong>Impact:</strong> ${project.impact}
+                                </div>` : ''}
+                                ${project.location ? `
+                                <div style="margin-bottom: 15px; color: #666; font-size: 0.9em;">
+                                    <span style="color: var(--act-soil);">◯</span> ${project.location}
+                                    ${project.partner ? ` • <span style="color: var(--act-empathy);">◐</span> ${project.partner}` : ''}
+                                </div>` : ''}
+                                ${project.tags && project.tags.length > 0 ? `
+                                <div style="margin-bottom: 20px;">
+                                    ${project.tags.map(tag => 
+                                        `<span style="background: var(--act-cream); color: var(--act-soil); padding: 4px 8px; border-radius: 12px; font-size: 0.8em; margin-right: 8px; margin-bottom: 4px; display: inline-block;">${tag}</span>`
+                                    ).join('')}
+                                </div>` : ''}
+                                <div class="project-links">
+                                    ${project.links && project.links.length > 0 ? project.links.map(link => 
+                                        `<a href="${link.url}" class="project-link ${link.type || 'primary'}" onclick="event.stopPropagation()" ${link.url.startsWith('http') ? 'target="_blank"' : ''}>${link.text}</a>`
+                                    ).join('') : `<a href="${project.website}" class="project-link primary" onclick="event.stopPropagation()" ${project.website.startsWith('http') ? 'target="_blank"' : ''}>Learn More</a>`}
+                                </div>
+                            </div>
+                        </div>
+                    `).join('');
+                } else {
+                    container.innerHTML = `
+                        <div style="grid-column: 1/-1; text-align: center; padding: 60px;">
+                            <div style="font-size: 3em; margin-bottom: 20px; color: var(--act-seedling);">◆</div>
+                            <h3>Seeds Are Germinating</h3>
+                            <p style="color: #666; margin-top: 10px;">New projects are in development. Check back soon!</p>
+                        </div>
+                    `;
+                }
+            } catch (error) {
+                console.error('Error loading projects:', error);
+                container.innerHTML = `
+                    <div style="grid-column: 1/-1; text-align: center; padding: 60px;">
+                        <div style="font-size: 3em; margin-bottom: 20px;">⚠️</div>
+                        <h3>Unable to Load Projects</h3>
+                        <p style="color: #666; margin-top: 10px;">Please try again later or contact us directly.</p>
+                    </div>
+                `;
+            }
+        }
+        
+        // Open project modal with detailed information
+        function openProjectModal(projectId) {
+            // This could be expanded to show more detailed project information
+            // For now, it's a placeholder for future enhancement
+            console.log('Opening project details for:', projectId);
+        }
+        
+        // Submit a new project idea
+        async function submitIdea(formData) {
+            try {
+                const response = await fetch(`${API_BASE}/api/submit-idea`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
+                
+                const result = await response.json();
+                return result;
+            } catch (error) {
+                console.error('Error submitting idea:', error);
+                return { success: false, error: 'Network error. Please try again.' };
+            }
+        }
+        
+        // Check API health
+        async function checkAPIHealth() {
+            try {
+                const response = await fetch(`${API_BASE}/api/health`);
+                const data = await response.json();
+                console.log('API Health:', data);
+                
+                // Show connection status in footer
+                const footer = document.querySelector('footer .container');
+                if (data.notion_connected) {
+                    footer.innerHTML += `
+                        <div style="margin-top: 20px; padding: 15px; background: rgba(124, 179, 66, 0.1); border-radius: 8px; font-size: 0.9em;">
+                            🔗 Connected to live project data via Notion
+                        </div>
+                    `;
+                } else {
+                    footer.innerHTML += `
+                        <div style="margin-top: 20px; padding: 15px; background: rgba(255, 107, 53, 0.1); border-radius: 8px; font-size: 0.9em;">
+                            📋 Displaying sample project data (Notion not configured)
+                        </div>
+                    `;
+                }
+            } catch (error) {
+                console.error('API health check failed:', error);
+            }
+        }
+        
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Add active state to navigation
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-links a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        
+        // Initialize everything when the page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            loadProjects();
+            checkAPIHealth();
+            updateLogosWithActual();
+            
+            // Add keyboard navigation for accessibility
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    // Close any open modals (for future use)
+                }
+            });
+        });
+        
+        // Update logos with actual ACT logo
+        function updateLogosWithActual() {
+            // Use the actual ACT logo file
+            const actualLogoURL = './assets/logo/act-logo-horizontal.png';
+            
+            // Also create a base64 version from the actual logo for immediate use
+            // This would be replaced with the actual image data
+            const actualLogoBase64 = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg=='; // Placeholder
+            
+            // Update navigation logo
+            const navLogo = document.querySelector('.nav-logo img');
+            if (navLogo) {
+                // Try to load the actual logo file first
+                const testImage = new Image();
+                testImage.onload = function() {
+                    navLogo.src = actualLogoURL;
+                    navLogo.style.display = 'block';
+                    const fallback = navLogo.nextElementSibling;
+                    if (fallback) fallback.style.display = 'none';
+                };
+                testImage.onerror = function() {
+                    // If the file doesn't exist, use the SVG fallback
+                    console.log('Logo file not found, using SVG fallback');
+                    navLogo.style.display = 'none';
+                    const fallback = navLogo.nextElementSibling;
+                    if (fallback) fallback.style.display = 'flex';
+                };
+                testImage.src = actualLogoURL;
+            }
+            
+            // Update hero logo
+            const heroLogo = document.getElementById('heroLogo');
+            if (heroLogo) {
+                const testImage = new Image();
+                testImage.onload = function() {
+                    heroLogo.src = actualLogoURL;
+                };
+                testImage.onerror = function() {
+                    // Keep the existing SVG if file not found
+                    console.log('Hero logo file not found, keeping SVG');
+                };
+                testImage.src = actualLogoURL;
+            }
+            
+            // Update the primary logo in the logo section
+            const primaryLogo = document.querySelector('img[alt="A Curious Tractor Primary Logo"]');
+            if (primaryLogo) {
+                const testImage = new Image();
+                testImage.onload = function() {
+                    primaryLogo.src = actualLogoURL;
+                };
+                testImage.onerror = function() {
+                    // Keep the existing SVG if file not found
+                    console.log('Primary logo file not found, keeping SVG');
+                };
+                testImage.src = actualLogoURL;
+            }
+            
+            // Update logo variations with actual logo
+            updateLogoVariations(actualLogoURL);
+        }
+        
+        // Update logo variations in the logo section
+        function updateLogoVariations(logoURL) {
+            const horizontalLogo = document.querySelector('img[alt="Horizontal Logo"]');
+            const stackedLogo = document.querySelector('img[alt="Stacked Logo"]');
+            const iconLogo = document.querySelector('img[alt="Icon Logo"]');
+            
+            [horizontalLogo, stackedLogo, iconLogo].forEach(logo => {
+                if (logo) {
+                    const testImage = new Image();
+                    testImage.onload = function() {
+                        logo.src = logoURL;
+                    };
+                    testImage.onerror = function() {
+                        // Keep existing SVG if file not found
+                        console.log('Logo variation file not found, keeping SVG');
+                    };
+                    testImage.src = logoURL;
+                }
+            });
+            
+            // Update download links to point to actual logo files
+            updateDownloadLinks();
+        }
+        
+        // Update download links with actual file paths
+        function updateDownloadLinks() {
+            const downloadCards = document.querySelectorAll('.download-card');
+            const logoFiles = {
+                'SVG Files': './assets/logo/act-logo-horizontal.svg',
+                'PNG Files': './assets/logo/act-logo-horizontal.png', 
+                'EPS Files': './assets/logo/act-logo-horizontal.eps',
+                'Complete Package': './assets/logo/act-logo-package.zip'
+            };
+            
+            downloadCards.forEach(card => {
+                const title = card.querySelector('h4').textContent;
+                if (logoFiles[title]) {
+                    card.href = logoFiles[title];
+                    card.onclick = function(e) {
+                        // Check if file exists before downloading
+                        fetch(logoFiles[title], { method: 'HEAD' })
+                            .then(response => {
+                                if (!response.ok) {
+                                    e.preventDefault();
+                                    alert('Logo files are not yet available. Please contact us for logo assets.');
+                                }
+                            })
+                            .catch(error => {
+                                e.preventDefault();
+                                alert('Logo files are not yet available. Please contact us for logo assets.');
+                            });
+                    };
+                }
+            });
+        }
+        
+        // Add intersection observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            }
+            
+            // For production, you would replace actualLogoURL with:
+            // const actualLogoURL = '/assets/logo/act-logo-horizontal.svg';
+            // And ensure the logo files are properly hosted
+        }
+        
+        // Add intersection observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe sections for scroll animations
+        window.addEventListener('load', () => {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(20px)';
+                section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,785 @@
+<%- include('partials/header', { title: 'Galleries | A Curious Tractor', page: 'galleries' }) %>
+
+<!-- Hero Section -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <h1>Seeds of Stories</h1>
+            <p class="tagline">Capturing moments where community wisdom takes root</p>
+            <p class="hero-description">
+                Every image tells a story of regeneration. Every video shares wisdom from the field. 
+                These are glimpses into the beautiful work happening when communities lead their own change.
+                <br><br>
+                <em style="color: var(--act-seedling); font-size: 1.1em;">"In every frame, we see possibility growing." <span style="color: var(--act-soil);">◯</span></em>
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Gallery Toggle Section -->
+<section style="background: white; padding: 80px 20px;">
+    <div class="container">
+        <!-- Toggle Controls -->
+        <div style="text-align: center; margin-bottom: 60px;">
+            <div class="gallery-toggle">
+                <button class="toggle-btn active" data-gallery="photos">
+                    <span style="color: var(--act-soil);">◯</span> Photo Harvest
+                </button>
+                <button class="toggle-btn" data-gallery="videos">
+                    🎥 Video Stories
+                </button>
+            </div>
+        </div>
+
+        <!-- Photos Gallery -->
+        <div id="photos-gallery" class="gallery-section active">
+            <div style="text-align: center; margin-bottom: 40px;">
+                <h2>Photo Harvest</h2>
+                <p style="font-size: 1.1em; color: #666; max-width: 600px; margin: 0 auto;">
+                    Moments captured from our work in the field—where communities are growing solutions, 
+                    tending relationships, and celebrating the harvest of their efforts.
+                </p>
+            </div>
+            
+            <div id="photos-container" class="photos-grid">
+                <!-- Photos will be loaded dynamically -->
+                <div style="grid-column: 1/-1; text-align: center; padding: 60px;">
+                    <div class="loading"></div>
+                    <p style="margin-top: 20px; color: #666;">Loading photo harvest...</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Videos Gallery -->
+        <div id="videos-gallery" class="gallery-section">
+            <div style="text-align: center; margin-bottom: 40px;">
+                <h2>Video Stories</h2>
+                <p style="font-size: 1.1em; color: #666; max-width: 600px; margin: 0 auto;">
+                    Voices from the field sharing their wisdom, their challenges, and their visions. 
+                    These stories remind us that every seed planted carries the power to transform.
+                </p>
+            </div>
+            
+            <div id="videos-container" class="videos-grid">
+                <!-- Videos will be loaded dynamically -->
+                <div style="grid-column: 1/-1; text-align: center; padding: 60px;">
+                    <div class="loading"></div>
+                    <p style="margin-top: 20px; color: #666;">Loading video stories...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Admin Panel for Adding Descript Videos -->
+<div id="admin-panel" style="display: none; position: fixed; bottom: 20px; right: 20px; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.15); z-index: 1000; max-width: 400px;">
+                    <h4 style="margin: 0 0 15px 0; color: #2d5016;"><span style="color: var(--act-seedling);">◆</span> Plant New Video Seed</h4>
+    <form id="descript-form">
+        <div style="margin-bottom: 15px;">
+            <label for="descript-url" style="display: block; margin-bottom: 5px; font-weight: 500;">Descript Share URL:</label>
+            <input type="url" id="descript-url" name="url" placeholder="https://share.descript.com/view/..." style="width: 100%; padding: 8px; border: 2px solid #ddd; border-radius: 4px;" required>
+        </div>
+        <div style="margin-bottom: 15px;">
+            <label for="custom-title" style="display: block; margin-bottom: 5px; font-weight: 500;">Custom Title (optional):</label>
+            <input type="text" id="custom-title" name="title" placeholder="Leave empty to auto-fetch" style="width: 100%; padding: 8px; border: 2px solid #ddd; border-radius: 4px;">
+        </div>
+        <div style="margin-bottom: 15px;">
+            <label for="custom-description" style="display: block; margin-bottom: 5px; font-weight: 500;">Custom Description (optional):</label>
+            <textarea id="custom-description" name="description" placeholder="Leave empty to auto-fetch" style="width: 100%; padding: 8px; border: 2px solid #ddd; border-radius: 4px; min-height: 60px;"></textarea>
+        </div>
+        <div style="display: flex; gap: 10px;">
+            <button type="submit" style="flex: 1; background: #2d5016; color: white; border: none; padding: 10px; border-radius: 4px; cursor: pointer;">🚜 Plant Video</button>
+            <button type="button" onclick="toggleAdminPanel()" style="background: #ccc; color: #666; border: none; padding: 10px; border-radius: 4px; cursor: pointer;">Cancel</button>
+        </div>
+    </form>
+    <div id="admin-status" style="margin-top: 15px; padding: 10px; border-radius: 4px; display: none;"></div>
+</div>
+
+<!-- Admin Toggle (only visible on double-click) -->
+<div id="admin-toggle" style="position: fixed; bottom: 20px; right: 20px; opacity: 0; width: 50px; height: 50px; background: #2d5016; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; cursor: pointer; z-index: 999;" ondblclick="toggleAdminPanel()">
+                    <span style="color: var(--act-seedling);">◆</span>
+</div>
+
+<!-- Call to Action -->
+<section style="background: var(--act-cream); padding: 80px 20px;">
+    <div class="container">
+        <div style="text-align: center;">
+            <h2>Share Your Story</h2>
+            <p style="font-size: 1.2em; color: #666; max-width: 600px; margin: 0 auto 30px;">
+                Have photos or videos that capture regenerative innovation in action? 
+                We'd love to help amplify the beautiful work happening in your community.
+            </p>
+            <a href="mailto:hello@act.place?subject=Gallery Submission" class="btn btn-primary">
+                Plant Your Story
+            </a>
+        </div>
+    </div>
+</section>
+
+<%- include('partials/footer') %>
+
+<style>
+/* Gallery Toggle Styles */
+.gallery-toggle {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    background: #f8f9fa;
+    border-radius: 50px;
+    padding: 8px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.toggle-btn {
+    flex: 1;
+    padding: 15px 30px;
+    border: none;
+    background: transparent;
+    color: #666;
+    font-weight: 600;
+    font-size: 1.1em;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.toggle-btn.active {
+    background: var(--act-seedling);
+    color: white;
+    box-shadow: var(--shadow-sm);
+}
+
+.toggle-btn:hover:not(.active) {
+    background: rgba(124, 179, 66, 0.1);
+    color: var(--act-seedling);
+}
+
+/* Gallery Sections */
+.gallery-section {
+    display: none;
+}
+
+.gallery-section.active {
+    display: block;
+}
+
+/* Photos Grid */
+.photos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.photo-item {
+    position: relative;
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-normal);
+    cursor: pointer;
+}
+
+.photo-item:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-md);
+}
+
+.photo-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    object-position: center top; /* Default to center-top for portraits with faces */
+    transition: transform var(--transition-normal);
+}
+
+/* Smart positioning for different image types */
+.photo-item.portrait img {
+    object-position: center 20%; /* Position faces in upper third */
+}
+
+.photo-item.landscape img {
+    object-position: center center; /* Standard centering for landscapes */
+}
+
+.photo-item.square img {
+    object-position: center center;
+}
+
+/* Face-focused positioning - can be applied via metadata */
+.photo-item.face-focus img {
+    object-position: center 25%; /* Optimal for face shots */
+}
+
+.photo-item.face-top img {
+    object-position: center 15%; /* When faces are very high in frame */
+}
+
+.photo-item.face-center img {
+    object-position: center 40%; /* When faces are more centered */
+}
+
+.photo-item:hover img {
+    transform: scale(1.05);
+}
+
+.photo-caption {
+    padding: 20px;
+}
+
+.photo-title {
+    font-weight: bold;
+    color: var(--act-soil);
+    margin-bottom: 8px;
+}
+
+.photo-description {
+    color: #666;
+    font-size: 0.9em;
+    line-height: 1.5;
+}
+
+/* Videos Grid */
+.videos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.video-item {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-normal);
+}
+
+.video-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.video-embed {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    background: #000;
+}
+
+.video-embed iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.video-info {
+    padding: 20px;
+}
+
+.video-title {
+    font-weight: bold;
+    color: var(--act-soil);
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+.video-description {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.video-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9em;
+    color: #999;
+}
+
+/* Modal for Photo Viewing */
+.photo-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 2000;
+    cursor: pointer;
+}
+
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 90%;
+    max-height: 90%;
+}
+
+.modal-image {
+    max-width: 100%;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.modal-caption {
+    background: white;
+    padding: 20px;
+    border-radius: 0 0 8px 8px;
+    text-align: center;
+}
+
+.modal-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 2001;
+}
+
+/* Quick Preview Styles */
+.quick-preview {
+    position: fixed;
+    z-index: 1500;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+    overflow: hidden;
+    max-width: 200px;
+    pointer-events: none;
+    opacity: 0;
+    animation: fadeInPreview 0.2s ease forwards;
+}
+
+.quick-preview img {
+    width: 100%;
+    height: 150px;
+    object-fit: contain;
+    background: #f5f5f5;
+}
+
+.preview-hint {
+    padding: 8px 12px;
+    font-size: 0.8em;
+    color: #666;
+    text-align: center;
+    background: #f9f9f9;
+}
+
+@keyframes fadeInPreview {
+    to {
+        opacity: 1;
+    }
+}
+
+/* Face positioning visual indicators (for development/admin) */
+.photo-item::after {
+    content: '';
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.photo-item:hover::after {
+    opacity: 0.7;
+}
+
+.photo-item.portrait::after {
+    background: #7CB342; /* Green for portrait */
+}
+
+.photo-item.landscape::after {
+    background: #42A5F5; /* Blue for landscape */
+}
+
+.photo-item.square::after {
+    background: #FFA726; /* Orange for square */
+}
+
+.photo-item.face-focus::after {
+    background: #EF5350; /* Red for face-focused */
+    width: 8px;
+    height: 8px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .gallery-toggle {
+        max-width: 100%;
+    }
+    
+    .toggle-btn {
+        padding: 12px 20px;
+        font-size: 1em;
+    }
+    
+    .photos-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 15px;
+    }
+    
+    .videos-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .video-embed {
+        height: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .photos-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .toggle-btn {
+        padding: 10px 15px;
+        font-size: 0.9em;
+    }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    // Toggle functionality
+    const toggleBtns = document.querySelectorAll('.toggle-btn');
+    const gallerySections = document.querySelectorAll('.gallery-section');
+    
+    toggleBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const target = btn.dataset.gallery;
+            
+            // Update buttons
+            toggleBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            
+            // Update sections
+            gallerySections.forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(`${target}-gallery`).classList.add('active');
+            
+            // Load content if not already loaded
+            if (target === 'photos' && !window.photosLoaded) {
+                loadPhotos();
+            } else if (target === 'videos' && !window.videosLoaded) {
+                loadVideos();
+            }
+        });
+    });
+    
+    // Load photos by default
+    loadPhotos();
+    
+    // Photo modal functionality
+    document.addEventListener('click', (e) => {
+        if (e.target.classList.contains('photo-modal')) {
+            e.target.style.display = 'none';
+        }
+    });
+});
+
+function loadPhotos() {
+    const container = document.getElementById('photos-container');
+    
+    fetch('/api/photos')
+        .then(response => response.json())
+        .then(photos => {
+            if (photos.length === 0) {
+                container.innerHTML = `
+                    <div style="grid-column: 1/-1; text-align: center; padding: 60px;">
+                        <div style="font-size: 3em; margin-bottom: 20px; opacity: 0.3;">📸</div>
+                        <h3 style="color: #666; margin-bottom: 10px;">Photo Seeds Coming Soon</h3>
+                        <p style="color: #999;">We're gathering beautiful moments from the field. Check back soon!</p>
+                    </div>
+                `;
+            } else {
+                container.innerHTML = photos.map((photo, index) => `
+                    <div class="photo-item" data-photo-index="${index}" onclick="openPhotoModal('${photo.url}', '${photo.title}', '${photo.description}')">
+                        <img src="${photo.url}" alt="${photo.title}" loading="lazy" onload="detectImageOrientation(this, ${index})">
+                        <div class="photo-caption">
+                            <div class="photo-title">${photo.title}</div>
+                            <div class="photo-description">${photo.description}</div>
+                        </div>
+                    </div>
+                `).join('');
+                
+                // Apply any custom positioning from metadata
+                photos.forEach((photo, index) => {
+                    if (photo.positioning) {
+                        const photoItem = container.querySelector(`[data-photo-index="${index}"]`);
+                        if (photoItem) {
+                            photoItem.classList.add(photo.positioning);
+                        }
+                    }
+                });
+            }
+            window.photosLoaded = true;
+        })
+        .catch(error => {
+            console.error('Error loading photos:', error);
+            container.innerHTML = `
+                <div style="grid-column: 1/-1; text-align: center; padding: 60px;">
+                    <div style="font-size: 3em; margin-bottom: 20px; opacity: 0.3;">📸</div>
+                    <p style="color: #666;">Unable to load photos at this time.</p>
+                </div>
+            `;
+        });
+}
+
+function loadVideos() {
+    const container = document.getElementById('videos-container');
+    
+    fetch('/api/videos')
+        .then(response => response.json())
+        .then(videos => {
+            if (videos.length === 0) {
+                container.innerHTML = `
+                    <div style="grid-column: 1/-1; text-align: center; padding: 60px;">
+                        <div style="font-size: 3em; margin-bottom: 20px; opacity: 0.3;">🎥</div>
+                        <h3 style="color: #666; margin-bottom: 10px;">Video Stories Growing</h3>
+                        <p style="color: #999;">We're collecting powerful stories from our community partners. Stay tuned!</p>
+                    </div>
+                `;
+            } else {
+                container.innerHTML = videos.map(video => `
+                    <div class="video-item">
+                        <div class="video-embed">
+                            ${video.embedCode}
+                        </div>
+                        <div class="video-info">
+                            <div class="video-title">${video.title}</div>
+                            <div class="video-description">${video.description}</div>
+                            <div class="video-meta">
+                                <span>${video.duration || ''}</span>
+                                <span>${video.date || ''}</span>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+            }
+            window.videosLoaded = true;
+        })
+        .catch(error => {
+            console.error('Error loading videos:', error);
+            container.innerHTML = `
+                <div style="grid-column: 1/-1; text-align: center; padding: 60px;">
+                    <div style="font-size: 3em; margin-bottom: 20px; opacity: 0.3;">🎥</div>
+                    <p style="color: #666;">Unable to load videos at this time.</p>
+                </div>
+            `;
+        });
+}
+
+function openPhotoModal(imageUrl, title, description) {
+    const modal = document.createElement('div');
+    modal.className = 'photo-modal';
+    modal.style.display = 'block';
+    modal.innerHTML = `
+        <span class="modal-close" onclick="this.parentElement.remove()">&times;</span>
+        <div class="modal-content">
+            <img src="${imageUrl}" alt="${title}" class="modal-image">
+            <div class="modal-caption">
+                <div class="photo-title">${title}</div>
+                <div class="photo-description">${description}</div>
+            </div>
+        </div>
+    `;
+    document.body.appendChild(modal);
+}
+
+// Smart image orientation detection for better face positioning
+function detectImageOrientation(img, photoIndex) {
+    const container = img.closest('.photo-item');
+    if (!container) return;
+    
+    const aspectRatio = img.naturalWidth / img.naturalHeight;
+    
+    // Remove any existing orientation classes
+    container.classList.remove('portrait', 'landscape', 'square', 'face-focus');
+    
+    if (aspectRatio < 0.8) {
+        // Portrait image - likely to have faces in upper portion
+        container.classList.add('portrait');
+        
+        // For very tall portraits, assume face-focus positioning
+        if (aspectRatio < 0.6) {
+            container.classList.add('face-focus');
+        }
+    } else if (aspectRatio > 1.2) {
+        // Landscape image
+        container.classList.add('landscape');
+    } else {
+        // Square-ish image
+        container.classList.add('square');
+    }
+    
+    // Add hover effect that shows full image preview
+    addImageHoverPreview(container, img);
+}
+
+// Add hover preview for better image inspection
+function addImageHoverPreview(container, img) {
+    let previewTimeout;
+    
+    container.addEventListener('mouseenter', () => {
+        previewTimeout = setTimeout(() => {
+            showImagePreview(img);
+        }, 800); // Show preview after 800ms hover
+    });
+    
+    container.addEventListener('mouseleave', () => {
+        clearTimeout(previewTimeout);
+        hideImagePreview();
+    });
+}
+
+// Quick preview functionality
+function showImagePreview(img) {
+    const existingPreview = document.querySelector('.quick-preview');
+    if (existingPreview) return;
+    
+    const preview = document.createElement('div');
+    preview.className = 'quick-preview';
+    preview.innerHTML = `
+        <img src="${img.src}" alt="${img.alt}">
+        <div class="preview-hint">Full image preview - click to view in modal</div>
+    `;
+    
+    document.body.appendChild(preview);
+    
+    // Position preview near cursor
+    const updatePosition = (e) => {
+        preview.style.left = Math.min(e.clientX + 20, window.innerWidth - 220) + 'px';
+        preview.style.top = Math.min(e.clientY + 20, window.innerHeight - 200) + 'px';
+    };
+    
+    document.addEventListener('mousemove', updatePosition);
+    preview.addEventListener('mouseleave', hideImagePreview);
+}
+
+function hideImagePreview() {
+    const preview = document.querySelector('.quick-preview');
+    if (preview) {
+        preview.remove();
+        document.removeEventListener('mousemove', arguments.callee);
+    }
+}
+
+// Admin panel functionality
+let adminVisible = false;
+
+function toggleAdminPanel() {
+    const panel = document.getElementById('admin-panel');
+    const toggle = document.getElementById('admin-toggle');
+    
+    adminVisible = !adminVisible;
+    panel.style.display = adminVisible ? 'block' : 'none';
+    toggle.style.opacity = adminVisible ? '0' : '0';
+}
+
+// Handle Descript form submission
+document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('descript-form');
+    
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const formData = new FormData(form);
+        const data = {
+            url: formData.get('url'),
+            title: formData.get('title') || null,
+            description: formData.get('description') || null
+        };
+        
+        const statusDiv = document.getElementById('admin-status');
+        const submitBtn = form.querySelector('button[type="submit"]');
+        
+        // Show loading state
+                    submitBtn.textContent = 'Planting...';
+        submitBtn.disabled = true;
+        statusDiv.style.display = 'block';
+        statusDiv.style.background = '#e3f2fd';
+        statusDiv.style.color = '#1976d2';
+        statusDiv.textContent = 'Fetching video metadata from Descript...';
+        
+        try {
+            const response = await fetch('/api/descript-metadata', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data)
+            });
+            
+            const result = await response.json();
+            
+            if (result.success) {
+                // Show success message
+                statusDiv.style.background = '#e8f5e8';
+                statusDiv.style.color = '#2e7d32';
+                statusDiv.innerHTML = `
+                    <strong>✅ Video planted successfully!</strong><br>
+                    <small>Title: ${result.metadata.title}</small><br>
+                    <small>Switch to Video Stories to see it grow</small>
+                `;
+                
+                // Reset form
+                form.reset();
+                
+                // Reload videos if currently viewing
+                if (document.getElementById('videos-gallery').classList.contains('active')) {
+                    window.videosLoaded = false;
+                    loadVideos();
+                }
+                
+                // Auto-close after 3 seconds
+                setTimeout(() => {
+                    toggleAdminPanel();
+                }, 3000);
+                
+            } else {
+                throw new Error(result.error || 'Failed to add video');
+            }
+            
+        } catch (error) {
+            statusDiv.style.background = '#ffebee';
+            statusDiv.style.color = '#c62828';
+            statusDiv.innerHTML = `
+                <strong>❌ Error:</strong> ${error.message}<br>
+                <small>Try the command line tool or manually edit data/videos.json</small>
+            `;
+        } finally {
+            submitBtn.textContent = '🚜 Plant Video';
+            submitBtn.disabled = false;
+        }
+    });
+    
+    // Show admin toggle on Ctrl+Shift+A
+    document.addEventListener('keydown', (e) => {
+        if (e.ctrlKey && e.shiftKey && e.key === 'A') {
+            const toggle = document.getElementById('admin-toggle');
+            toggle.style.opacity = '0.7';
+            setTimeout(() => {
+                toggle.style.opacity = '0';
+            }, 3000);
+        }
+    });
+});
+</script> 

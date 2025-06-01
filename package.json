@@ -1,0 +1,40 @@
+{
+  "name": "act-brand-guide",
+  "version": "1.0.0",
+  "description": "A Curious Tractor Brand Guide and Project Showcase",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "setup": "node setup.js",
+    "test-notion": "node test-notion.js"
+  },
+  "keywords": [
+    "community",
+    "regenerative",
+    "innovation",
+    "social-impact"
+  ],
+  "author": "A Curious Tractor",
+  "license": "MIT",
+  "dependencies": {
+    "@notionhq/client": "^2.2.3",
+    "bcryptjs": "^3.0.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "ejs": "^3.1.10",
+    "express": "^4.18.2",
+    "express-rate-limit": "^7.5.0",
+    "express-session": "^1.18.1",
+    "helmet": "^7.2.0",
+    "multer": "^2.0.0",
+    "node-fetch": "^3.3.2",
+    "sharp": "^0.34.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}

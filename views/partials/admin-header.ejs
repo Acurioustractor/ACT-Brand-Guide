@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <style>
+        /* ACT Brand Colors */
+        :root {
+            --act-soil: #2c1810;
+            --act-seedling: #7cb342;
+            --act-cream: #f9f7f4;
+            --act-harvest: #d4941e;
+        }
+
+        /* Modern Icon System */
+        .icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 1.2em;
+            height: 1.2em;
+            margin-right: 0.5em;
+            font-style: normal;
+            font-weight: 500;
+            vertical-align: middle;
+        }
+
+        /* Growth & Agriculture Icons */
+        .icon-seed::before { content: "○"; color: var(--act-seedling); }
+        .icon-sprout::before { content: "△"; color: var(--act-seedling); }
+        .icon-growth::before { content: "▲"; color: var(--act-seedling); }
+        .icon-harvest::before { content: "◆"; color: var(--act-harvest); }
+        .icon-field::before { content: "▢"; color: var(--act-soil); }
+
+        /* Community & Connection */
+        .icon-community::before { content: "◐"; color: var(--act-soil); }
+        .icon-wisdom::before { content: "◊"; color: var(--act-harvest); }
+        .icon-story::before { content: "◎"; color: var(--act-seedling); }
+
+        /* Actions & Interface */
+        .icon-edit::before { content: "◊"; color: var(--act-seedling); }
+        .icon-save::before { content: "◆"; color: var(--act-seedling); }
+        .icon-view::before { content: "◉"; color: var(--act-soil); }
+        .icon-add::before { content: "⊕"; color: var(--act-seedling); }
+        .icon-remove::before { content: "⊖"; color: #e53e3e; }
+        .icon-success::before { content: "◈"; color: var(--act-seedling); }
+        .icon-error::before { content: "◌"; color: #e53e3e; }
+
+        /* Media Icons */
+        .icon-photo::before { content: "◯"; color: var(--act-harvest); }
+        .icon-video::before { content: "▶"; color: var(--act-soil); }
+        .icon-play::before { content: "▷"; color: var(--act-seedling); }
+
+        /* Navigation & Flow */
+        .icon-forward::before { content: "→"; color: var(--act-seedling); }
+        .icon-back::before { content: "←"; color: var(--act-soil); }
+        .icon-up::before { content: "↑"; color: var(--act-seedling); }
+
+        /* Typography Icons for Major Sections */
+        .type-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 2em;
+            height: 2em;
+            background: var(--act-seedling);
+            color: white;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.8em;
+            margin-right: 0.75em;
+            letter-spacing: -0.5px;
+        }
+
+        /* Refined button styles */
+        .modern-btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.75em 1.25em;
+            background: var(--act-seedling);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .modern-btn:hover {
+            background: #689f3c;
+            transform: translateY(-1px);
+        }
+
+        .modern-btn.secondary {
+            background: transparent;
+            color: var(--act-soil);
+            border: 2px solid var(--act-seedling);
+        }
+
+        .modern-btn.secondary:hover {
+            background: var(--act-seedling);
+            color: white;
+        }
+
+        .modern-btn.danger {
+            background: #e53e3e;
+        }
+
+        .modern-btn.danger:hover {
+            background: #c53030;
+        }
+
+        /* Rest of existing styles... */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--act-cream);
+            color: var(--act-soil);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .admin-header {
+            background: white;
+            border-bottom: 3px solid var(--act-seedling);
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-section img {
+            height: 40px;
+            margin-right: 15px;
+        }
+
+        .site-title {
+            color: var(--act-soil);
+            font-size: 1.5em;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .admin-nav {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: var(--act-soil);
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-link:hover {
+            background: var(--act-cream);
+            color: var(--act-seedling);
+        }
+
+        .nav-link.active {
+            background: var(--act-seedling);
+            color: white;
+        }
+
+        .user-info {
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .admin-nav {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="admin-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-section">
+                    <img src="/assets/logo.svg" alt="ACT Logo">
+                    <a href="/admin/dashboard" class="site-title">ACT Admin</a>
+                </div>
+                
+                <nav class="admin-nav">
+                    <a href="/admin/dashboard" class="nav-link <%= page === 'dashboard' ? 'active' : '' %>">
+                        <span class="icon icon-community"></span>
+                        Dashboard
+                    </a>
+                    <a href="/admin/photos" class="nav-link <%= page === 'photos' ? 'active' : '' %>">
+                        <span class="icon icon-photo"></span>
+                        Photo Harvest
+                    </a>
+                    <a href="/admin/videos" class="nav-link <%= page === 'videos' ? 'active' : '' %>">
+                        <span class="icon icon-video"></span>
+                        Video Stories
+                    </a>
+                    <a href="/admin/content/homepage" class="nav-link <%= page === 'content' ? 'active' : '' %>">
+                        <span class="icon icon-edit"></span>
+                        Content
+                    </a>
+                    <div class="user-info">
+                        <span class="icon icon-wisdom"></span>
+                        Admin
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <script>
+        function logout() {
+            if (confirm('Ready to stop cultivating for now?')) {
+                fetch('/admin/logout', { method: 'POST' })
+                    .then(() => {
+                        window.location.href = '/admin/login';
+                    })
+                    .catch(error => {
+                        console.error('Logout error:', error);
+                        window.location.href = '/admin/login';
+                    });
+            }
+        }
+        
+        function toggleMobileMenu() {
+            const menu = document.getElementById('admin-menu');
+            menu.classList.toggle('active');
+        }
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            const menu = document.getElementById('admin-menu');
+            const toggle = document.querySelector('.mobile-menu-toggle');
+            
+            if (!menu.contains(e.target) && !toggle.contains(e.target)) {
+                menu.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html> 
