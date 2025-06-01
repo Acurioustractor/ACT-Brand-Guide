@@ -265,21 +265,24 @@ async function fetchProjectsFromNotion() {
 app.get('/', (req, res) => {
     res.render('index', { 
         title: 'A Curious Tractor',
-        page: 'home'
+        page: 'home',
+        basePath: ''
     });
 });
 
 app.get('/methodology', (req, res) => {
     res.render('methodology', { 
         title: 'How We Work - A Curious Tractor',
-        page: 'methodology'
+        page: 'methodology',
+        basePath: ''
     });
 });
 
 app.get('/platforms', (req, res) => {
     res.render('platforms', { 
         title: 'Flagship Platforms - A Curious Tractor',
-        page: 'platforms'
+        page: 'platforms',
+        basePath: ''
     });
 });
 
@@ -289,28 +292,32 @@ app.get('/projects', async (req, res) => {
         title: 'Current Projects - A Curious Tractor',
         page: 'projects',
         projects: projectData.projects,
-        source: projectData.source
+        source: projectData.source,
+        basePath: ''
     });
 });
 
 app.get('/brand', (req, res) => {
     res.render('brand', { 
         title: 'Brand Guide - A Curious Tractor',
-        page: 'brand'
+        page: 'brand',
+        basePath: ''
     });
 });
 
 app.get('/about', (req, res) => {
     res.render('about', { 
         title: 'About - A Curious Tractor',
-        page: 'about'
+        page: 'about',
+        basePath: ''
     });
 });
 
 app.get('/galleries', (req, res) => {
     res.render('galleries', { 
         title: 'Galleries - A Curious Tractor',
-        page: 'galleries'
+        page: 'galleries',
+        basePath: ''
     });
 });
 
