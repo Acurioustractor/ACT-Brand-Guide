@@ -1,0 +1,33 @@
+{
+  "videos": [
+    {
+      "id": "1735582800000",
+      "title": "Voices from Black Cockatoo Valley",
+      "description": "Local Indigenous elders share their wisdom about caring for Country and how regenerative practices heal both land and community.",
+      "embedCode": "<iframe src=\"https://www.youtube.com/embed/dQw4w9WgXcQ\" title=\"Voices from Black Cockatoo Valley\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+      "duration": "5:42",
+      "date": "March 2024"
+    },
+    {
+      "id": "1735582900000",
+      "title": "Building Community-Led Solutions",
+      "description": "How the Empathy Ledger project is putting storytelling power back into the hands of community members.",
+      "embedCode": "<iframe src=\"https://player.vimeo.com/video/123456789\" title=\"Building Community-Led Solutions\" frameborder=\"0\" allow=\"autoplay; fullscreen; picture-in-picture\" allowfullscreen></iframe>",
+      "duration": "8:15",
+      "date": "February 2024"
+    },
+    {
+      "id": "1735583000000",
+      "title": "Wilya Janta",
+      "description": "A powerful conversation with an Indigenous elder sharing traditional ecological wisdom and how regenerative practices connect us back to the land. Stories like this remind us that every seed of knowledge carries the power to heal both community and Country.",
+      "embedCode": "<iframe src=\"https://share.descript.com/embed/1yBN4l3yaRL\" title=\"Elder Knowledge: Caring for Country\" frameborder=\"0\" allow=\"autoplay; fullscreen; picture-in-picture\" allowfullscreen style=\"width: 100%; height: 100%;\"></iframe>",
+      "duration": "6:29",
+      "date": "2025-05-08",
+      "source": "descript-integration",
+      "transcript": "Available in video player",
+      "lastModified": "2025-06-01T04:42:10.725Z"
+    }
+  ],
+  "total": 3,
+  "timestamp": "2025-06-01T06:58:04.797Z"
+}

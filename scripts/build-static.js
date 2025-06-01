@@ -43,6 +43,14 @@ const assetsDir = path.join(__dirname, '..', 'assets');
 if (fs.existsSync(assetsDir)) {
     copyDir(assetsDir, path.join(distDir, 'assets'));
     console.log(`   ✅ Copied assets/`);
+    
+    // Also copy logo to root for easier access
+    const logoSrcDir = path.join(assetsDir, 'logo');
+    const logoDestDir = path.join(distDir, 'logo');
+    if (fs.existsSync(logoSrcDir)) {
+        copyDir(logoSrcDir, logoDestDir);
+        console.log(`   ✅ Copied logo to root`);
+    }
 }
 
 // Function to fetch projects from Notion (same as server.js)
@@ -303,6 +311,23 @@ buildSite().then(projects => {
         timestamp: new Date().toISOString()
     }, null, 2));
 
+    // Videos API
+    const videosPath = path.join(__dirname, '..', 'data', 'videos.json');
+    if (fs.existsSync(videosPath)) {
+        try {
+            const videosContent = fs.readFileSync(videosPath, 'utf8');
+            const videos = JSON.parse(videosContent);
+            fs.writeFileSync(path.join(apiDir, 'videos.json'), JSON.stringify({
+                videos: videos,
+                total: videos.length,
+                timestamp: new Date().toISOString()
+            }, null, 2));
+            console.log('   ✅ Generated videos API');
+        } catch (error) {
+            console.warn('   ⚠️  Could not create videos API:', error.message);
+        }
+    }
+
     // Health API
     fs.writeFileSync(path.join(apiDir, 'health.json'), JSON.stringify({
         status: 'healthy',
@@ -315,6 +340,22 @@ buildSite().then(projects => {
     // Create .nojekyll file for GitHub Pages
     fs.writeFileSync(path.join(distDir, '.nojekyll'), '');
     console.log('   ✅ Created .nojekyll file');
+
+    // Fix photo paths in metadata for GitHub Pages
+    const metadataPath = path.join(distDir, 'galleries', 'photos', 'metadata.json');
+    if (fs.existsSync(metadataPath)) {
+        try {
+            const metadata = JSON.parse(fs.readFileSync(metadataPath, 'utf8'));
+            const updatedMetadata = metadata.map(photo => ({
+                ...photo,
+                url: `${basePath}${photo.url}`
+            }));
+            fs.writeFileSync(metadataPath, JSON.stringify(updatedMetadata, null, 2));
+            console.log('   ✅ Updated photo paths for GitHub Pages');
+        } catch (error) {
+            console.warn('   ⚠️  Could not update photo metadata:', error.message);
+        }
+    }
 
     console.log('🎉 Static site built successfully!');
     console.log(`📁 Output directory: ${distDir}`);

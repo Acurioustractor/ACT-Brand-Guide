@@ -1,0 +1,8 @@
+Save your ACT logo as: act-logo-horizontal.png
+
+This file should be:
+- PNG format with transparent background
+- High resolution (at least 400px wide)
+- Horizontal layout
+
+Your logo with the brown tractor, orange PTO, and green growth circles will then appear throughout the brand guide automatically! 
