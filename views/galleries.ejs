@@ -498,7 +498,12 @@ document.addEventListener('DOMContentLoaded', () => {
 function loadPhotos() {
     const container = document.getElementById('photos-container');
     
-    fetch('/photos.json')
+    // Use different endpoints for static vs dynamic builds
+    const photosEndpoint = window.location.protocol === 'file:' || window.location.hostname.includes('github.io') 
+        ? '<%- typeof basePath !== "undefined" ? basePath : "" %>/photos.json' 
+        : '/api/photos';
+    
+    fetch(photosEndpoint)
         .then(response => response.json())
         .then(photos => {
             if (photos.length === 0) {
@@ -546,7 +551,12 @@ function loadPhotos() {
 function loadVideos() {
     const container = document.getElementById('videos-container');
     
-    fetch('/videos.json')
+    // Use different endpoints for static vs dynamic builds
+    const videosEndpoint = window.location.protocol === 'file:' || window.location.hostname.includes('github.io') 
+        ? '<%- typeof basePath !== "undefined" ? basePath : "" %>/videos.json' 
+        : '/api/videos';
+    
+    fetch(videosEndpoint)
         .then(response => response.json())
         .then(data => {
             const videos = data.videos || [];
@@ -721,6 +731,12 @@ document.addEventListener('DOMContentLoaded', () => {
         statusDiv.textContent = 'Fetching video metadata from Descript...';
         
         try {
+            // Check if we're on a static site (GitHub Pages)
+            const isStatic = window.location.protocol === 'file:' || window.location.hostname.includes('github.io');
+            if (isStatic) {
+                throw new Error('Video upload not available on static site. Please use the development server.');
+            }
+            
             const response = await fetch('/api/descript-metadata', {
                 method: 'POST',
                 headers: {

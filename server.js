@@ -407,14 +407,14 @@ app.get('/api/videos', (req, res) => {
         if (!fs.existsSync(videosFile)) {
             const sampleVideos = [];
             fs.writeFileSync(videosFile, JSON.stringify(sampleVideos, null, 2));
-            return res.json(sampleVideos);
+            return res.json({ videos: sampleVideos });
         }
         
         const videos = JSON.parse(fs.readFileSync(videosFile, 'utf8'));
-        res.json(videos);
+        res.json({ videos });
     } catch (error) {
         console.error('Error loading videos:', error);
-        res.json([]);
+        res.json({ videos: [] });
     }
 });
 

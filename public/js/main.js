@@ -69,7 +69,11 @@ const api = {
     // Fetch projects
     async getProjects() {
         try {
-            const response = await fetch(`${CONFIG.API_BASE}/projects.json`);
+            // Use different endpoints for static vs dynamic builds
+            const isStatic = window.location.protocol === 'file:' || window.location.hostname.includes('github.io');
+            const endpoint = isStatic ? `${CONFIG.API_BASE}/projects.json` : `${CONFIG.API_BASE}/api/projects`;
+            
+            const response = await fetch(endpoint);
             if (!response.ok) throw new Error('Failed to fetch projects');
             return await response.json();
         } catch (error) {
@@ -100,7 +104,11 @@ const api = {
     // Check API health
     async checkHealth() {
         try {
-            const response = await fetch(`${CONFIG.API_BASE}/health.json`);
+            // Use different endpoints for static vs dynamic builds
+            const isStatic = window.location.protocol === 'file:' || window.location.hostname.includes('github.io');
+            const endpoint = isStatic ? `${CONFIG.API_BASE}/health.json` : `${CONFIG.API_BASE}/api/health`;
+            
+            const response = await fetch(endpoint);
             if (!response.ok) throw new Error('Health check failed');
             return await response.json();
         } catch (error) {
