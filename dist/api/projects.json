@@ -1,0 +1,478 @@
+{
+  "projects": [
+    {
+      "id": "19eebcf9-81cf-8036-b172-e07c944f438b",
+      "name": "BCV Reforest ",
+      "description": "",
+      "status": "Active 🔥",
+      "emoji": "◯",
+      "location": "",
+      "partner": "",
+      "tags": [
+        "Health",
+        "Living",
+        "Connected"
+      ],
+      "impact": "🟡 (Needs support)",
+      "website": "#",
+      "theme": "",
+      "coreValues": "Creativity",
+      "forkabilityScore": "🟡 (Needs support)",
+      "links": [
+        {
+          "text": "Learn More",
+          "url": "#",
+          "type": "primary"
+        }
+      ]
+    },
+    {
+      "id": "18febcf9-81cf-80fe-a738-fe374e01cd08",
+      "name": "BG Fit",
+      "description": "",
+      "status": "Active 🔥",
+      "emoji": "◯",
+      "location": "",
+      "partner": "",
+      "tags": [
+        "Empathy Ledger",
+        "Health",
+        "justice"
+      ],
+      "impact": "🟢 (Easy to replicate)",
+      "website": "#",
+      "theme": "",
+      "coreValues": "Decentralised Power",
+      "forkabilityScore": "🟢 (Easy to replicate)",
+      "links": [
+        {
+          "text": "Learn More",
+          "url": "#",
+          "type": "primary"
+        }
+      ]
+    },
+    {
+      "id": "18febcf9-81cf-80f5-bb14-dc8229b66f4e",
+      "name": "Bimberi - Holiday Programs",
+      "description": "",
+      "status": "Ideation 🌀",
+      "emoji": "◯",
+      "location": "",
+      "partner": "",
+      "tags": [
+        "Collaboration",
+        "Storytelling"
+      ],
+      "impact": "🟢 (Easy to replicate)",
+      "website": "#",
+      "theme": "",
+      "coreValues": "Truth-Telling",
+      "forkabilityScore": "🟢 (Easy to replicate)",
+      "links": [
+        {
+          "text": "Learn More",
+          "url": "#",
+          "type": "primary"
+        }
+      ]
+    },
+    {
+      "id": "205ebcf9-81cf-80af-b1e6-e00d58785606",
+      "name": "Dad.Lab",
+      "description": "",
+      "status": "Active 🔥",
+      "emoji": "◯",
+      "location": "",
+      "partner": "",
+      "tags": [],
+      "impact": "",
+      "website": "#",
+      "theme": "",
+      "coreValues": "Creativity",
+      "forkabilityScore": "",
+      "links": [
+        {
+          "text": "Learn More",
+          "url": "#",
+          "type": "primary"
+        }
+      ]
+    },
+    {
+      "id": "179ebcf9-81cf-8076-95f2-e39db7b980a5",
+      "name": "Diagrama",
+      "description": "",
+      "status": "Ideation 🌀",
+      "emoji": "◯",
+      "location": "",
+      "partner": "",
+      "tags": [
+        "Storytelling",
+        "Collaboration"
+      ],
+      "impact": "🟡 (Needs support)",
+      "website": "#",
+      "theme": "",
+      "coreValues": "Decentralised Power",
+      "forkabilityScore": "🟡 (Needs support)",
+      "links": [
+        {
+          "text": "Learn More",
+          "url": "#",
+          "type": "primary"
+        }
+      ]
+    },
+    {
+      "id": "187ebcf9-81cf-8032-a28f-db8b76442ecd",
+      "name": "Empathy Ledger",
+      "description": "",
+      "status": "Active 🔥",
+      "emoji": "◯",
+      "location": "",
+      "partner": "",
+      "tags": [
+        "Storytelling"
+      ],
+      "impact": "🟢 (Easy to replicate)",
+      "website": "#",
+      "theme": "",
+      "coreValues": "Truth-Telling",
+      "forkabilityScore": "🟢 (Easy to replicate)",
+      "links": [
+        {
+          "text": "Learn More",
+          "url": "#",
+          "type": "primary"
+        }
+      ]
+    },
+    {
+      "id": "1d7ebcf9-81cf-808b-a394-f2e547d6ee6c",
+      "name": "First Pathways - Custodian Economy Strategy",
+      "description": "",
+      "status": "Active 🔥",
+      "emoji": "◯",
+      "location": "",
+      "partner": "",
+      "tags": [
+        "Health",
+        "Experience",
+        "Strategy"
+      ],
+      "impact": "🟢 (Easy to replicate)",
+      "website": "#",
+      "theme": "",
+      "coreValues": "Decentralised Power",
+      "forkabilityScore": "🟢 (Easy to replicate)",
+      "links": [
+        {
+          "text": "Learn More",
+          "url": "#",
+          "type": "primary"
+        }
+      ]
+    },
+    {
+      "id": "17bebcf9-81cf-801b-9a06-edf3f35bf7f4",
+      "name": "Fishers Oysters ",
+      "description": "",
+      "status": "Ideation 🌀",
+      "emoji": "◯",
+      "location": "",
+      "partner": "",
+      "tags": [
+        "Empathy Ledger",
+        "Concept"
+      ],
+      "impact": "🟡 (Needs support)",
+      "website": "#",
+      "theme": "",
+      "coreValues": "Decentralised Power",
+      "forkabilityScore": "🟡 (Needs support)",
+      "links": [
+        {
+          "text": "Learn More",
+          "url": "#",
+          "type": "primary"
+        }
+      ]
+    },
+    {
+      "id": "1beebcf9-81cf-8084-a98b-f35cd859f20b",
+      "name": " Global Laundry Alliance (GLA)",
+      "description": "",
+      "status": "Active 🔥",
+      "emoji": "◯",
+      "location": "",
+      "partner": "",
+      "tags": [
+        "Empathy Ledger",
+        "Collaboration"
+      ],
+      "impact": "🟢 (Easy to replicate)",
+      "website": "#",
+      "theme": "",
+      "coreValues": "Decentralised Power",
+      "forkabilityScore": "🟢 (Easy to replicate)",
+      "links": [
+        {
+          "text": "Learn More",
+          "url": "#",
+          "type": "primary"
+        }
+      ]
+    },
+    {
+      "id": "177ebcf9-81cf-805f-b111-f407079f9794",
+      "name": "Goods.",
+      "description": "",
+      "status": "Active 🔥",
+      "emoji": "◯",
+      "location": "",
+      "partner": "",
+      "tags": [
+        "Health",
+        "Product"
+      ],
+      "impact": "🟢 (Easy to replicate)",
+      "website": "#",
+      "theme": "",
+      "coreValues": "Decentralised Power",
+      "forkabilityScore": "🟢 (Easy to replicate)",
+      "links": [
+        {
+          "text": "Learn More",
+          "url": "#",
+          "type": "primary"
+        }
+      ]
+    },
+    {
+      "id": "179ebcf9-81cf-8005-ad63-d2a736280011",
+      "name": "JusticeHub",
+      "description": "",
+      "status": "Active 🔥",
+      "emoji": "◯",
+      "location": "",
+      "partner": "",
+      "tags": [
+        "Collaboration",
+        "Storytelling"
+      ],
+      "impact": "🟢 (Easy to replicate)",
+      "website": "#",
+      "theme": "",
+      "coreValues": "Decentralised Power",
+      "forkabilityScore": "🟢 (Easy to replicate)",
+      "links": [
+        {
+          "text": "Learn More",
+          "url": "#",
+          "type": "primary"
+        }
+      ]
+    },
+    {
+      "id": "1a0ebcf9-81cf-8016-859c-dc3443aed8d5",
+      "name": "JusticeHub - Centre of Excellence",
+      "description": "",
+      "status": "Ideation 🌀",
+      "emoji": "◯",
+      "location": "",
+      "partner": "",
+      "tags": [
+        "justice"
+      ],
+      "impact": "🟢 (Easy to replicate)",
+      "website": "#",
+      "theme": "",
+      "coreValues": "Decentralised Power",
+      "forkabilityScore": "🟢 (Easy to replicate)",
+      "links": [
+        {
+          "text": "Learn More",
+          "url": "#",
+          "type": "primary"
+        }
+      ]
+    },
+    {
+      "id": "1e7ebcf9-81cf-8038-9969-ccc7fb897b43",
+      "name": "Maningrida - Justice Reinvestment",
+      "description": "",
+      "status": "Unknown",
+      "emoji": "◯",
+      "location": "",
+      "partner": "",
+      "tags": [
+        "Storytelling"
+      ],
+      "impact": "🟡 (Needs support)",
+      "website": "#",
+      "theme": "",
+      "coreValues": "Decentralised Power",
+      "forkabilityScore": "🟡 (Needs support)",
+      "links": [
+        {
+          "text": "Learn More",
+          "url": "#",
+          "type": "primary"
+        }
+      ]
+    },
+    {
+      "id": "1d4ebcf9-81cf-80a2-8c12-e5c56d78de10",
+      "name": "Oonchiumpa",
+      "description": "",
+      "status": "Active 🔥",
+      "emoji": "◯",
+      "location": "",
+      "partner": "",
+      "tags": [
+        "justice"
+      ],
+      "impact": "🟡 (Needs support)",
+      "website": "#",
+      "theme": "",
+      "coreValues": "Truth-Telling",
+      "forkabilityScore": "🟡 (Needs support)",
+      "links": [
+        {
+          "text": "Learn More",
+          "url": "#",
+          "type": "primary"
+        }
+      ]
+    },
+    {
+      "id": "178ebcf9-81cf-801c-8815-fb32a9259a1c",
+      "name": "Palm Island - PICC Storytelling",
+      "description": "",
+      "status": "Ideation 🌀",
+      "emoji": "◯",
+      "location": "",
+      "partner": "",
+      "tags": [
+        "Health",
+        "Storytelling"
+      ],
+      "impact": "🟡 (Needs support)",
+      "website": "#",
+      "theme": "",
+      "coreValues": "Decentralised Power",
+      "forkabilityScore": "🟡 (Needs support)",
+      "links": [
+        {
+          "text": "Learn More",
+          "url": "#",
+          "type": "primary"
+        }
+      ]
+    },
+    {
+      "id": "202ebcf9-81cf-8063-8125-f6c0b23e22ed",
+      "name": "Project Her Self design",
+      "description": "",
+      "status": "Unknown",
+      "emoji": "◯",
+      "location": "",
+      "partner": "",
+      "tags": [
+        "Storytelling",
+        "Experience",
+        "Design"
+      ],
+      "impact": "🔴 (Not forkable)",
+      "website": "#",
+      "theme": "",
+      "coreValues": "Truth-Telling",
+      "forkabilityScore": "🔴 (Not forkable)",
+      "links": [
+        {
+          "text": "Learn More",
+          "url": "#",
+          "type": "primary"
+        }
+      ]
+    },
+    {
+      "id": "18febcf9-81cf-800c-9f79-e44c2e9728ba",
+      "name": "SMART Recovery",
+      "description": "",
+      "status": "Active 🔥",
+      "emoji": "◯",
+      "location": "",
+      "partner": "",
+      "tags": [
+        "Health",
+        "Storytelling"
+      ],
+      "impact": "🟡 (Needs support)",
+      "website": "#",
+      "theme": "",
+      "coreValues": "Creativity",
+      "forkabilityScore": "🟡 (Needs support)",
+      "links": [
+        {
+          "text": "Learn More",
+          "url": "#",
+          "type": "primary"
+        }
+      ]
+    },
+    {
+      "id": "18febcf9-81cf-807c-b66c-c16f0a000a93",
+      "name": "TOMNET",
+      "description": "",
+      "status": "Active 🔥",
+      "emoji": "◯",
+      "location": "",
+      "partner": "",
+      "tags": [
+        "Storytelling",
+        "Health"
+      ],
+      "impact": "🟡 (Needs support)",
+      "website": "#",
+      "theme": "",
+      "coreValues": "Truth-Telling",
+      "forkabilityScore": "🟡 (Needs support)",
+      "links": [
+        {
+          "text": "Learn More",
+          "url": "#",
+          "type": "primary"
+        }
+      ]
+    },
+    {
+      "id": "1f4ebcf9-81cf-80c5-9b67-de30812aeee4",
+      "name": "Wilya ",
+      "description": "",
+      "status": "Unknown",
+      "emoji": "◯",
+      "location": "",
+      "partner": "",
+      "tags": [
+        "Storytelling"
+      ],
+      "impact": "🟡 (Needs support)",
+      "website": "#",
+      "theme": "",
+      "coreValues": "Truth-Telling",
+      "forkabilityScore": "🟡 (Needs support)",
+      "links": [
+        {
+          "text": "Learn More",
+          "url": "#",
+          "type": "primary"
+        }
+      ]
+    }
+  ],
+  "source": "notion",
+  "total": 19,
+  "timestamp": "2025-06-01T06:53:27.820Z"
+}

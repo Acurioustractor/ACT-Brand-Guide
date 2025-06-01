@@ -20,16 +20,30 @@ fs.mkdirSync(distDir, { recursive: true });
 
 // Copy static assets
 console.log('📁 Copying static assets...');
-const staticDirs = ['public', 'assets'];
-staticDirs.forEach(dir => {
-    const srcDir = path.join(__dirname, '..', dir);
-    const destDir = path.join(distDir, dir);
-    
-    if (fs.existsSync(srcDir)) {
-        copyDir(srcDir, destDir);
-        console.log(`   ✅ Copied ${dir}/`);
+
+// Copy public directory contents to root of dist (not to dist/public)
+const publicDir = path.join(__dirname, '..', 'public');
+if (fs.existsSync(publicDir)) {
+    const publicEntries = fs.readdirSync(publicDir, { withFileTypes: true });
+    for (const entry of publicEntries) {
+        const srcPath = path.join(publicDir, entry.name);
+        const destPath = path.join(distDir, entry.name);
+        
+        if (entry.isDirectory()) {
+            copyDir(srcPath, destPath);
+        } else {
+            fs.copyFileSync(srcPath, destPath);
+        }
     }
-});
+    console.log(`   ✅ Copied public/ contents to root`);
+}
+
+// Copy assets directory
+const assetsDir = path.join(__dirname, '..', 'assets');
+if (fs.existsSync(assetsDir)) {
+    copyDir(assetsDir, path.join(distDir, 'assets'));
+    console.log(`   ✅ Copied assets/`);
+}
 
 // Function to fetch projects from Notion (same as server.js)
 async function fetchProjectsFromNotion() {
