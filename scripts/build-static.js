@@ -298,13 +298,11 @@ buildSite().then(projects => {
         console.error('   ❌ Error generating 404.html:', error.message);
     }
 
-    // Create API endpoints as JSON files
+    // Create API endpoints as JSON files (in root due to GitHub Pages /api/ restrictions)
     console.log('🔌 Creating API endpoints...');
-    const apiDir = path.join(distDir, 'api');
-    fs.mkdirSync(apiDir, { recursive: true });
 
     // Projects API
-    fs.writeFileSync(path.join(apiDir, 'projects.json'), JSON.stringify({
+    fs.writeFileSync(path.join(distDir, 'projects.json'), JSON.stringify({
         projects: projects,
         source: source,
         total: projects.length,
@@ -317,7 +315,7 @@ buildSite().then(projects => {
         try {
             const videosContent = fs.readFileSync(videosPath, 'utf8');
             const videos = JSON.parse(videosContent);
-            fs.writeFileSync(path.join(apiDir, 'videos.json'), JSON.stringify({
+            fs.writeFileSync(path.join(distDir, 'videos.json'), JSON.stringify({
                 videos: videos,
                 total: videos.length,
                 timestamp: new Date().toISOString()
@@ -331,7 +329,7 @@ buildSite().then(projects => {
     // Photos API will be generated after fixing paths
 
     // Health API
-    fs.writeFileSync(path.join(apiDir, 'health.json'), JSON.stringify({
+    fs.writeFileSync(path.join(distDir, 'health.json'), JSON.stringify({
         status: 'healthy',
         notion_connected: !!process.env.NOTION_TOKEN,
         timestamp: new Date().toISOString()
@@ -361,8 +359,8 @@ buildSite().then(projects => {
             fs.writeFileSync(metadataPath, JSON.stringify(updatedMetadata, null, 2));
             console.log('   ✅ Updated photo paths for GitHub Pages');
 
-            // Now create the photos API with updated paths
-            fs.writeFileSync(path.join(apiDir, 'photos.json'), JSON.stringify(updatedMetadata, null, 2));
+            // Now create the photos API with updated paths (in root directory)
+            fs.writeFileSync(path.join(distDir, 'photos.json'), JSON.stringify(updatedMetadata, null, 2));
             console.log('   ✅ Updated photos API with correct paths');
         } catch (error) {
             console.warn('   ⚠️  Could not update photo metadata:', error.message);

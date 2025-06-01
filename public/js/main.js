@@ -69,7 +69,7 @@ const api = {
     // Fetch projects
     async getProjects() {
         try {
-            const response = await fetch(`${CONFIG.API_BASE}/api/projects`);
+            const response = await fetch(`${CONFIG.API_BASE}/projects.json`);
             if (!response.ok) throw new Error('Failed to fetch projects');
             return await response.json();
         } catch (error) {
@@ -100,7 +100,7 @@ const api = {
     // Check API health
     async checkHealth() {
         try {
-            const response = await fetch(`${CONFIG.API_BASE}/api/health`);
+            const response = await fetch(`${CONFIG.API_BASE}/health.json`);
             if (!response.ok) throw new Error('Health check failed');
             return await response.json();
         } catch (error) {

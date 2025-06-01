@@ -628,7 +628,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function loadPhotos() {
     const container = document.getElementById('photos-container');
     
-    fetch('/api/photos')
+    fetch('/ACT-Brand-Guide/photos.json')
         .then(response => response.json())
         .then(photos => {
             if (photos.length === 0) {
@@ -676,7 +676,7 @@ function loadPhotos() {
 function loadVideos() {
     const container = document.getElementById('videos-container');
     
-    fetch('/api/videos')
+    fetch('/ACT-Brand-Guide/videos.json')
         .then(response => response.json())
         .then(videos => {
             if (videos.length === 0) {
