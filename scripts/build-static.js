@@ -368,6 +368,25 @@ buildSite().then(projects => {
     console.log(`🔗 Data source: ${source}`);
     console.log(`📊 Projects included: ${projects.length}`);
     console.log(`🌐 Base path: ${basePath || '(root)'}`);
+    
+    // Debug: List all files created
+    console.log('📋 Files created:');
+    function listFiles(dir, prefix = '') {
+        const items = fs.readdirSync(dir);
+        for (const item of items) {
+            const itemPath = path.join(dir, item);
+            const stat = fs.statSync(itemPath);
+            if (stat.isDirectory()) {
+                console.log(`${prefix}📁 ${item}/`);
+                if (item === 'api') {
+                    listFiles(itemPath, prefix + '  ');
+                }
+            } else {
+                console.log(`${prefix}📄 ${item} (${stat.size} bytes)`);
+            }
+        }
+    }
+    listFiles(distDir);
 }).catch(error => {
     console.error('❌ Build failed:', error);
     process.exit(1);
