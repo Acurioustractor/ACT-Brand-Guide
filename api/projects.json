@@ -1,0 +1,110 @@
+{
+  "projects": [
+    {
+      "id": "sample-1",
+      "name": "Dad.Lab",
+      "description": "A health and wellbeing initiative focusing on creativity.",
+      "status": "Active",
+      "emoji": "◯",
+      "location": "Australia",
+      "partner": "Community Partner",
+      "tags": [
+        "Health and wellbeing",
+        "Creativity"
+      ],
+      "impact": "Easy to replicate community impact",
+      "website": "#",
+      "theme": "Health and wellbeing",
+      "coreValues": "Creativity",
+      "forkabilityScore": "Easy to replicate",
+      "links": [
+        {
+          "text": "Learn More",
+          "url": "#",
+          "type": "primary"
+        }
+      ]
+    },
+    {
+      "id": "sample-2",
+      "name": "Project Her Self design",
+      "description": "A storytelling initiative in partnership with Project Her Self based in Queensland, focusing on truth-telling.",
+      "status": "Active",
+      "emoji": "◎",
+      "location": "Queensland",
+      "partner": "Project Her Self",
+      "tags": [
+        "Storytelling",
+        "Truth-Telling",
+        "Queensland"
+      ],
+      "impact": "Not forkable community impact",
+      "website": "#",
+      "theme": "Storytelling",
+      "coreValues": "Truth-Telling",
+      "forkabilityScore": "Not forkable",
+      "links": [
+        {
+          "text": "Learn More",
+          "url": "#",
+          "type": "primary"
+        }
+      ]
+    },
+    {
+      "id": "sample-3",
+      "name": "Wilya Janta Communications",
+      "description": "An indigenous initiative in partnership with Wilya Janta based in Northern Territory, focusing on truth-telling.",
+      "status": "Growing",
+      "emoji": "◈",
+      "location": "Northern Territory",
+      "partner": "Wilya Janta",
+      "tags": [
+        "Indigenous",
+        "Truth-Telling",
+        "Northern Territory"
+      ],
+      "impact": "Needs support community impact",
+      "website": "#",
+      "theme": "Indigenous",
+      "coreValues": "Truth-Telling",
+      "forkabilityScore": "Needs support",
+      "links": [
+        {
+          "text": "Learn More",
+          "url": "#",
+          "type": "primary"
+        }
+      ]
+    },
+    {
+      "id": "sample-4",
+      "name": "Maningrida - Justice Reinvestment",
+      "description": "A youth justice initiative based in Northern Territory, focusing on decentralised power.",
+      "status": "Thriving",
+      "emoji": "◊",
+      "location": "Northern Territory",
+      "partner": "Community Partner",
+      "tags": [
+        "Youth Justice",
+        "Decentralised Power",
+        "Northern Territory"
+      ],
+      "impact": "Easy to replicate community impact",
+      "website": "#",
+      "theme": "Youth Justice",
+      "coreValues": "Decentralised Power",
+      "forkabilityScore": "Easy to replicate",
+      "links": [
+        {
+          "text": "Learn More",
+          "url": "#",
+          "type": "primary"
+        }
+      ]
+    }
+  ],
+  "source": "static",
+  "total": 4,
+  "timestamp": "2025-06-01T06:32:53.577Z"
+}
