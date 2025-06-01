@@ -341,12 +341,6 @@ buildSite().then(projects => {
     fs.writeFileSync(path.join(distDir, '.nojekyll'), '');
     console.log('   ✅ Created .nojekyll file');
 
-    // Create test file to debug GitHub Pages JSON serving
-    fs.writeFileSync(path.join(distDir, 'test-photos.json'), JSON.stringify([
-        {"test": "photos", "url": "/ACT-Brand-Guide/test.jpg", "title": "Test Photo"}
-    ], null, 2));
-    console.log('   ✅ Created test-photos.json file');
-
     // Fix photo paths in metadata for GitHub Pages
     const metadataPath = path.join(distDir, 'galleries', 'photos', 'metadata.json');
     if (fs.existsSync(metadataPath)) {
@@ -372,25 +366,9 @@ buildSite().then(projects => {
     console.log(`🔗 Data source: ${source}`);
     console.log(`📊 Projects included: ${projects.length}`);
     console.log(`🌐 Base path: ${basePath || '(root)'}`);
-    
-    // Debug: List all files created
-    console.log('📋 Files created:');
-    function listFiles(dir, prefix = '') {
-        const items = fs.readdirSync(dir);
-        for (const item of items) {
-            const itemPath = path.join(dir, item);
-            const stat = fs.statSync(itemPath);
-            if (stat.isDirectory()) {
-                console.log(`${prefix}📁 ${item}/`);
-                if (item === 'api') {
-                    listFiles(itemPath, prefix + '  ');
-                }
-            } else {
-                console.log(`${prefix}📄 ${item} (${stat.size} bytes)`);
-            }
-        }
-    }
-    listFiles(distDir);
+    console.log(`📸 Photos API: ${fs.existsSync(path.join(distDir, 'photos.json')) ? 'Created' : 'Missing'}`);
+    console.log(`🎥 Videos API: ${fs.existsSync(path.join(distDir, 'videos.json')) ? 'Created' : 'Missing'}`);
+    console.log(`💚 Health API: ${fs.existsSync(path.join(distDir, 'health.json')) ? 'Created' : 'Missing'}`);
 }).catch(error => {
     console.error('❌ Build failed:', error);
     process.exit(1);
