@@ -498,7 +498,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function loadPhotos() {
     const container = document.getElementById('photos-container');
     
-    fetch('<%= typeof basePath !== 'undefined' ? basePath : '' %>/photos.json')
+    fetch('<%- typeof basePath !== 'undefined' ? basePath : '' %>/photos.json')
         .then(response => response.json())
         .then(photos => {
             if (photos.length === 0) {
@@ -546,7 +546,7 @@ function loadPhotos() {
 function loadVideos() {
     const container = document.getElementById('videos-container');
     
-    fetch('<%= typeof basePath !== 'undefined' ? basePath : '' %>/videos.json')
+    fetch('<%- typeof basePath !== 'undefined' ? basePath : '' %>/videos.json')
         .then(response => response.json())
         .then(data => {
             const videos = data.videos || [];
