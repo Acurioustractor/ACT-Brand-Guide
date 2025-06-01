@@ -328,6 +328,8 @@ buildSite().then(projects => {
         }
     }
 
+    // Photos API will be generated after fixing paths
+
     // Health API
     fs.writeFileSync(path.join(apiDir, 'health.json'), JSON.stringify({
         status: 'healthy',
@@ -352,6 +354,10 @@ buildSite().then(projects => {
             }));
             fs.writeFileSync(metadataPath, JSON.stringify(updatedMetadata, null, 2));
             console.log('   ✅ Updated photo paths for GitHub Pages');
+
+            // Now create the photos API with updated paths
+            fs.writeFileSync(path.join(apiDir, 'photos.json'), JSON.stringify(updatedMetadata, null, 2));
+            console.log('   ✅ Updated photos API with correct paths');
         } catch (error) {
             console.warn('   ⚠️  Could not update photo metadata:', error.message);
         }
