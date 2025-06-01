@@ -418,7 +418,9 @@ const logoManager = {
     },
 
     updateLogos() {
-        const logoURL = '/logo/act-logo-horizontal.png';
+        // Use basePath for GitHub Pages compatibility
+        const basePath = window.location.pathname.includes('/ACT-Brand-Guide') ? '/ACT-Brand-Guide' : '';
+        const logoURL = `${basePath}/logo/act-logo-horizontal.png`;
         
         // Update all logo images
         document.querySelectorAll('img[src*="logo"]').forEach(img => {

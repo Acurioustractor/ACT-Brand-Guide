@@ -8,10 +8,10 @@
     <meta name="keywords" content="regenerative innovation, community-led change, social impact, First Nations, sustainability">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="/ACT-Brand-Guide/logo/act-logo-horizontal.png">
+    <link rel="icon" type="image/png" href="/logo/act-logo-horizontal.png">
     
     <!-- CSS -->
-    <link rel="stylesheet" href="/ACT-Brand-Guide/css/main.css">
+    <link rel="stylesheet" href="/css/main.css">
     
     <!-- Additional page-specific styles -->
     
@@ -23,15 +23,15 @@
             <!-- Left navigation -->
             <div class="nav-left">
                 <ul class="nav-links">
-                    <li><a href="/ACT-Brand-Guide/" class="">Home</a></li>
-                    <li><a href="/ACT-Brand-Guide/methodology" class="">How We Work</a></li>
-                    <li><a href="/ACT-Brand-Guide/platforms" class="">Platforms</a></li>
+                    <li><a href="/" class="">Home</a></li>
+                    <li><a href="/methodology" class="">How We Work</a></li>
+                    <li><a href="/platforms" class="">Platforms</a></li>
                 </ul>
             </div>
             
             <!-- Centered logo -->
-            <a href="/ACT-Brand-Guide/" class="nav-logo">
-                <img src="/ACT-Brand-Guide/logo/act-logo-horizontal.png" alt="A Curious Tractor Logo" style="height: 80px; width: auto;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <a href="/" class="nav-logo">
+                <img src="/logo/act-logo-horizontal.png" alt="A Curious Tractor Logo" style="height: 80px; width: auto;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                 <div style="display: none; align-items: center; gap: 15px;">
                     <svg width="80" height="65" viewBox="0 0 160 100">
                         <g transform="translate(30, 50)">
@@ -59,10 +59,10 @@
             <!-- Right navigation -->
             <div class="nav-right">
                 <ul class="nav-links">
-                    <li><a href="/ACT-Brand-Guide/projects" class="">Projects</a></li>
-                    <li><a href="/ACT-Brand-Guide/galleries" class="active">Galleries</a></li>
-                    <li><a href="/ACT-Brand-Guide/brand" class="">Brand Guide</a></li>
-                    <li><a href="/ACT-Brand-Guide/about" class="">About</a></li>
+                    <li><a href="/projects" class="">Projects</a></li>
+                    <li><a href="/galleries" class="active">Galleries</a></li>
+                    <li><a href="/brand" class="">Brand Guide</a></li>
+                    <li><a href="/about" class="">About</a></li>
                 </ul>
             </div>
             
@@ -220,10 +220,10 @@
                 <div class="footer-section">
                     <h4>Explore</h4>
                     <ul>
-                        <li><a href="/ACT-Brand-Guide/methodology">How We Work</a></li>
-                        <li><a href="/ACT-Brand-Guide/platforms">Flagship Platforms</a></li>
-                        <li><a href="/ACT-Brand-Guide/projects">Current Projects</a></li>
-                        <li><a href="/ACT-Brand-Guide/brand">Brand Guide</a></li>
+                        <li><a href="/methodology">How We Work</a></li>
+                        <li><a href="/platforms">Flagship Platforms</a></li>
+                        <li><a href="/projects">Current Projects</a></li>
+                        <li><a href="/brand">Brand Guide</a></li>
                     </ul>
                 </div>
                 
@@ -241,7 +241,7 @@
     </footer>
     
     <!-- JavaScript -->
-    <script src="/ACT-Brand-Guide/js/main.js"></script>
+    <script src="/js/main.js"></script>
     
     <!-- Additional page-specific scripts -->
     
@@ -628,7 +628,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function loadPhotos() {
     const container = document.getElementById('photos-container');
     
-    fetch('/ACT-Brand-Guide/photos.json')
+    fetch('/photos.json')
         .then(response => response.json())
         .then(photos => {
             if (photos.length === 0) {
@@ -676,9 +676,10 @@ function loadPhotos() {
 function loadVideos() {
     const container = document.getElementById('videos-container');
     
-    fetch('/ACT-Brand-Guide/videos.json')
+    fetch('/videos.json')
         .then(response => response.json())
-        .then(videos => {
+        .then(data => {
+            const videos = data.videos || [];
             if (videos.length === 0) {
                 container.innerHTML = `
                     <div style="grid-column: 1/-1; text-align: center; padding: 60px;">

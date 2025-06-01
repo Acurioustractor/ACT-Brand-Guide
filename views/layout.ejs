@@ -8,7 +8,7 @@
     <meta name="keywords" content="regenerative innovation, community-led change, social impact, First Nations, sustainability">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="/logo/act-logo-horizontal.png">
+    <link rel="icon" type="image/png" href="<%= typeof basePath !== 'undefined' ? basePath : '' %>/logo/act-logo-horizontal.png">
     
     <!-- CSS -->
     <link rel="stylesheet" href="/css/main.css">
@@ -20,8 +20,8 @@
     <!-- Navigation -->
     <nav class="main-nav">
         <div class="nav-container">
-            <a href="/" class="nav-logo">
-                <img src="/logo/act-logo-horizontal.png" alt="A Curious Tractor Logo" style="height: 50px; width: auto;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <a href="<%= typeof basePath !== 'undefined' ? basePath : '' %>/" class="nav-logo">
+                <img src="<%= typeof basePath !== 'undefined' ? basePath : '' %>/logo/act-logo-horizontal.png" alt="A Curious Tractor Logo" style="height: 50px; width: auto;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                 <div style="display: none; align-items: center; gap: 15px;">
                     <svg width="40" height="40" viewBox="0 0 80 80">
                         <g transform="translate(40, 40)">
@@ -41,12 +41,12 @@
             </a>
             
             <ul class="nav-links">
-                <li><a href="/" class="<%= page === 'home' ? 'active' : '' %>">Home</a></li>
-                <li><a href="/methodology" class="<%= page === 'methodology' ? 'active' : '' %>">How We Work</a></li>
-                <li><a href="/platforms" class="<%= page === 'platforms' ? 'active' : '' %>">Platforms</a></li>
-                <li><a href="/projects" class="<%= page === 'projects' ? 'active' : '' %>">Projects</a></li>
-                <li><a href="/brand" class="<%= page === 'brand' ? 'active' : '' %>">Brand Guide</a></li>
-                <li><a href="/about" class="<%= page === 'about' ? 'active' : '' %>">About</a></li>
+                <li><a href="<%= typeof basePath !== 'undefined' ? basePath : '' %>/" class="<%= page === 'home' ? 'active' : '' %>">Home</a></li>
+                <li><a href="<%= typeof basePath !== 'undefined' ? basePath : '' %>/methodology" class="<%= page === 'methodology' ? 'active' : '' %>">How We Work</a></li>
+                <li><a href="<%= typeof basePath !== 'undefined' ? basePath : '' %>/platforms" class="<%= page === 'platforms' ? 'active' : '' %>">Platforms</a></li>
+                <li><a href="<%= typeof basePath !== 'undefined' ? basePath : '' %>/projects" class="<%= page === 'projects' ? 'active' : '' %>">Projects</a></li>
+                <li><a href="<%= typeof basePath !== 'undefined' ? basePath : '' %>/brand" class="<%= page === 'brand' ? 'active' : '' %>">Brand Guide</a></li>
+                <li><a href="<%= typeof basePath !== 'undefined' ? basePath : '' %>/about" class="<%= page === 'about' ? 'active' : '' %>">About</a></li>
             </ul>
             
             <!-- Mobile menu button -->
@@ -87,10 +87,10 @@
                 <div class="footer-section">
                     <h4>Explore</h4>
                     <ul>
-                        <li><a href="/methodology">How We Work</a></li>
-                        <li><a href="/platforms">Flagship Platforms</a></li>
-                        <li><a href="/projects">Current Projects</a></li>
-                        <li><a href="/brand">Brand Guide</a></li>
+                        <li><a href="<%= typeof basePath !== 'undefined' ? basePath : '' %>/methodology">How We Work</a></li>
+                        <li><a href="<%= typeof basePath !== 'undefined' ? basePath : '' %>/platforms">Flagship Platforms</a></li>
+                        <li><a href="<%= typeof basePath !== 'undefined' ? basePath : '' %>/projects">Current Projects</a></li>
+                        <li><a href="<%= typeof basePath !== 'undefined' ? basePath : '' %>/brand">Brand Guide</a></li>
                     </ul>
                 </div>
                 
