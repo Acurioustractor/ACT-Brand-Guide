@@ -55,6 +55,13 @@ if (fs.existsSync(assetsDir)) {
 
 // Function to fetch projects from Notion (same as server.js)
 async function fetchProjectsFromNotion() {
+    console.log('🔍 Debug: Checking Notion credentials...');
+    console.log(`   NODE_ENV: ${process.env.NODE_ENV}`);
+    console.log(`   NOTION_TOKEN exists: ${!!process.env.NOTION_TOKEN}`);
+    console.log(`   NOTION_TOKEN length: ${process.env.NOTION_TOKEN ? process.env.NOTION_TOKEN.length : 0}`);
+    console.log(`   PROJECTS_DATABASE_ID exists: ${!!process.env.PROJECTS_DATABASE_ID}`);
+    console.log(`   PROJECTS_DATABASE_ID: ${process.env.PROJECTS_DATABASE_ID || 'undefined'}`);
+    
     if (!process.env.NOTION_TOKEN || !process.env.PROJECTS_DATABASE_ID) {
         console.log('⚠️  No Notion credentials found, using sample data');
         return getSampleProjects();
