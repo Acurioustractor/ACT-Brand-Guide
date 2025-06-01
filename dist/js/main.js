@@ -2,7 +2,9 @@
 
 // Global configuration
 const CONFIG = {
-    API_BASE: window.location.origin,
+    API_BASE: window.location.hostname.includes('github.io') 
+        ? window.location.origin + '/ACT-Brand-Guide'
+        : window.location.origin,
     ANIMATION_DURATION: 300,
     COPY_FEEDBACK_DURATION: 3000
 };
