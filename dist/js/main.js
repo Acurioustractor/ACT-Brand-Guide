@@ -414,25 +414,35 @@ const animations = {
 // Logo management
 const logoManager = {
     init() {
+        // Skip logo management on GitHub Pages since templates now have correct basePath
+        const isGitHubPages = window.location.hostname.includes('github.io');
+        if (isGitHubPages) {
+            console.log('Logo manager - skipping on GitHub Pages, templates handle basePath');
+            return;
+        }
         this.updateLogos();
     },
 
     updateLogos() {
-        // Use basePath for GitHub Pages compatibility
-        const basePath = window.location.pathname.includes('/ACT-Brand-Guide') ? '/ACT-Brand-Guide' : '';
-        const logoURL = `${basePath}/logo/act-logo-horizontal.png`;
+        // Only runs for local development now
+        const logoURL = '/logo/act-logo-horizontal.png';
+        
+        console.log('Logo manager - updating for local development');
         
         // Update all logo images
         document.querySelectorAll('img[src*="logo"]').forEach(img => {
-            if (img.alt && img.alt.includes('ACT') || img.alt.includes('Curious Tractor')) {
+            if (img.alt && (img.alt.includes('ACT') || img.alt.includes('Curious Tractor'))) {
+                console.log('Logo manager - updating image:', img.src, 'to:', logoURL);
                 this.loadLogo(img, logoURL);
             }
         });
     },
 
     loadLogo(imgElement, logoURL) {
+        console.log('Loading logo:', logoURL);
         const testImage = new Image();
         testImage.onload = () => {
+            console.log('Logo loaded successfully:', logoURL);
             imgElement.src = logoURL;
             imgElement.style.display = 'block';
             const fallback = imgElement.nextElementSibling;
@@ -442,7 +452,7 @@ const logoManager = {
         };
         testImage.onerror = () => {
             // Keep existing fallback if logo file not found
-            console.log('Logo file not found, using fallback');
+            console.log('Logo file not found, using fallback:', logoURL);
             imgElement.style.display = 'none';
             const fallback = imgElement.nextElementSibling;
             if (fallback && fallback.style) {
